@@ -10,3 +10,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+// import React, { Component } from 'react';
+// import { render } from 'react-dom';
+
+// render(
+//     <div>Hello React!</div>,
+//     document.getElementById('app')
+// );
