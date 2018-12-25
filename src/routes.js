@@ -1,19 +1,10 @@
-import App from './App';
-import Login from './pages/login';
-
-
-const routeConfig = [
-  { path: '/',
-    component: App,
-    // indexRoute: { component: Dashboard },
-    // childRoutes: [
-    //   { path: 'about', component: About },
-    // ]
-  },
-  { path: '/Login',
-    component: Login,
-  }
-]
-
-export default routeConfig;
-// React.render(<Router routes={routeConfig} />, document.body)
+import React from 'react'
+render((
+  <Routerhistory={hashHistory}>
+    <Route path="/"component={App}>
+      {/* make them children of `App`*/}
+      <Route path="/foo"component={Foo}/>
+      <Route path="/bar"component={Bar}/>
+    </Route>
+  </Router>
+), document.getElementById('app'))

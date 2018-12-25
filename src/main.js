@@ -1,21 +1,23 @@
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
+// import App from './App.jsx';
+// import Home from './pages/home.jsx';
+// // import * as serviceWorker from './serviceWorker';
+
+// ReactDOM.render(<Home /> , document.getElementById('app'));
+// // serviceWorker.unregister(); 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import routeConfig from './routes';
-import * as serviceWorker from './serviceWorker';
-import { Router, Route, hashHistory } from 'react-router';
 
-ReactDOM.render(<App /> , document.getElementById('app'));
-// ReactDOM.render(<Router routes={routeConfig} />, document.body)
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
-// import React, { Component } from 'react';
-// import { render } from 'react-dom';
+class App extends React.Component {
+  render(){ // Every react component has a render method.
+    return( // Every render method returns jsx. Jsx looks like HTML, but it's actually javascript and functions a lot like xml, with self closing tags requiring the `/` within the tag in order to work propperly
+      <div>
+        Hello World
+      </div>
+    );
+  }
+}
 
-// render(
-//     <div>Hello React!</div>,
-//     document.getElementById('app')
-// );
+ReactDOM.render(<App />, document.getElementById('app'));
