@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header/index'
+import ToDo from './pages/todo/index'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 // 性能测试
 // import Perf from 'react-addons-perf';
@@ -30,6 +31,7 @@ class Login extends React.Component {
         	?<p>loading...</p>
         	:{arr.map(function(item,index){return ...})}
         }</ul>*/}
+        <ToDo/>
       </div>
     )
   }
