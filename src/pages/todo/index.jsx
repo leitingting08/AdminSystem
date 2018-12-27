@@ -12,10 +12,30 @@ class ToDo extends React.Component{
 	render(){
 		return (
 			<div className="ToDo">
-			<Input/>
-			<List lists={this.state.list}/>
+			<Input submitFn={this.submitFn.bind(this)}/>
+			<List lists={this.state.list} deleteFn={this.deleteFn.bind(this)}/>
 			</div>
 		)
+	}
+	submitFn(value){
+		const id = this.state.list.length;
+		console.log(id)
+		this.setState({
+			list: this.state.list.concat({
+				id: id,
+				text: value
+			})
+		})
+	}
+	deleteFn(id){
+		let data = this.state.list;
+		this.setState({
+			list: data.filter(item=>{
+				if(item.id!==id){
+					return item
+				}
+			})
+		})
 	}
 } 
 
