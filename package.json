@@ -19,7 +19,7 @@
     "react-scripts": "2.1.2"
   },
   "scripts": {
-    "start": "set NODE_ENV=dev&&webpack-dev-server --progress --mode=development",
+    "start": "set NODE_ENV=dev&&webpack-dev-server --progress --mode=development --colors",
     "build": "rd/s/q build && set NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors --mode=production",
     "mock": "node --harmony ./mock/server.js",
     "test": "react-scripts test",
