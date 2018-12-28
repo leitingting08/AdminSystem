@@ -2,35 +2,36 @@ import React, {Component} from 'react'
 import Input from './subpage/input'
 import List from './subpage/list'
 
-class ToDo extends React.Component{
+export default class ToDo extends React.Component{
 	constructor(props,context){
 		super(props,context);
 		this.state = {
-			list:[]
+			lists:[]
 		}
 	}
 	render(){
 		return (
 			<div className="ToDo">
 			<Input submitFn={this.submitFn.bind(this)}/>
-			<List lists={this.state.list} deleteFn={this.deleteFn.bind(this)}/>
+			<List lists={this.state.lists} deleteFn={this.deleteFn.bind(this)}/>
 			</div>
 		)
 	}
 	submitFn(value){
-		const id = this.state.list.length;
-		console.log(id)
-		this.setState({
-			list: this.state.list.concat({
+		let that = this;
+		const id = that.state.lists.length;
+		that.setState({
+			lists: that.state.lists.concat({
 				id: id,
 				text: value
 			})
 		})
 	}
 	deleteFn(id){
-		let data = this.state.list;
-		this.setState({
-			list: data.filter(item=>{
+		let that = this;
+		let data = that.state.lists;
+		that.setState({
+			lists: data.filter(item=>{
 				if(item.id!==id){
 					return item
 				}
@@ -39,4 +40,3 @@ class ToDo extends React.Component{
 	}
 } 
 
-export default ToDo;

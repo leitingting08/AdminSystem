@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class Input extends React.Component{
+export default class Input extends React.Component{
 	constructor(props,context){
 		super(props,context);
 		this.state = {
@@ -19,16 +19,17 @@ class Input extends React.Component{
 	}
 	changeList(e){
 		// 实时同步数据
-		this.setState({value:e.target.value})
+		let that = this;
+		that.setState({value:e.target.value})
 	}
 	submitList(e){
-		let value = this.state.value.trim();
-		if(e.KeyCode===13&&value){
-			console.log('我按了回车键');
-			this.props.submitFn(value)
-			this.setState({value:''})
+		let that = this;
+		let value = that.state.value.trim();
+		var keyCode = (window.event) ? e.which : e.keyCode;
+		if(keyCode===13&&value){
+			that.props.submitFn(value)
+			that.setState({value:''})
 		}
 	}
 }
 
-export default Input;
