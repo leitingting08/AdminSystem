@@ -6,7 +6,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Link to="/List">
+        <Link to="/todolist">
         TOLIST
         </Link>
       </div>

@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouterMap from './router'
+import RouterMap from './router';
+import { Provider } from 'react-redux'
 import { HashRouter, hashHistory } from 'react-router-dom'
+
+// import fn from './redux-demo.js'
+// fn()
 // import PureRenderMixin from 'react-addons-pure-render-mixin'
 // 性能测试
 // import Perf from 'react-addons-perf';
@@ -60,7 +64,7 @@ import { HashRouter, hashHistory } from 'react-router-dom'
 
 ReactDOM.render(
 	<HashRouter history={hashHistory}>
-	<RouterMap/>
+		<RouterMap/>
 	</HashRouter>, 
 	document.getElementById('app')
 );
