@@ -8,39 +8,42 @@ import List from './List'
 
 import * as userinfoActions from '../actions/userinfo'
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <div className="App">
         <Link to="/todolist">
-        TOLIST
-        <Todo userinfo={this.props.userinfo}/>
-        <List actions={this.props.userinfoActions}/>
+        {/*{this.props.userinfo.userid}*/}
+        {/*{this.props.userinfo.city}*/}
+        {/*<Todo userinfo={this.props.userinfo}/>*/}
+        <Todo/>
+        {/*<List actions={this.props.userinfoActions}/>*/}
+        <List/>
         </Link>
       </div>
     )
   }
-  componentDidMount() {
-  	this.props.userinfoActions.login({
-  		userid:'abc',
-  		city:'beijing'
-  	})
-  }
+  // componentDidMount() {
+  // 	this.props.userinfoActions.login({
+  // 		userid:'abc',
+  // 		city:'beijing'
+  // 	})
+  // }
 }
 
-function mapStateToProps(state){
-	return {
-		userinfo: state.userinfo
-	}
-}
+// function mapStateToProps(state){
+// 	return {
+// 		userinfo: state.userinfo
+// 	}
+// }
 
-function mapDispatchToProps(dispatch){
-	return {
-		userinfoActions: bindActionCreators(userinfoActions, dispatch)
-	}
-}
+// function mapDispatchToProps(dispatch){
+// 	return {
+// 		userinfoActions: bindActionCreators(userinfoActions, dispatch)
+// 	}
+// }
 
-export default connect({
-	mapStateToProps,
-	mapDispatchToProps
-})(App)
+// export default connect({
+// 	mapStateToProps,
+// 	mapDispatchToProps
+// })(App)

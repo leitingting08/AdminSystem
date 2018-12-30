@@ -65,10 +65,8 @@ const store = configureStore();
 // }
 
 ReactDOM.render(
-	<Provider store={store}>
 	    <HashRouter history={hashHistory}>
 		   <RouterMap/>
-	    </HashRouter>
-	</Provider>, 
+	    </HashRouter>, 
 	document.getElementById('app')
 );
