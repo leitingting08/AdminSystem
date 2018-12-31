@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import RouterMap from './router';
 import { Provider } from 'react-redux'
 import { HashRouter, hashHistory } from 'react-router-dom'
-import configureStore from './store/configureStore'
+// import configureStore from './store/configureStore'
 
-const store = configureStore();
+// const store = configureStore();
 // import fn from './redux-demo.js'
 // fn()
 // import PureRenderMixin from 'react-addons-pure-render-mixin'

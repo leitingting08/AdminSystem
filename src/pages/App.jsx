@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import Todo from './Todo'
 import List from './List'
 
-import * as userinfoActions from '../actions/userinfo'
+// import * as userinfoActions from '../actions/userinfo'
 
 export default class App extends React.Component {
   render() {
