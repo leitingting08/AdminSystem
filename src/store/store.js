@@ -1,15 +1,16 @@
-import { createStore } from 'redux'
-import rootReducer from '../reducers'
+// import { createStore } from 'redux'
+// import rootReducer from '../reducers'
 
-export default function configureStore(initialState){
-	const store = createStore(rootReducer, initialState,
-		// 触发 redux-devtools
-		window.devToolsExtension?window.devToolsExtension():undefined
-		)
+// function configureStore(initialState){
+// 	const store = createStore(rootReducer, initialState,
+// 		// 触发 redux-devtools
+// 		window.devToolsExtension?window.devToolsExtension():undefined
+// 		)
 
-	return store
-}import {createStore, combineReducers, applyMiddleware} from 'redux'
-import * as user from './user/reducer'
+// 	return store
+// }
+import {createStore, combineReducers, applyMiddleware} from 'redux'
+import * as user from './userinfo/reducer'
 // import thunk from 'redux-thunk'
 
 let store = createStore(

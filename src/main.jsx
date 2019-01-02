@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import RouterMap from './router';
 import { Provider } from 'react-redux'
+import FastClick from 'fastclick'
 import { HashRouter, hashHistory } from 'react-router-dom'
+import store from './store/store'
+
+FastClick.attach(document.body)
 // import configureStore from './store/configureStore'
 
 // const store = configureStore();
@@ -65,8 +69,8 @@ import { HashRouter, hashHistory } from 'react-router-dom'
 // }
 
 ReactDOM.render(
-	    <HashRouter history={hashHistory}>
+	<Provider store={store}>
 		   <RouterMap/>
-	    </HashRouter>, 
+	</Provider>, 
 	document.getElementById('app')
 );

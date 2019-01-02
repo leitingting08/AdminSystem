@@ -15,15 +15,17 @@ export default class RouterMap extends React.Component {
 
   render() {
     return (
-      <Switch onUpdate={this.updateHandle.bind(this)}>
-        <Route exact path='/' component={App}/>
-        <Route path='/home' component={Home}/>
-        <Route path='/list' component={List}/>
-        <Route path='/login' component={Login}/>
-        <Route path='/todolist' component={Todo}/>
-        <Route path='/detail/:id' component={Detail}/>
-        <Route path='*' component={NotFound}/>
-      </Switch>
+      <HashRouter>
+        <Switch onUpdate={this.updateHandle.bind(this)}>
+          <Route exact path='/' component={App}/>
+          <Route path='/home' component={Home}/>
+          <Route path='/list' component={List}/>
+          <Route path='/login' component={Login}/>
+          <Route path='/todolist' component={Todo}/>
+          <Route path='/detail/:id' component={Detail}/>
+          <Route path='*' component={NotFound}/>
+        </Switch>
+      </HashRouter>
     )
   }
 }
