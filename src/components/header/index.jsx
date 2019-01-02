@@ -5,8 +5,10 @@ class Header extends React.Component {
   render() {
     return (
       <div className="Header">
+      <div className="title">
         {this.props.title}
-        {this.props.abc.a}
+      </div>
+       
         <List/>
       </div>
     )

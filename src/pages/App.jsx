@@ -5,6 +5,8 @@ import {bindActionCreators} from 'redux'
 import {Link} from 'react-router-dom'
 import Todo from './Todo'
 import List from './List'
+import Header from '../components/header/index'
+import '../less/public.less'
 
 // import * as userinfoActions from '../actions/userinfo'
 
@@ -12,14 +14,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Link to="/todolist">
-        {/*{this.props.userinfo.userid}*/}
-        {/*{this.props.userinfo.city}*/}
-        {/*<Todo userinfo={this.props.userinfo}/>*/}
-        <Todo/>
-        {/*<List actions={this.props.userinfoActions}/>*/}
-        <List/>
-        </Link>
+      <Header title="首页"/>
       </div>
     )
   }
