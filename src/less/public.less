@@ -1,7 +1,41 @@
 *{margin:0;padding:0;}
 body,html{width: 100%;height: 100%;}
 *{box-sizing: border-box;}
-#app{width: 100%;height: 100%; }
-.Header{
-	.title{background: lightblue;}
+@bg:#ffc900;
+@txtcol:#333;
+#app{width: 100%;height: 100%;}
+.txtleft{text-align: left;}
+.txtright{text-align: right;}
+.flex{display: flex;}
+.flexitem{flex: 1;justify-content: center;align-items: center;}
+// 布局
+.w100{width: 100%;}
+.w90{width: 90%;}
+.w80{width: 80%;}
+.w70{width: 70%;}
+.w60{width: 60%;}
+.w50{width: 50%;}
+.w40{width: 40%;}
+.w30{width: 30%;}
+.w20{width: 20%;}
+.w10{width: 10%;}
+
+.ml20{margin-left: 20px;}
+.mr20{margin-right: 20px;}
+.mt20{margin-top: 20px;}
+.mb20{margin-bottom: 20px;}
+.pl20{padding-left: 20px;}
+.pr20{padding-right: 20px;}
+.pt20{padding-top: 20px;}
+.pb20{padding-bottom: 20px;}
+
+.Header{position: fixed;top: 0;left: 0;width: 100%;height: 60px;background:#fff;
+	.title{color: @txtcol;height: 60px;line-height: 60px;
+		.logo{display: inline-block;width: 100px;height: 40px;top:10px;z-index: 1;position:relative;
+			background: url(../assets/pic/logo.jpg) no-repeat center;background-size: contain;}
+	}
+	
+}
+.Menu{width: 100px;background:#fff;height: 100vh;padding-top:60px;color: @txtcol;
+
 }
