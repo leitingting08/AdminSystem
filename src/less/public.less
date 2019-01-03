@@ -1,6 +1,6 @@
 *{margin:0;padding:0;}
-body,html{width: 100%;height: 100%;}
-*{box-sizing: border-box;}
+body,html{width: 100%;height: 100%;background: #eee;}
+*{box-sizing: border-box;font-size: 14px;}
 @bg:#ffc900;
 @txtcol:#333;
 #app{width: 100%;height: 100%;}
@@ -53,11 +53,14 @@ body,html{width: 100%;height: 100%;}
 .iconfont{vertical-align: middle;}
 .Header{position: fixed;top: 0;left: 0;width: 100%;height: 60px;background:#fff;
 	.title{color: @txtcol;height: 60px;line-height: 60px;
-		.logo{display: inline-block;width: 100px;height: 40px;vertical-align:middle;z-index: 1;position:relative;
+		.logo{display: inline-block;width: 140px;height: 40px;vertical-align:middle;z-index: 1;position:relative;
 			background: url(../assets/pic/logo.jpg) no-repeat center;background-size: contain;}
 	}
 	
 }
-.Menu{width: 100px;background:#fff;height: 100vh;padding-top:60px;color: @txtcol;
-
+.Menu{width: 140px;background:#fff;height: 100vh;padding-top:70px;color: @txtcol;
+ul li{height: 36px;line-height: 36px;text-align: left;padding:0 15px;cursor: pointer;
+	.iconfont{margin-right: 8px;}
+	.youjiantou{float: right;}
+  }
 }

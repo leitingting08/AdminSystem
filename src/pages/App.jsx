@@ -20,7 +20,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-         <Header title="NINGMENG OA管理系统" username="柠檬"/>
+         <Header title="NINGMENG 后台管理系统" username="柠檬"/>
          <Menu/>
       </div>
     )
