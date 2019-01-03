@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import FastClick from 'fastclick'
 import { HashRouter, hashHistory } from 'react-router-dom'
 import store from './store/store'
+import './less/public.less'
 
 FastClick.attach(document.body)
 // import configureStore from './store/configureStore'
