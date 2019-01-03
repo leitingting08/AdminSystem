@@ -20,9 +20,11 @@ export default class Login extends React.Component {
            </div>
            <div className="row">
               <input type="text" placeholder="请输入用户名" value={this.state.loginParams.user} onChange={this.userlogin.bind(this)}/>
+              <i className="iconfont icon-yonghu2"></i>
            </div>
            <div className="row">
               <input type="password" placeholder="请输入密码" value={this.state.loginParams.pass} onChange={this.loginpass.bind(this)}/>
+              <i className="iconfont icon-mima"></i>
            </div>
            <div className="row">
               <button className="btn" onClick={this.login.bind(this)}>登录</button>

@@ -7,7 +7,10 @@ class Header extends React.Component {
       <div className="Header">
         <div className="title flex">
 	        <div className="w50 txtleft"><span className="logo"></span>{this.props.title}</div>
-	        <div className="w50 txtright pr20">{this.props.username}</div>
+	        <div className="w50 txtright pr20">
+          <i className="iconfont icon-xinxi mr20"></i>
+             {this.props.username}<i className="iconfont icon-arrowdropdown mr20 font30"></i>
+          </div>
         </div>
       </div>
     )

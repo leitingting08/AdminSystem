@@ -15,14 +15,13 @@ export default class App extends React.Component {
   constructor(props,context){
     super(props,context)
     this.state = {
-      menus:[{name:'欢迎'}]
     }
   }
   render() {
     return (
       <div className="App">
          <Header title="NINGMENG OA管理系统" username="柠檬"/>
-         <Menu menus={this.state.menus}/>
+         <Menu/>
       </div>
     )
   }
