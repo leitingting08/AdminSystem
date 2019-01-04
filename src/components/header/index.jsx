@@ -13,6 +13,11 @@ class Header extends React.Component {
           <i className="iconfont icon-xinxi mr20"></i>
              {this.props.username}<i className="iconfont icon-arrowdropdown mr20 font30"></i>
           </div>
+          <ul className="opeartion">
+            <li><i className="iconfont icon-yonghu2"></i>查看档案</li>
+            <li><i className="iconfont icon-xiugaimima"></i>修改密码</li>
+            <li><i className="iconfont icon-tuichu"></i>退出</li>
+          </ul>
         </div>
       </div>
     )
