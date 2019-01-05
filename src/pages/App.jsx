@@ -7,7 +7,8 @@ import Todo from './Todo'
 import List from './List'
 import Header from '../components/header/index'
 import Menu from '../components/menu/index'
-// import '../less/public.less'
+import { HashRouter, Route, hashHistory, Switch, Redirect } from 'react-router-dom'
+
 
 // import * as userinfoActions from '../actions/userinfo'
 
