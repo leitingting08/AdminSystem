@@ -7,8 +7,7 @@ import List from '../pages/List'
 import Detail from '../pages/Detail'
 import NotFound from '../pages/NotFound'
 import Todo from '../pages/Todo'
-import Header from '../components/header/index'
-import Menu from '../components/menu/index'
+import Layout from '../pages/Layout'
 
 export default class RouterMap extends React.Component {
   updateHandle(){
@@ -18,16 +17,16 @@ export default class RouterMap extends React.Component {
   render() {
     return (
       <HashRouter>
-
         <Switch onUpdate={this.updateHandle.bind(this)}>
-          
-          <Route exact path='/' render={()=> <Redirect to='/index'></Redirect>}/>
-          <Route exact path='/index' component={App}/>
-          <Route path='/list' component={List}/>
-          <Route path='/home' component={Home}/>
           <Route path='/login' component={Login}/>
-          <Route path='/todolist' component={Todo}/>
-          <Route path='/detail/:id' component={Detail}/>
+          <Route path='/' component={Layout}/>
+          {/*<Layout>
+            <Route exact path='/' component={App}/>
+            <Route path='/app/list' component={List}/>
+            <Route path='/app/home' component={Home}/> 
+            <Route path='/app/todolist' component={Todo}/>
+            <Route path='/app/detail/:id' component={Detail}/>
+          </Layout>*/}
           <Route path='*' component={NotFound}/>
         </Switch>
       </HashRouter>
