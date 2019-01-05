@@ -7,7 +7,7 @@ import Todo from './Todo'
 import List from './List'
 import Header from '../components/header/index'
 import Menu from '../components/menu/index'
-import '../less/public.less'
+// import '../less/public.less'
 
 // import * as userinfoActions from '../actions/userinfo'
 

@@ -18,7 +18,7 @@ class Header extends React.Component {
 	        <div className="w50 txtright pr20">
           <i className="iconfont icon-xinxi mr20"></i>
              <span className="username" onClick={this.clickUserName.bind(this)}>{this.props.username}
-             <i className="iconfont icon-arrowdropdown mr20 font30"></i>
+             <i className={`iconfont mr20 font30 ${this.state.showul?'icon-arrow-up-2':'icon-arrowdropdown'}`}></i>
              </span>
           </div>
           <ul className={`opeartion ${this.state.showul?'show':'hide'}`}>
