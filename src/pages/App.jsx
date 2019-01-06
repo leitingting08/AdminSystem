@@ -7,8 +7,8 @@ import Header from '../components/header/index'
 import Menu from '../components/menu/index'
 import { HashRouter, Route, hashHistory, Switch, Redirect } from 'react-router-dom'
 import Home from './Home'
-import List from './List'
-import Detail from './Detail'
+import List from './notice-manage/List'
+import Detail from './notice-manage/Detail'
 import Todo from './Todo'
 
 // import * as userinfoActions from '../actions/userinfo'
@@ -22,10 +22,17 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Route path='/app/list' component={List}/>
-        <Route path='/app/home' component={Home}/>
-        <Route path='/app/todolist' component={Todo}/>
-        <Route path='/app/detail/:id' component={Detail}/>
+      {/*首页-主页*/}
+        <Route path='/home' component={Home}/>
+      {/*公告*/}
+        <Route path='/app/noticelist' component={List}/>
+        <Route path='/app/noticedetail/:id' component={Detail}/>
+      {/*demo-todolist*/}
+        <Route path='/todolist' component={Todo}/>
+      {/*人事管理-档案管理、请假*/}
+      {/*行政-会议室*/}
+      {/*组织架构*/}
+      {/*系统管理*/}
       </div>
     )
   }

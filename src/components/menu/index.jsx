@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 export default class Menu extends React.Component {
   constructor(props,context){
     super(props,context)
     this.state = {
       menus:[
-      {name:'首页',icon:'icon-shouye',show:true},
-      {name:'公告管理',icon:'icon-gonggao',show:true},
+      {name:'首页',icon:'icon-shouye',show:true,link:'/home'},
+      {name:'公告管理',icon:'icon-gonggao',show:true,link:'/app/noticelist'},
       {name:'人事管理',icon:'icon-yonghu2',show:true,
       submenu:[
         {name:'员工档案',link:'',show:true},
@@ -34,21 +35,33 @@ export default class Menu extends React.Component {
   }
 
   render() {
+    let self = this;
     return (
       <div className="Menu">
         <ul>
           {
 	          this.state.menus.map(function(item,index){
-	          	return <li key={index} className={item.show?'':'hide'}><i className={`iconfont ${item.icon}`}></i>{item.name}<i className={`youjiantou ${item.submenu?'iconfont icon-youjiantou':''}`}></i></li>
-	               {
+	          	return <li key={index} className={item.show?'':'hide'} 
+              onClick={self.linktosonpage.bind(self,item)}>
+              <i className={`iconfont ${item.icon}`}></i>{item.name}<i className={`youjiantou ${item.submenu?'iconfont icon-youjiantou':''}`}></i>
+              </li>
+	               {/*{
                     item.submenu.map(function(subitem,subindex){
                       return <div key={subindex}>{subitem.name}</div>
                    })
-                 }
+                 }*/}
             })
           }
         </ul>
       </div>
     )
+  }
+  linktosonpage(item){
+    let that = this;
+    if(item.link){
+      console.log(item.link)
+      const link = item.link
+      this.props.history.push({pathname:link})
+    }
   }
 }

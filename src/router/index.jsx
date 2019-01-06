@@ -19,7 +19,7 @@ export default class RouterMap extends React.Component {
       <HashRouter>
         <Switch onUpdate={this.updateHandle.bind(this)}>
           <Route path='/login' component={Login}/>
-          <Route path='/' component={Layout}/>
+          <Route path='/' component={Layout} />
           {/*<Layout>
             <Route exact path='/' component={App}/>
             <Route path='/app/list' component={List}/>
