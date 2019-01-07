@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import App from '../pages/App'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
-import List from '../pages/List'
-import Detail from '../pages/Detail'
 import NotFound from '../pages/NotFound'
 import Todo from '../pages/Todo'
 import Layout from '../pages/Layout'
