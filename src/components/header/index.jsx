@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import List from './subpage/list';
+import { Link } from 'react-router-dom'
+
 
 class Header extends React.Component {
   constructor(props, context){
@@ -23,9 +25,9 @@ class Header extends React.Component {
           </div>
           <ul className={`opeartion ${this.state.showul?'show':'hide'}`}>
             <span className="trangle"></span>
-            <li><i className="iconfont icon-yonghu2"></i>查看档案</li>
-            <li><i className="iconfont icon-xiugaimima"></i>修改密码</li>
-            <li><i className="iconfont icon-tuichu"></i>退出</li>
+            <li><Link to="/hrmanage/employeefiles"><i className="iconfont icon-yonghu2"></i>查看档案</Link></li>
+            <li><div onClick={this.editpass.bind(this)}><i className="iconfont icon-xiugaimima"></i>修改密码</div></li>
+            <li><div onClick={this.logout.bind(this)}><i className="iconfont icon-tuichu"></i>退出</div></li>
           </ul>
         </div>
       </div>
@@ -35,6 +37,12 @@ class Header extends React.Component {
     this.setState({
       showul:!this.state.showul
     })
+  }
+  editpass(){
+
+  }
+  logout(){
+    
   }
 }
 
