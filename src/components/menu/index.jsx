@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+import SubItem from './subitem'
 
 export default class Menu extends React.Component {
   constructor(props,context){
     super(props,context)
     this.state = {
       menus:[
-      {name:'首页',icon:'icon-shouye',show:true,link:'/home'},
-      {name:'公告管理',icon:'icon-gonggao',show:true,link:'/app/noticelist'},
-      {name:'人事管理',icon:'icon-yonghu2',show:true,
+      {name:'首页',icon:'icon-shouye',show:true,link:'/home',submenu:[]},
+      {name:'公告管理',icon:'icon-gonggao',show:true,link:'/app/noticelist',submenu:[]},
+      {name:'人事管理',icon:'icon-yonghu2',show:true,link:'/',
       submenu:[
         {name:'员工档案',link:'',show:true},
         {name:'请假申请',link:'',show:true},
@@ -16,7 +17,7 @@ export default class Menu extends React.Component {
         {name:'转正申请',link:'',show:true},
         {name:'离职申请',link:'',show:true},
       ]},
-      {name:'行政管理',icon:'icon-552cd47fba2cc',show:true,
+      {name:'行政管理',icon:'icon-552cd47fba2cc',show:true,link:'/home',
       submenu:[
         {name:'用印申请',link:'',show:true},
         {name:'采购申请',link:'',show:true},
@@ -24,10 +25,10 @@ export default class Menu extends React.Component {
         {name:'资料申请',link:'',show:true},
       ]
     },
-      {name:'组织架构',icon:'icon-zuzhi1',show:true},
-      {name:'系统管理',icon:'icon-xitong2',show:true,
+      {name:'组织架构',icon:'icon-zuzhi1',show:true,link:'/',submenu:[]},
+      {name:'系统管理',icon:'icon-xitong2',show:true,link:'/',
       submenu:[
-        {name:'权限设置',link:'',show:true},
+        {name:'权限设置',link:'',show:true,submenu:[]},
       ]
     },
       ]
@@ -43,13 +44,17 @@ export default class Menu extends React.Component {
 	          this.state.menus.map(function(item,index){
 	          	return <li key={index} className={item.show?'':'hide'} 
               onClick={self.linktosonpage.bind(self,item)}>
+              {/*<NavLink to={item.link}>*/}
               <i className={`iconfont ${item.icon}`}></i>{item.name}<i className={`youjiantou ${item.submenu?'iconfont icon-youjiantou':''}`}></i>
-              </li>
+              {/*</NavLink>*/}
+              <SubItem items={item.submenu} />
 	               {/*{
                     item.submenu.map(function(subitem,subindex){
                       return <div key={subindex}>{subitem.name}</div>
                    })
                  }*/}
+
+              </li>
             })
           }
         </ul>
@@ -57,13 +62,13 @@ export default class Menu extends React.Component {
     )
   }
   linktosonpage(item){
-    console.log(this);
-    let that = this;
-    if(item.link){
-      console.log(item.link)
-      const link = item.link
-      this.props.history.goBack()
-      // that.props.history.replace({pathname:link})
-    }
+    // this.context.router.history.push('/app/noticelist');
+    // let that = this;
+    // if(item.link){
+    //   console.log(item.link)
+    //   const link = item.link
+    //   this.props.history.goBack()
+    //   // that.props.history.replace({pathname:link})
+    // }
   }
 }

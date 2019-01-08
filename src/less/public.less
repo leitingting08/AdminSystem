@@ -2,6 +2,7 @@
 body,html{width: 100%;height: 100%;background: #eee;}
 *{box-sizing: border-box;font-size: 14px;}
 ul li{list-style: none;}
+a{text-decoration: none;color: #333;}
 #app{width: 100%;height: 100%;}
 .App{width: 100%;height: 100%;position:absolute;top:0;left:0;z-index:0;}
 .txtleft{text-align: left;}
@@ -52,7 +53,8 @@ ul li{list-style: none;}
 .font46{font-size: 46px;}
 .font48{font-size: 48px;}
 .iconfont{vertical-align: middle;}
-@bg:#ffc900;
+@orange:#ffc900;
+@lightorange:#fff0ac;
 @txtcol:#333;
 // 头部组件
 .Header{position: fixed;top: 0;left: 0;width: 100%;height: 60px;background:#fff;z-index: 2;
@@ -72,9 +74,15 @@ ul li{list-style: none;}
 }
 // 侧边菜单栏组件
 .Menu{position: fixed;top: 0;left: 0;width: 140px;background:#fff;height: 100vh;padding-top:70px;color: @txtcol;z-index: 1;
-ul li{height: 36px;line-height: 36px;text-align: left;padding:0 15px;cursor: pointer;
-	.iconfont{margin-right: 8px;}
+ul li{line-height: 36px;text-align: left;cursor: pointer;
+	.iconfont{margin-right: 8px;margin-left: 15px;}
 	.youjiantou{float: right;}
+	.SubItem{background:#fafafa;
+		.item{;padding-left: 40px; 
+			a{font-size: 12px}
+			&:hover{background: @lightorange;border-left: 3px solid @orange;}
+		}
+	}
   }
 }
 

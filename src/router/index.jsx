@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-  import { HashRouter, Route, hashHistory, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, HashRouter, HashHistory, Route, Switch, Redirect } from 'react-router-dom'
 import App from '../pages/App'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
@@ -26,7 +26,6 @@ export default class RouterMap extends React.Component {
             {/*<Route path='/app/todolist' component={Todo}/>*/}
             {/*<Route path='/app/detail/:id' component={Detail}/>*/}
           {/*</Layout>*/}
-
           <Route path='*' component={NotFound}/>
         </Switch>
       </HashRouter>
