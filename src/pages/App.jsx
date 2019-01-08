@@ -10,6 +10,10 @@ import Home from './Home'
 import List from './notice-manage/List'
 import Detail from './notice-manage/Detail'
 import Todo from './Todo'
+import Leave from './hr-manage/leave'
+import EmployeeFiles from './hr-manage/employee-files'
+import Organization from './Organization'
+import Authorize from './system-set/authorize'
 
 // import * as userinfoActions from '../actions/userinfo'
 
@@ -32,9 +36,13 @@ export default class App extends React.Component {
       {/*demo-todolist*/}
         <Route path='/todolist' component={Todo}/>
       {/*人事管理-档案管理、请假*/}
+        <Route path='/hrmanage/employeefiles' component={EmployeeFiles}/>
+        <Route path='/hrmanage/leave' component={Leave}/>
       {/*行政-会议室*/}
       {/*组织架构*/}
+        <Route path='/organization' component={Organization}/>
       {/*系统管理*/}
+        <Route path='/systemset/authorize' component={Authorize}/>
       </div>
     )
   }

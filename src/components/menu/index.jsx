@@ -9,26 +9,26 @@ export default class Menu extends React.Component {
       menus:[
       {name:'首页',icon:'icon-shouye',show:true,link:'/home',submenu:[]},
       {name:'公告管理',icon:'icon-gonggao',show:true,link:'/app/noticelist',submenu:[]},
-      {name:'人事管理',icon:'icon-yonghu2',show:true,link:'/',
+      {name:'人事管理',icon:'icon-yonghu2',show:true,link:'',
       submenu:[
-        {name:'员工档案',link:'',show:true},
-        {name:'请假申请',link:'',show:true},
-        {name:'招聘申请',link:'',show:true},
-        {name:'转正申请',link:'',show:true},
-        {name:'离职申请',link:'',show:true},
+        {name:'员工档案',link:'/hrmanage/employeefiles',show:true},
+        {name:'请假申请',link:'/hrmanage/leave',show:true},
+        // {name:'招聘申请',link:'',show:true},
+        // {name:'转正申请',link:'',show:true},
+        // {name:'离职申请',link:'',show:true},
       ]},
-      {name:'行政管理',icon:'icon-552cd47fba2cc',show:true,link:'/home',
+      {name:'行政管理',icon:'icon-552cd47fba2cc',show:true,link:'',
       submenu:[
-        {name:'用印申请',link:'',show:true},
+        // {name:'用印申请',link:'',show:true},
         {name:'采购申请',link:'',show:true},
         {name:'会议室预约',link:'',show:true},
-        {name:'资料申请',link:'',show:true},
+        // {name:'资料申请',link:'',show:true},
       ]
     },
-      {name:'组织架构',icon:'icon-zuzhi1',show:true,link:'/',submenu:[]},
-      {name:'系统管理',icon:'icon-xitong2',show:true,link:'/',
+      {name:'组织架构',icon:'icon-zuzhi1',show:true,link:'/organization',submenu:[]},
+      {name:'系统管理',icon:'icon-xitong2',show:true,link:'',
       submenu:[
-        {name:'权限设置',link:'',show:true,submenu:[]},
+        {name:'权限设置',link:'/systemset/authorize',show:true,submenu:[]},
       ]
     },
       ]
