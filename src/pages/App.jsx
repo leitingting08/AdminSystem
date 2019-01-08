@@ -22,6 +22,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
+        {/*<Header title="NINGMENG 后台管理系统" username="柠檬"/>
+        <Menu/>*/}
       {/*首页-主页*/}
         <Route path='/home' component={Home}/>
       {/*公告*/}

@@ -57,11 +57,13 @@ export default class Menu extends React.Component {
     )
   }
   linktosonpage(item){
+    console.log(this);
     let that = this;
     if(item.link){
       console.log(item.link)
       const link = item.link
-      this.props.history.push({pathname:link})
+      this.props.history.goBack()
+      // that.props.history.replace({pathname:link})
     }
   }
 }

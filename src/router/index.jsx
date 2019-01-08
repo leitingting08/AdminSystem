@@ -16,15 +16,17 @@ export default class RouterMap extends React.Component {
     return (
       <HashRouter>
         <Switch onUpdate={this.updateHandle.bind(this)}>
-          <Route path='/login' component={Login}/>
+          <Route exact path='/login' component={Login}/>
           <Route path='/' component={Layout} />
-          {/*<Layout>
-            <Route exact path='/' component={App}/>
-            <Route path='/app/list' component={List}/>
-            <Route path='/app/home' component={Home}/> 
-            <Route path='/app/todolist' component={Todo}/>
-            <Route path='/app/detail/:id' component={Detail}/>
-          </Layout>*/}
+          {/*<Route path='/app' component={App} />*/}
+          {/*<Layout>*/}
+            {/*<Route exact path='/' component={App}/>*/}
+            {/*<Route path='/app/list' component={List}/>*/}
+            {/*<Route path='/home' component={Home}/> */}
+            {/*<Route path='/app/todolist' component={Todo}/>*/}
+            {/*<Route path='/app/detail/:id' component={Detail}/>*/}
+          {/*</Layout>*/}
+
           <Route path='*' component={NotFound}/>
         </Switch>
       </HashRouter>
