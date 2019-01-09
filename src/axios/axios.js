@@ -1,31 +1,22 @@
 import axios from 'axios'
+import { Toast } from 'antd'
 import { baseUrl} from '../public/environment'
 
-export default class Server{
-  axios(method, url, data){
-    return new Promise((resolve, reject) => {
-      let _option = {
-        method,
-        url,
-        baseUrl: baseUrl,
-        timeout: 30000,
-        params: null,
-        data: data,
-        headers: null,
-        withCredentials: true,  //是否携带cookie发起请求
-        validateStatus: (status)=> {
-          return status >= 200 && status < 300
-        },
-      }
-      axios.request(_option).then(res => {
-        resolve(typeof res.data === 'object'? res.data:JSON.parse(res.data))
-      },error =>{
-        if (error.response) {
-          reject(error.response.data)
-        } else{
-          reject(error)
-        }
-      })
-    })
-  }
-}
+// 设置超时时间
+axios.defaults.timeout = 10000
+
+axios.interceptors.request.use(config=>{ // 请求之前加loading
+  Toast.loading('加载中')
+  return config
+},error=>{
+  return Promise.reject(error)
+})
+
+axios.interceptors.response.use(config=>{ // 响应成功关闭loading
+  Toast.hide()
+  return config
+},error=>{
+  return Promise.reject(error)
+})
+
+export default axios;
