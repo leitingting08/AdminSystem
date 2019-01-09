@@ -1,8 +1,8 @@
 import * as user from './action-type'
 
 let defaultState = {
-  userId:'',
-  userName:''
+  userId:'001',
+  userName:'柠檬'
 }
 
 // 用户消息
