@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Toast } from 'antd'
-import { baseUrl} from '../public/environment'
+
 
 // 设置超时时间
 axios.defaults.timeout = 10000

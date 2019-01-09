@@ -6,8 +6,9 @@ import FastClick from 'fastclick'
 import { HashRouter, hashHistory } from 'react-router-dom'
 import store from './store/store'
 import './less/public.less'
-import '../public/environment.js'
-
+// import { baseUrl } from '../public/environment.js'
+console.log(store);
+store.dispatch({type: 'SAVE_USERINFO'})
 FastClick.attach(document.body)
 // import configureStore from './store/configureStore'
 

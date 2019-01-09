@@ -1,9 +1,9 @@
 import axios from './axios'
+import { baseUrl} from '../public/environment'
 
-export default class publicFn{
-	getUrl(url){
-     return `${__ce.baseURL}${url}`; // 打包时用这个 __ce.baseURL
-     // return `${url}`; // 防止跨域，开发环境用这个代理
+export default class PublicFn {
+  getUrl(url){
+     return `${baseUrl}${url}`; // 打包时用这个 __ce.baseURL
   };
   //公共ajax;post请求
   postServer(opt) {
@@ -38,7 +38,7 @@ export default class publicFn{
     axios.get(opt.url, {params: data}).then((res) => {
       if (opt.onSuccess) {
         if(!res.data.status){
-        	
+
           if (opt.onFailed) {
             opt.onFailed(res);
           }

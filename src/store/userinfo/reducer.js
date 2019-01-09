@@ -1,16 +1,8 @@
 import * as user from './action-type'
 
 let defaultState = {
-  imgpath: '//elm.cangdu.org/img/1669599be6119829.jpg', //图片地址
-  addressList: [],   // 地址列表
-  addressName: '',  // 选中的地址
-  temMessage: '', //临时姓名
-  hasAddressList: [], // 已有的地址
-  operate: 'edit',
-  temAddress: {
-    message: ''
-  },  //临时数据
-  geohash: []
+  userId:'',
+  userName:''
 }
 
 // 用户消息
