@@ -35,5 +35,14 @@ module.exports = {
         new webpack.DefinePlugin({
           __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
         })
-    ]
+    ],
+
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000',
+                secure: false
+            }
+        }
+    }
 }

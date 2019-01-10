@@ -61,8 +61,11 @@ export default class Menu extends React.Component {
       </div>
     )
   }
+
   linktosonpage(item){
     console.log(this.context);
+    hashHistory.push(item.link)
+    // this.context.router.push({ pathname:item.link })
     // this.props.history.push('home')
     // this.context.router.history.push('/app/noticelist');
     // let that = this;
