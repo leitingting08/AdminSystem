@@ -41,21 +41,13 @@ export default class Menu extends React.Component {
       <div className="Menu">
         <ul>
           {
-	          this.state.menus.map(function(item,index){
-	          	return <li key={index} className={item.show?'':'hide'} 
-              onClick={self.linktosonpage.bind(self,item)}>
-              {/*<NavLink to={item.link}>*/}
-              <i className={`iconfont ${item.icon}`}></i>{item.name}<i className={`youjiantou ${item.submenu?'iconfont icon-youjiantou':''}`}></i>
-              {/*</NavLink>*/}
+	          self.state.menus.map(function(item,index){
+	          	return <li key={index}
+              onClick={self.linktosonpage.bind(self,item,index)}>
+              <i className={`iconfont ${item.icon}`}></i>{item.name}<i className={`youjiantou ${item.submenu?'iconfont icon-youjiantou':''} ${item.show?'rotate':''}`}></i>
               {item.submenu
-              ?<SubItem items={item.submenu} />:''
+              ?<SubItem isshow={item.show} items={item.submenu} />:''
               }
-	               {/*{
-                    item.submenu.map(function(subitem,subindex){
-                      return <div key={subindex}>{subitem.name}</div>
-                   })
-                 }*/}
-
               </li>
             })
           }
@@ -64,8 +56,18 @@ export default class Menu extends React.Component {
     )
   }
 
-  linktosonpage(item){
-    console.log(this.context);
+  linktosonpage(item,index){
+    if(item.link){
+      location.replace(`#${item.link}`);
+    }else{
+      let that = this;
+      let data = that.state.menus;
+      data[index].show = !data[index].show
+      that.setState({
+        menus:data
+      })
+      console.log(that.state.menus)
+    }
     // this.context.router.push({ pathname:item.link })
     // this.props.history.push('home')
     // this.context.router.history.push('/app/noticelist');

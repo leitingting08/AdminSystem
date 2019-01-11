@@ -20,7 +20,7 @@ class RouterMap extends React.Component {
 
   render() {
     return (
-      <HashRouter>
+      <HashRouter history={this.props.history}>
         <Switch onUpdate={this.updateHandle.bind(this)}>
           <Route exact path='/login' component={Login}/>
           {/*<Route path='/' component={Layout} />*/}

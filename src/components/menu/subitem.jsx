@@ -5,7 +5,7 @@ export default class SubItem extends React.Component  {
 
 	render(){
 		return(
-			<div className="SubItem">
+			<div className="SubItem" className={this.props.isshow?'':'hide'}>
 			  {
 			  	this.props.items.map(function(i,subindex){
 			  		return <div className="item" key={subindex}>
