@@ -26,23 +26,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/*<Header title="NINGMENG 后台管理系统" username="柠檬"/>
-        <Menu/>*/}
-      {/*首页-主页*/}
-        <Route path='/home' component={Home}/>
-      {/*公告*/}
-        <Route path='/app/noticelist' component={List}/>
-        <Route path='/app/noticedetail/:id' component={Detail}/>
-      {/*demo-todolist*/}
-        <Route path='/todolist' component={Todo}/>
-      {/*人事管理-档案管理、请假*/}
-        <Route path='/hrmanage/employeefiles' component={EmployeeFiles}/>
-        <Route path='/hrmanage/leave' component={Leave}/>
-      {/*行政-会议室*/}
-      {/*组织架构*/}
-        <Route path='/organization' component={Organization}/>
-      {/*系统管理*/}
-        <Route path='/systemset/authorize' component={Authorize}/>
+        <Header title="NINGMENG 后台管理系统" username="柠檬"/>
+        <Menu/>
+        {this.props.children}
       </div>
     )
   }

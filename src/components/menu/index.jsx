@@ -7,8 +7,8 @@ export default class Menu extends React.Component {
     super(props,context)
     this.state = {
       menus:[
-      {name:'首页',icon:'icon-shouye',show:true,link:'/home'},
-      {name:'公告管理',icon:'icon-gonggao',show:true,link:'/app/noticelist'},
+      {name:'首页',icon:'icon-shouye',show:true,link:'/'},
+      {name:'公告管理',icon:'icon-gonggao',show:true,link:'/noticelist'},
       {name:'人事管理',icon:'icon-yonghu2',show:true,link:'',
       submenu:[
         {name:'员工档案',link:'/hrmanage/employeefiles',show:true},
