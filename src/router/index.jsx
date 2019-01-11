@@ -26,7 +26,7 @@ class RouterMap extends React.Component {
           {/*<Route path='/' component={Layout} />*/}
           <App>
           {/*首页-主页*/}
-           <Route path='/' component={Home}/>
+           <Route exact path='/' component={Home}/>
           {/*公告*/}
             <Route path='/noticelist' component={List}/>
             <Route path='/noticedetail/:id' component={Detail}/>

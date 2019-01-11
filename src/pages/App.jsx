@@ -28,7 +28,11 @@ export default class App extends React.Component {
       <div className="App">
         <Header title="NINGMENG 后台管理系统" username="柠檬"/>
         <Menu/>
-        {this.props.children}
+        {this.props.children
+          // this.state.initDone
+          // ? this.props.children
+          // :<div>正在加载...</div>
+        }
       </div>
     )
   }
