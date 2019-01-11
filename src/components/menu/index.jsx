@@ -66,7 +66,7 @@ export default class Menu extends React.Component {
       that.setState({
         menus:data
       })
-      console.log(that.state.menus)
+      // console.log(that.state.menus)
     }
     // this.context.router.push({ pathname:item.link })
     // this.props.history.push('home')

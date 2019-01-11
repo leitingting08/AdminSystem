@@ -11,6 +11,7 @@ export default class EmployeeFiles extends React.Component {
 	render(){
 		return(
 			<div className="EmployeeFiles">
+			  <div className="nav col666"><span>人事管理</span>><span className="font12">员工档案</span><button className="btn ml20">新增</button></div>
 			  <div className="flex bgcon">
 			    <div className="input-wrap">
 			      <label>员工编号：</label>
