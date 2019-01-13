@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import InterfaceServer from '../../../axios/interface'
+const interfaceServer = new InterfaceServer();
 
 export default class EmployeeFiles extends React.Component {
 	constructor(props,context){
@@ -30,7 +32,7 @@ export default class EmployeeFiles extends React.Component {
 				    <tr>
 				      <th>员工编号</th>
 				      <th>姓名</th>
-				      <th>出生年月</th>
+				      <th>手机号码</th>
 				    </tr>
 				    </thead>
 				    <tbody>
@@ -38,7 +40,11 @@ export default class EmployeeFiles extends React.Component {
 				    	this.state.filelists.length
 				    	?
 				    	this.state.filelists.map(function(item,index){
-				    		return <tr><td>{item.id}</td></tr>
+				    		return <tr key={index}>
+				    		<td>{item.id}</td>
+				    		<td>{item.name}</td>
+				    		<td>{item.phonenumber}</td>
+				    		</tr>
 				    	})
 				    	:<tr><td colSpan="3">暂无数据</td></tr>
 				    }
@@ -47,5 +53,21 @@ export default class EmployeeFiles extends React.Component {
 			  </div>
 			</div>
 			)
+	}
+
+	componentWillMount(){
+		this._sendEmployeesServer()
+	}
+
+	_sendEmployeesServer(){
+		interfaceServer.sendEmployeesServer({
+			// data,
+			onSuccess:res=>{
+				console.log(res)
+				this.setState({
+					filelists:res.data
+				})
+			}
+		})
 	}
 }

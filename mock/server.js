@@ -8,17 +8,23 @@ app.use(async (ctx, next) => {
     await next();
 });
 
-// add url-route:
-// router.get('/hello/:name', async (ctx, next) => {
-//     var name = ctx.params.name;
-//     ctx.response.body = `<h1>Hello, ${name}!</h1>`;
-// });
-
 router.get('/', async (ctx, next) => {
     ctx.response.body = {
 		a:1,
 		b:'123'
 	}
+});
+
+router.get('/api/employees', async (ctx, next) => {
+    ctx.response.body = {
+        status:true,
+        data:[
+        {id:'N001',name:'张珊',phonenumber:'13912341000'},
+        {id:'N002',name:'李珊',phonenumber:'13912342000'},
+        {id:'N003',name:'旺珊',phonenumber:'13912343000'},
+        ],
+        msg:'获取数据成功'
+    }
 });
 
 router.post('/login', async(ctx,next)=>{

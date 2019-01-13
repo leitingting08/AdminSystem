@@ -1,5 +1,5 @@
 import axios from './axios'
-import { baseUrl} from '../public/environment'
+import { baseUrl} from '../../public/environment'
 
 export default class PublicFn {
   getUrl(url){

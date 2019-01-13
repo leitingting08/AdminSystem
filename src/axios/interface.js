@@ -8,4 +8,11 @@ export default class InterfaceServer{
         const url = PublicMethod.getUrl('/login')
         PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
+
+    sendEmployeesServer(opt){ // 获取员工信息
+		const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/employees')
+        PublicMethod.getServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
+    
 }
