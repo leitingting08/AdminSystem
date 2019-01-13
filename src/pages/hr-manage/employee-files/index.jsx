@@ -33,6 +33,7 @@ export default class EmployeeFiles extends React.Component {
 				      <th>员工编号</th>
 				      <th>姓名</th>
 				      <th>手机号码</th>
+				      <th>出生年月</th>
 				    </tr>
 				    </thead>
 				    <tbody>
@@ -44,6 +45,7 @@ export default class EmployeeFiles extends React.Component {
 				    		<td>{item.id}</td>
 				    		<td>{item.name}</td>
 				    		<td>{item.phonenumber}</td>
+				    		<td>{item.birth}</td>
 				    		</tr>
 				    	})
 				    	:<tr><td colSpan="3">暂无数据</td></tr>

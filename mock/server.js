@@ -19,9 +19,9 @@ router.get('/api/employees', async (ctx, next) => {
     ctx.response.body = {
         status:true,
         data:[
-        {id:'N001',name:'张珊',phonenumber:'13912341000'},
-        {id:'N002',name:'李珊',phonenumber:'13912342000'},
-        {id:'N003',name:'旺珊',phonenumber:'13912343000'},
+        {id:'N001',name:'张珊',phonenumber:'13912341000',birth:'1998-01-08'},
+        {id:'N002',name:'李珊',phonenumber:'13912342000',birth:'1998-01-08'},
+        {id:'N003',name:'旺珊',phonenumber:'13912343000',birth:'1998-01-08'},
         ],
         msg:'获取数据成功'
     }
