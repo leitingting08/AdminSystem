@@ -6,6 +6,10 @@ a{text-decoration: none;color: #333;}
 #app{width: 100%;height: 100%;}
 .App{width: 100%;height: 100%;position:absolute;top:0;left:0;
 	z-index:0;padding:60px 0 0 140px;}
+.fl{float: left;}
+.fr{float: right;}
+.clearFix:after{content: '.';display: block;height: 0;visibility: hidden;clear: both;}
+.clearFix{zoom:1;}/*IE6,7触发haslayout*/
 .txtleft{text-align: left;}
 .txtright{text-align: right;}
 .txtcenter{text-align: center;}
@@ -106,8 +110,11 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
 .bgcon{
 	background:#fff;margin:15px;padding:15px;
 }
+.input-wrap{display: flex;float: left;margin: 5px 0;
+	label{width: 80px;text-align: right;}
+	.input{border:1px solid #d8d8d8;height: 32px;margin-right:10px;}
+}
 
-.input{border:1px solid #d8d8d8;height: 32px;margin-right:10px;}
 .table{width: 100%;border-collapse:collapse; 
   tr th{padding: 8px 0;border:1px solid #d8d8d8;}
   tr td{padding: 8px 0;border:1px solid #d8d8d8;}

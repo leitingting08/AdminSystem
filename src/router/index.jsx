@@ -10,6 +10,7 @@ import List from '../pages/notice-manage/List'
 import Detail from '../pages/notice-manage/Detail'
 import Leave from '../pages/hr-manage/leave'
 import EmployeeFiles from '../pages/hr-manage/employee-files'
+import EmployeeFilesAdd from '../pages/hr-manage/employee-files/employee-add'
 import Organization from '../pages/Organization'
 import Authorize from '../pages/system-set/authorize'
 
@@ -33,7 +34,8 @@ class RouterMap extends React.Component {
           {/*demo-todolist*/}
             <Route path='/todolist' component={Todo}/>
           {/*人事管理-档案管理、请假*/}
-            <Route path='/hrmanage/employeefiles' component={EmployeeFiles}/>
+            <Route exact path='/hrmanage/employeefiles' component={EmployeeFiles}/>
+            <Route exact path='/hrmanage/employeefiles/add' component={EmployeeFilesAdd}/>
             <Route path='/hrmanage/leave' component={Leave}/>
           {/*行政-会议室*/}
           {/*组织架构*/}
