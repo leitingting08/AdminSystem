@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const router = require('koa-router')();
+const koaBody = require('koa-body')();
 const app = new Koa();
 
 // log request URL:
@@ -27,16 +28,23 @@ router.get('/api/employees', async (ctx, next) => {
     }
 });
 
-router.post('/login', async(ctx,next)=>{
+router.post('/api/login',koaBody, async(ctx,next)=>{
 	var 
 	username = ctx.request.body.username || '',
 	password = ctx.request.body.password || '';
 	console.log(`signin with username: ${username}, password: ${password}`);
    if (username === 'admin' && password === '123456') {
-        ctx.response.body = `<h1>Welcome, ${name}!</h1>`;
+        ctx.response.body = {
+            status:true,
+            data:null,
+            mag:'登录成功'
+        }
     } else {
-        ctx.response.body = `<h1>Login failed!</h1>
-        <p><a href="/">Try again</a></p>`;
+        ctx.response.body = {
+            status:false,
+            data:null,
+            mag:'用户名或密码错误'
+        }
     }
 })
 

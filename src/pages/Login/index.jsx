@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import '../../less/login.less'
+import InterfaceServer from '../../axios/interface'
+const interfaceServer = new InterfaceServer();
 
 export default class Login extends React.Component {
   constructor(props,context){
   	super(props,context)
   	this.state = {
 			loginParams:{
-				user:'admin',
-				pass:'123456'
+				username:'admin',
+				password:'123456'
 			}
 		}
   }
@@ -20,11 +22,11 @@ export default class Login extends React.Component {
                 NINGMENG 后台管理系统
              </div>
              <div className="row">
-                <input type="text" placeholder="请输入用户名" value={this.state.loginParams.user} onChange={this.userlogin.bind(this)}/>
+                <input type="text" placeholder="请输入用户名" value={this.state.loginParams.username} onChange={this.userlogin.bind(this)}/>
                 <i className="iconfont icon-yonghu2"></i>
              </div>
              <div className="row">
-                <input type="password" placeholder="请输入密码" value={this.state.loginParams.pass} onChange={this.loginpass.bind(this)}/>
+                <input type="password" placeholder="请输入密码" value={this.state.loginParams.password} onChange={this.loginpass.bind(this)}/>
                 <i className="iconfont icon-mima"></i>
              </div>
              <div className="row">
@@ -37,16 +39,31 @@ export default class Login extends React.Component {
   }
 
   login(){
-  	this.props.history.push({pathname:'/home'})
+    this._sendLoginServer();
+  	// this.props.history.push({pathname:'/home'})
+  }
+
+  _sendLoginServer(){
+    interfaceServer.sendLoginServer({
+      data:this.state.loginParams,
+      onSuccess:res=>{
+        console.log(res)
+        if(res.status){
+          this.props.history.push({pathname:'/home'})
+        }else{
+          alert(res.msg)
+        }
+      }
+    })
   }
 
   userlogin(e){
   	let that = this;
-	that.setState({loginParams:{user:e.target.value}})
+	that.setState({loginParams:{username:e.target.value}})
   }
 
   loginpass(e){
   	let that = this;
-	that.setState({loginParams:{pass:e.target.value}})
+	that.setState({loginParams:{password:e.target.value}})
   }
 }
