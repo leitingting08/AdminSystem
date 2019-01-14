@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { IndexRoute, BrowserRouter, HashRouter, withRouter, Route, Switch, Redirect } from 'react-router-dom'
+import Auth from './auth'
 import App from '../pages/App'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
@@ -14,40 +15,33 @@ import EmployeeFilesAdd from '../pages/hr-manage/employee-files/employee-add'
 import Organization from '../pages/Organization'
 import Authorize from '../pages/system-set/authorize'
 
-class RouterMap extends React.Component {
-  updateHandle(){
-    console.log('每次路由变化都会触发')
+export default class RouterMap extends React.Component {
+  constructor(props,context){
+    super(props,context)
+    this.state = { isLogin : false }
   }
 
   render() {
+    const routerConfig = [
+        {path:'/',component:Home,auth:true},
+        {path:'/home',component:Home,auth:true},
+        {path:'/noticelist',component:List,auth:true},
+        {path:'/noticedetail/:id',component:Detail,auth:true},
+        {path:'/todolist',component:Todo,auth:true},
+        {path:'/hrmanage/employeefiles',component:EmployeeFiles,auth:true},
+        {path:'/hrmanage/employeefiles/add',component:EmployeeFilesAdd,auth:true},
+        {path:'/hrmanage/leave',component:Home,auth:true},
+        {path:'/organization',component:Organization,auth:true},
+        {path:'/systemset/authorize',component:Authorize,auth:true},
+        {path:'/login',component:Login},
+        {path:'/404',component:NotFound}
+    ];
     return (
       <HashRouter history={this.props.history}>
-        <Switch onUpdate={this.updateHandle.bind(this)}>
-          <Route exact path='/login' component={Login}/>
-          {/*<Route path='/' component={Layout} />*/}
-          <App>
-          {/*首页-主页*/}
-           <Route exact path='/' component={Home}/>
-          {/*公告*/}
-            <Route path='/noticelist' component={List}/>
-            <Route path='/noticedetail/:id' component={Detail}/>
-          {/*demo-todolist*/}
-            <Route path='/todolist' component={Todo}/>
-          {/*人事管理-档案管理、请假*/}
-            <Route exact path='/hrmanage/employeefiles' component={EmployeeFiles}/>
-            <Route exact path='/hrmanage/employeefiles/add' component={EmployeeFilesAdd}/>
-            <Route path='/hrmanage/leave' component={Leave}/>
-          {/*行政-会议室*/}
-          {/*组织架构*/}
-            <Route path='/organization' component={Organization}/>
-          {/*系统管理*/}
-            <Route path='/systemset/authorize' component={Authorize}/>
-          </App>
-          <Route path='*' component={NotFound}/>
+        <Switch>
+          <Auth config={routerConfig} />
         </Switch>
       </HashRouter>
     )
   }
 }
-
-export default RouterMap
