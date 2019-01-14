@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../less/login.less'
 import InterfaceServer from '../../axios/interface'
 const interfaceServer = new InterfaceServer();
+import store from '../../store/store'
 
 export default class Login extends React.Component {
   constructor(props,context){
@@ -22,11 +23,11 @@ export default class Login extends React.Component {
                 NINGMENG 后台管理系统
              </div>
              <div className="row">
-                <input type="text" placeholder="请输入用户名" value={this.state.loginParams.username} onChange={this.userlogin.bind(this)}/>
+                <input type="text" placeholder="请输入用户名" value={this.state.loginParams.username} onChange={this.userlogin.bind(this)} autoComplete="off"/>
                 <i className="iconfont icon-yonghu2"></i>
              </div>
              <div className="row">
-                <input type="password" placeholder="请输入密码" value={this.state.loginParams.password} onChange={this.loginpass.bind(this)}/>
+                <input type="password" placeholder="请输入密码" value={this.state.loginParams.password} onChange={this.loginpass.bind(this)} autoComplete="off"/>
                 <i className="iconfont icon-mima"></i>
              </div>
              <div className="row">
@@ -49,6 +50,7 @@ export default class Login extends React.Component {
       onSuccess:res=>{
         console.log(res)
         if(res.status){
+          store.dispatch({type:'SAVE_USERINFO'})
           this.props.history.push({pathname:'/home'})
         }else{
           alert(res.msg)

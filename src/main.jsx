@@ -7,9 +7,12 @@ import { HashRouter, hashHistory } from 'react-router-dom'
 import store from './store/store'
 import './less/public.less'
 // import { baseUrl } from '../public/environment.js'
-console.log(store.getState());
-store.dispatch({type: 'SAVE_USERINFO'})
 FastClick.attach(document.body)
+
+store.subscribe(()=>{
+console.log(store.getState());
+})
+
 // import configureStore from './store/configureStore'
 
 // const store = configureStore();
