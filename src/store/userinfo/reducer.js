@@ -1,9 +1,6 @@
 import * as user from './action-type'
 
-let defaultState = {
-  userId:'001',
-  userName:'柠檬'
-}
+let defaultState = {}
 
 // 用户消息
 export const userInfo = (state = defaultState, action = {}) => {

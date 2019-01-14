@@ -8,9 +8,10 @@ import store from './store/store'
 import './less/public.less'
 // import { baseUrl } from '../public/environment.js'
 FastClick.attach(document.body)
+window.store = store
 
 store.subscribe(()=>{
-console.log(store.getState());
+   console.log(store.getState());
 })
 
 // import configureStore from './store/configureStore'

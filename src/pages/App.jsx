@@ -26,7 +26,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header title="NINGMENG 后台管理系统" username="柠檬"/>
+        <Header title="NINGMENG 后台管理系统" username={store.getState().userInfo.username}/>
         <Menu/>
         {this.props.children
           // this.state.initDone

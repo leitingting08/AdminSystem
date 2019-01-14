@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../../less/login.less'
 import InterfaceServer from '../../axios/interface'
 const interfaceServer = new InterfaceServer();
-import store from '../../store/store'
 
 export default class Login extends React.Component {
   constructor(props,context){
@@ -39,6 +38,10 @@ export default class Login extends React.Component {
     )
   }
 
+  componentDidMount(){
+    console.log(store.getState());
+  }
+
   login(){
     this._sendLoginServer();
   	// this.props.history.push({pathname:'/home'})
@@ -50,7 +53,8 @@ export default class Login extends React.Component {
       onSuccess:res=>{
         console.log(res)
         if(res.status){
-          store.dispatch({type:'SAVE_USERINFO'})
+
+          store.dispatch({type:'SAVE_USERINFO',value:this.state.loginParams})
           this.props.history.push({pathname:'/home'})
         }else{
           alert(res.msg)
