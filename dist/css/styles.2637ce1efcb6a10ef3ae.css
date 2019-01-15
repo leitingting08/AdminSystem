@@ -1,0 +1,401 @@
+.Login {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+.Login .container {
+  width: 100%;
+  height: 100%;
+  padding-top: 200px;
+  background-size: cover;
+  background: url(img/login_bg.a9e03608.jpg) center;
+}
+.Login .container .form {
+  background: rgba(0, 0, 0, 0.3);
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  padding: 30px 0;
+}
+.Login .container .form .row {
+  padding: 10px 0;
+  position: relative;
+}
+.Login .container .form .row input {
+  border: 1px solid #eee;
+  height: 30px;
+  width: 220px;
+  padding-left: 10px;
+}
+.Login .container .form .row .btn {
+  height: 30px;
+  width: 220px;
+  background: #ffc900;
+  border: 0;
+  color: #fff;
+}
+.Login .container .form .row .iconfont {
+  position: absolute;
+  top: 15px;
+  right: 46px;
+  z-index: 2;
+}
+.Login .container .form .tit {
+  color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+* {
+  box-sizing: border-box;
+  font-size: 14px;
+}
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+.App {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  padding: 60px 0 0 140px;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearFix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.clearFix {
+  zoom: 1;
+}
+/*IE6,7触发haslayout*/
+.txtleft {
+  text-align: left;
+}
+.txtright {
+  text-align: right;
+}
+.txtcenter {
+  text-align: center;
+}
+.flex {
+  display: flex;
+}
+.flexitem {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+/*// 布局*/
+.w100 {
+  width: 100%;
+}
+.w90 {
+  width: 90%;
+}
+.w80 {
+  width: 80%;
+}
+.w70 {
+  width: 70%;
+}
+.w60 {
+  width: 60%;
+}
+.w50 {
+  width: 50%;
+}
+.w40 {
+  width: 40%;
+}
+.w30 {
+  width: 30%;
+}
+.w20 {
+  width: 20%;
+}
+.w10 {
+  width: 10%;
+}
+/*// 内外边距*/
+.ml20 {
+  margin-left: 20px;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.pl20 {
+  padding-left: 20px;
+}
+.pr20 {
+  padding-right: 20px;
+}
+.pt20 {
+  padding-top: 20px;
+}
+.pb20 {
+  padding-bottom: 20px;
+}
+/*// 字体大小*/
+.font12 {
+  font-size: 12px;
+}
+.font14 {
+  font-size: 14px;
+}
+.font16 {
+  font-size: 16px;
+}
+.font18 {
+  font-size: 18px;
+}
+.font20 {
+  font-size: 20px;
+}
+.font22 {
+  font-size: 22px;
+}
+.font24 {
+  font-size: 24px;
+}
+.font26 {
+  font-size: 26px;
+}
+.font28 {
+  font-size: 28px;
+}
+.font30 {
+  font-size: 30px;
+}
+.font32 {
+  font-size: 32px;
+}
+.font34 {
+  font-size: 34px;
+}
+.font36 {
+  font-size: 36px;
+}
+.font38 {
+  font-size: 38px;
+}
+.font40 {
+  font-size: 40px;
+}
+.font42 {
+  font-size: 42px;
+}
+.font44 {
+  font-size: 44px;
+}
+.font46 {
+  font-size: 46px;
+}
+.font48 {
+  font-size: 48px;
+}
+.iconfont {
+  vertical-align: middle;
+}
+.col333 {
+  color: #333;
+}
+.col666 {
+  color: #666;
+}
+.col888 {
+  color: #888;
+}
+.col999 {
+  color: #999;
+}
+.btn {
+  background: #ffc900;
+  color: #fff;
+  border: 0;
+  padding: 5px 15px;
+  border-radius: 2px;
+}
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  z-index: 2;
+}
+.Header .title {
+  color: #333;
+  height: 60px;
+  line-height: 60px;
+  position: relative;
+}
+.Header .title .username {
+  cursor: pointer;
+}
+.Header .title .opeartion {
+  box-shadow: 8px 8px 8px #ccc;
+  background: #fff;
+  width: 120px;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+}
+.Header .title .opeartion .trangle {
+  position: absolute;
+  top: -8px;
+  right: 30px;
+  display: inline-block;
+  border-width: 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff;
+}
+.Header .title .opeartion li {
+  cursor: pointer;
+  background: #fff;
+  text-align: left;
+  padding: 0 20px;
+  height: 46px;
+  line-height: 46px;
+}
+.Header .title .opeartion li .iconfont {
+  margin-right: 5px;
+}
+.Header .title .logo {
+  display: inline-block;
+  width: 140px;
+  height: 40px;
+  vertical-align: middle;
+  z-index: 1;
+  position: relative;
+  background: url(img/logo.c5860eee.jpg) no-repeat center;
+  background-size: contain;
+}
+.Menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140px;
+  background: #fff;
+  height: 100vh;
+  padding-top: 70px;
+  color: #333;
+  z-index: 1;
+}
+.Menu ul li {
+  line-height: 36px;
+  text-align: left;
+  cursor: pointer;
+}
+.Menu ul li .iconfont {
+  margin-right: 8px;
+  margin-left: 15px;
+}
+.Menu ul li .youjiantou {
+  float: right;
+}
+.Menu ul li .rotate {
+  transform: rotate(90deg);
+}
+.Menu ul li .SubItem {
+  background: #fafafa;
+}
+.Menu ul li .item {
+  text-align: center;
+  background: #fafafa;
+}
+.Menu ul li .item a {
+  font-size: 12px;
+}
+.Menu ul li .item:hover {
+  background: #fff0ac;
+  border-left: 3px solid #ffc900;
+}
+.ErrPage {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.3);
+  padding-top: 100px;
+}
+.Home .welcome {
+  margin-top: 100px;
+}
+.bgcon {
+  background: #fff;
+  margin: 15px;
+  padding: 15px;
+}
+.input-wrap {
+  display: flex;
+  float: left;
+  margin: 5px 0;
+}
+.input-wrap label {
+  width: 80px;
+  text-align: right;
+  line-height: 32px;
+}
+.input-wrap .input {
+  border: 1px solid #d8d8d8;
+  height: 32px;
+  margin-right: 10px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tr th {
+  padding: 8px 0;
+  border: 1px solid #d8d8d8;
+}
+.table tr td {
+  padding: 8px 0;
+  border: 1px solid #d8d8d8;
+}
+.nav {
+  margin-top: 15px;
+  text-align: left;
+  margin-left: 15px;
+}
+
+
+/*# sourceMappingURL=styles.2637ce1efcb6a10ef3ae.css.map*/

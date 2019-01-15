@@ -10,7 +10,7 @@ module.exports = {
     },
     devtool:'source-map',
     resolve:{ // 可以省略后缀名
-        extensions:['.js','.jsx']
+        extensions:['.js', '.jsx', '.less']
     },
     module: {
         rules: [
