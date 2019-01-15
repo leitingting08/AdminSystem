@@ -67,7 +67,7 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([ // 复制插件
-          { from: path.join(__dirname,'src/iconfont'), to:  path.join(__dirname,'dist/iconfont/') }
+          { from: path.join(__dirname,'iconfont'), to:  path.join(__dirname,'dist/iconfont/') }
         ]),
 
         new HtmlWebpackPlugin({

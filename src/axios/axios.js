@@ -1,19 +1,18 @@
 import axios from 'axios'
-// import { Toast } from 'antd'
-
+import loading from '../components/loading/index'
 
 // 设置超时时间
 axios.defaults.timeout = 10000
 
 axios.interceptors.request.use(config=>{ // 请求之前加loading
-  // Toast.loading('加载中')
+  loading.open();
   return config
 },error=>{
   return Promise.reject(error)
 })
 
 axios.interceptors.response.use(config=>{ // 响应成功关闭loading
-  // Toast.hide()
+  loading.close();
   return config
 },error=>{
   return Promise.reject(error)

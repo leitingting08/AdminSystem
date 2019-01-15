@@ -1,0 +1,25 @@
+.loading{
+    transition: opacity .3s linear;width: 100%;height: 100%;position: fixed;display: block;text-align: center;top: 0;background-color: transparent;//背景透明z-index: 9999;
+    &:after{
+        content: "";
+        display: inline-block;
+    }
+    .loading-mask{
+        position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0, 0, 0, .2);
+        .loading-outter {
+            position: relative;top: 50%;margin-top: -50px;margin-left: -50px;display: inline-block;vertical-align: middle;background-color: #222;border-radius: .5rem;
+            .loading-wrap {
+                position: absolute;width: 100px;height: 100px;top: 0;left: 0;
+                .loading-ring {
+                    width: 100px;height: 100px;background-image: url("../../assets/pic/loading.gif");background-size: cover;position: absolute;
+                }
+            }
+        }
+    }
+}
+
+
+.loading-enter,
+.loading-leave-active {
+    opacity: 0;
+}
