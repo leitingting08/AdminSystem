@@ -10,9 +10,9 @@ import './less/public.less'
 FastClick.attach(document.body)
 window.store = store
 
-store.subscribe(()=>{
-   console.log(store.getState());
-})
+// store.subscribe(()=>{
+//    console.log(store.getState());
+// })
 
 // import configureStore from './store/configureStore'
 

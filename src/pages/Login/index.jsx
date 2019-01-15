@@ -17,7 +17,7 @@ export default class Login extends React.Component {
     return (
       <div className="Login">
         <div className="container">
-          <div className="form">
+          <form className="form" autoComplete="off">
              <div className="row tit">
                 NINGMENG 后台管理系统
              </div>
@@ -32,17 +32,18 @@ export default class Login extends React.Component {
              <div className="row">
                 <button className="btn" onClick={this.login.bind(this)}>登录</button>
              </div>
-          </div>
+          </form>
         </div>
       </div>
     )
   }
 
   componentDidMount(){
-    console.log(store.getState());
+    // console.log(store.getState());
   }
 
-  login(){
+  login(e){
+    e.preventDefault();
     this._sendLoginServer();
   	// this.props.history.push({pathname:'/home'})
   }
@@ -53,9 +54,10 @@ export default class Login extends React.Component {
       onSuccess:res=>{
         console.log(res)
         if(res.status){
-          store.dispatch({type:'SAVE_USERINFO',value:this.state.loginParams})
+          
           this.props.history.push({pathname:'/home'})
           localStorage.setItem('USERINFO',JSON.stringify(this.state.loginParams))
+          store.dispatch({type:'SAVE_USERINFO',value:this.state.loginParams})
           // location.replace('#/home')
         }else{
           alert(res.msg)

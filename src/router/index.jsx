@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { IndexRoute, BrowserRouter, HashRouter, withRouter, Route, Switch, Redirect } from 'react-router-dom'
+import {HashRouter, Switch } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+
 import Auth from './auth'
 import App from '../pages/App'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import NotFound from '../pages/NotFound'
 import Todo from '../pages/Todo'
-// import Layout from '../pages/Layout'
 import List from '../pages/notice-manage/List'
 import Detail from '../pages/notice-manage/Detail'
 import Leave from '../pages/hr-manage/leave'
@@ -15,10 +17,11 @@ import EmployeeFilesAdd from '../pages/hr-manage/employee-files/employee-add'
 import Organization from '../pages/Organization'
 import Authorize from '../pages/system-set/authorize'
 
-export default class RouterMap extends React.Component {
+import * as userinfoActions from '../store/userinfo/action'
+
+class RouterMap extends React.Component {
   constructor(props,context){
     super(props,context)
-    this.state = { isLogin : false }
   }
 
   render() {
@@ -44,4 +47,26 @@ export default class RouterMap extends React.Component {
       </HashRouter>
     )
   }
+
+  componentWillMount(){
+      this.props.userinfoActions.saveUserInfo();
+  }
 }
+
+function mapStateToProps(state){
+ return {
+   userInfo: state.userInfo
+ }
+}
+
+function mapDispatchToProps(dispatch){
+ return {
+   userinfoActions: bindActionCreators(userinfoActions, dispatch)
+ }
+}
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RouterMap)
