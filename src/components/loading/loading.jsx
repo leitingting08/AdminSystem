@@ -5,8 +5,6 @@ import './loading.less';
 
 export default class Loading extends Component {
     render() {
-        let { tip } = this.props;
-        console.log(tip);
         return (
             <div className="loading">
                 <div className="loading-mask">
@@ -14,7 +12,6 @@ export default class Loading extends Component {
                        <div className="loading-wrap">
                             <div className="loading-ring" />
                         </div>
-                        {/*<div className="loading-text">{ tip }</div>*/}
                     </div>
                 </div>
             </div>
@@ -22,9 +19,9 @@ export default class Loading extends Component {
     }
 }
 
-Loading.propTypes = {
-    tip: PropTypes.string,
-};
+// Loading.propTypes = {
+//     tip: PropTypes.string,
+// };
 
 Loading.newInstance = function newNotificationInstance(properties) {
     let props = properties || {};
