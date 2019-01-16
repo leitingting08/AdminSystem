@@ -14,5 +14,11 @@ export default class InterfaceServer{
         const url = PublicMethod.getUrl('/api/employees')
         PublicMethod.getServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
+
+    sendOrganizationServer(opt){ // 获取组织架构信息
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/organization')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
     
 }

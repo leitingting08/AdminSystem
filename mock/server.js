@@ -48,18 +48,25 @@ router.post('/api/login',koaBody, async(ctx,next)=>{
     }
 })
 
+router.post('/api/organization',koaBody, async(ctx,next)=>{
+    ctx.response.body = {
+        status:true,
+        data:[{departmentName:'才华有限公司',
+            departs:[
+            {departmentName:'营销部',
+            departs:[{departmentName:'营销一组'},{departmentName:'营销二组'},{departmentName:'营销三组'}]},
+            {departmentName:'技术部',
+            departs:[{departmentName:'技术一组'},{departmentName:'技术二组'},{departmentName:'技术三组'}]},
+            {departmentName:'服务部',
+            departs:[{departmentName:'服务一组'},{departmentName:'服务二组'}]}
+            ]
+            }],
+        mag:'获取数据成功'
+    }
+})
+
 // add router middleware:
 app.use(router.routes());
 
 app.listen(3000);
 console.log('app started at port 3000...');
-
-// router.post('/notice/add', koaBody, function *(next){
-// 	console.log(this.request.body)
-// 	this.body = JSON.stringify(this.request.body)
-// })
-
-// app.use(router.routes())
-// 	.use(router.allowedMethods());
-
-// app.listen(3000);
