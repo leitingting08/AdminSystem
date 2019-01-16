@@ -1,0 +1,27 @@
+.alert{
+    transition: opacity .3s linear;width: 100%;height: 100%;position: fixed;display: block;text-align: center;top: 0;background-color: transparent;//背景透明z-index: 9999;
+    &:after{
+        content: "";
+        display: inline-block;
+    }
+    .alert-mask{position: fixed;top: 0;left: 0;
+        width: 100%;height: 100%;background-color: rgba(0, 0, 0, .2);
+        display: flex;justify-content: center;align-items: center;
+        .alert-outter {background:#fff;min-width: 200px;
+            .alert-title{padding: 10px;font-size: 12px;}
+            .alert-wrap {padding:20px;font-size: 14px;}
+            .alert-btn {padding:10px;
+                button{border-radius: 1px;padding:3px 8px;font-size: 12px;margin: 0 5px;
+                    &:first-child{background: #1E9FFF;color: #fff;border:1px solid #1E9FFF;margin-left: 0;}
+                    &:last-child{background: #fff;color: #333;border:1px solid #d8d8d8;margin-right: 0;}
+                }
+            }
+        }
+    }
+}
+
+
+.alert-enter,
+.alert-leave-active {
+    opacity: 0;
+}
