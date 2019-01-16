@@ -48,6 +48,18 @@ router.post('/api/login',koaBody, async(ctx,next)=>{
     }
 })
 
+router.post('/api/noticelist',koaBody, async (ctx, next) => {
+    ctx.response.body = {
+        status:true,
+        data:[
+        {noticeId:'N001',title:'公告标题1',createName:'张三',receiveName:'才华有限公司',creatTime:'1998-01-08'},
+        {noticeId:'N002',title:'公告标题2',createName:'李四',receiveName:'研发部',creatTime:'1998-01-08'},
+        {noticeId:'N003',title:'公告标题3',createName:'王五',receiveName:'营销部',creatTime:'1998-01-08'},
+        ],
+        msg:'获取数据成功'
+    }
+});
+
 router.post('/api/organization',koaBody, async(ctx,next)=>{
     ctx.response.body = {
         status:true,

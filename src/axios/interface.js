@@ -15,6 +15,12 @@ export default class InterfaceServer{
         PublicMethod.getServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
 
+    sendNoticelistServer(opt){ // 获取公告列表
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/noticelist')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
+
     sendOrganizationServer(opt){ // 获取组织架构信息
         const data = PublicMethod.setData(opt)
         const url = PublicMethod.getUrl('/api/organization')
