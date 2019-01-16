@@ -12,7 +12,10 @@ export default class OrganizeTree extends React.Component {
 					</div>
 				{
 					this.props.treedata.map(function(item,index){
-						return <div className="row-li" key={index}>{item.departmentName}</div>
+						return <div className="row-li" key={index}>
+						<i className="iconfont icon-arrowdropdown arrow"></i>
+						{item.departmentName}
+						</div>
 						item.departs?<OrganizeTree treedata={item.departs}/>:<div></div>
 					})
 				}
