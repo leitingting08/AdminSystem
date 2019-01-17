@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Authorize extends React.Component {
+export default class RoleSet extends React.Component {
 	constructor(props,context){
 		super(props,context)
 		this.state = {
@@ -11,7 +11,7 @@ export default class Authorize extends React.Component {
 
 	render(){
 		return(
-			<div className="Authorize">
+			<div className="RoleSet">
 			  <div className="nav col666"><span>系统管理</span>><span className="font12">权限设置</span><button className="btn ml20">新增</button></div>
 			  <div className="bgcon">
 			  	  <div className="txtleft mb20">超级管理员 <button className="btn">+新增</button></div>
@@ -40,7 +40,7 @@ export default class Authorize extends React.Component {
 				  </table>
 			  </div>
 			  <div className="bgcon">
-			  	  <div className="txtleft mb20">角色权限 <button className="btn">+新增</button></div>
+			  	  <div className="txtleft mb20">角色权限 <button className="btn" onClick={this.addRole.bind(this)}>+新增</button></div>
 				  <table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 					    <thead>
 					    <tr>
@@ -67,5 +67,9 @@ export default class Authorize extends React.Component {
 			  </div>
 			</div>
 			)
+	}
+
+	addRole(){
+		this.props.history.push('/systemset/roleset')
 	}
 }

@@ -17,6 +17,7 @@ import EmployeeFiles from '../pages/hr-manage/employee-files'
 import EmployeeFilesAdd from '../pages/hr-manage/employee-files/employee-add'
 import Organization from '../pages/Organization'
 import Authorize from '../pages/system-set/authorize'
+import RoleSet from '../pages/system-set/role'
 
 
 import * as userinfoActions from '../store/userinfo/action'
@@ -39,6 +40,7 @@ class RouterMap extends React.Component {
         {path:'/hrmanage/leave',component:Leave,auth:true},
         {path:'/organization',component:Organization,auth:true},
         {path:'/systemset/authorize',component:Authorize,auth:true},
+        {path:'/systemset/roleset',component:RoleSet,auth:true},
         {path:'/login',component:Login},
         {path:'/404',component:NotFound}
     ];
