@@ -67,7 +67,7 @@ a{text-decoration: none;color: #333;}
 @orange:#ffc900;
 @lightorange:#fff0ac;
 @txtcol:#333;
-.btn{background:@orange;color:#fff;border: 0;padding: 5px 15px;border-radius: 2px; }
+.btn{font-size:12px;background:@orange;color:#fff;border: 0;padding: 5px 15px;border-radius: 2px; }
 // 头部组件
 .Header{position: fixed;top: 0;left: 0;width: 100%;height: 60px;background:#fff;z-index: 2;
 	.title{color: @txtcol;height: 60px;line-height: 60px;position:relative;
@@ -92,7 +92,7 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
 	.rotate{transform: rotate(90deg);}
 	.SubItem{background:#fafafa;}
 	.item{text-align: center;background:#fafafa;
-		a{font-size: 12px}
+		a{font-size: 12px;display: inline-block;width: 100%;height: 100%;}
 		&:hover{background: @lightorange;border-left: 3px solid @orange;}
 	}
 	
@@ -122,14 +122,14 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
 .bgcon{
 	background:#fff;margin:15px;padding:15px;
 }
-.input-wrap{display: flex;float: left;margin: 5px 0;
+.input-wrap{display: flex;margin: 10px;
 	label{width: 80px;text-align: right;line-height: 32px;}
 	.input{border:1px solid #d8d8d8;height: 32px;margin-right:10px;}
 }
 
 .table{width: 100%;border-collapse:collapse; 
-  tr th{padding: 8px 0;border:1px solid #d8d8d8;}
-  tr td{padding: 8px 0;border:1px solid #d8d8d8;}
+  tr th{font-size:12px;padding: 8px 0;border:1px solid #d8d8d8;background: #f2f2f2;}
+  tr td{font-size:12px;padding: 8px 0;border:1px solid #d8d8d8;}
 }
 
 .nav{margin-top: 15px;text-align: left;margin-left: 15px;}

@@ -15,15 +15,17 @@ export default class EmployeeFiles extends React.Component {
 			<div className="EmployeeFiles">
 			  <div className="nav col666"><span>人事管理</span>><span className="font12">员工档案</span><button className="btn ml20" onClick={this.addFiles.bind(this)}>新增</button></div>
 			  <div className="bgcon clearFix">
-			    <div className="input-wrap">
+			    <div className="input-wrap fl">
 			      <label>员工编号：</label>
 			      <input type="text" className="input"/>
 			    </div>
-			    <div className="input-wrap">
+			    <div className="input-wrap fl">
 			      <label>姓名：</label>
 			      <input type="text" className="input"/>
 			    </div>
-			  	<button className="btn">查询</button>
+			    <div className="input-wrap fl">
+			  		<button className="btn">查询</button>
+			  	</div>
 			  </div>
 
 			  <div className="flex bgcon">

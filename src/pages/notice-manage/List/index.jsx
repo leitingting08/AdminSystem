@@ -15,15 +15,17 @@ export default class NoticeList extends React.Component {
       <div className="NoticeList">
         <div className="nav col666"><span>公告管理</span>><span className="font12">公告列表</span><button className="btn ml20" onClick={this.addFiles.bind(this)}>新增</button></div>
 			  <div className="bgcon clearFix">
-			    <div className="input-wrap">
+			    <div className="input-wrap fl">
 			      <label>日期：</label>
 			      <input type="text" className="input"/>
 			    </div>
-			    <div className="input-wrap">
+			    <div className="input-wrap fl">
 			      <label>发布者：</label>
 			      <input type="text" className="input"/>
 			    </div>
-			  	<button className="btn">查询</button>
+			    <div className="input-wrap fl">
+			  		<button className="btn">查询</button>
+			  	</div>
 			  </div>
 
 			  <div className="flex bgcon">

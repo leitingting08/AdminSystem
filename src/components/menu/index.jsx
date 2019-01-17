@@ -59,6 +59,7 @@ export default class Menu extends React.Component {
   linktosonpage(item,index){
     if(item.link){
       location.replace(`#${item.link}`);
+      // this.props.history.push(item.link) // 用这个报错Cannot read property 'push' of undefined
     }else{
       let that = this;
       let data = that.state.menus;
@@ -66,18 +67,7 @@ export default class Menu extends React.Component {
       that.setState({
         menus:data
       })
-      // console.log(that.state.menus)
     }
-    // this.context.router.push({ pathname:item.link })
-    // this.props.history.push('home')
-    // this.context.router.history.push('/app/noticelist');
-    // let that = this;
-    // if(item.link){
-    //   console.log(item.link)
-    //   const link = item.link
-    //   this.props.history.goBack()
-    //   // that.props.history.replace({pathname:link})
-    // }
   }
 
   

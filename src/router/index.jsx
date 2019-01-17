@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {HashRouter, Switch } from 'react-router-dom'
+import {HashRouter as Router, Switch } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
@@ -43,12 +43,11 @@ class RouterMap extends React.Component {
         {path:'/404',component:NotFound}
     ];
     return (
-      <HashRouter history={this.props.history}>
+      <Router history={this.props.history}>
         <Switch>
           <Auth config={routerConfig} />
-          
         </Switch>
-      </HashRouter>
+      </Router>
     )
   }
 

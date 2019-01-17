@@ -4,9 +4,9 @@ export default class NoticeAdd extends React.Component {
   render() {
     return (
       <div className="NoticeAdd">
-        <div className="nav col666"><span>公告管理</span>><span className="font12">新增</span>><span className="font12">新增</span></div>
+        <div className="nav col666"><span>公告管理</span>><span className="font12">新增</span></div>
 			  
-			  <div className="bgcon clearFix">
+			  <div className="bgcon w100 clearFix">
 			    <div className="input-wrap">
 			      <label>姓名：</label>
 			      <input type="text" className="input"/>
