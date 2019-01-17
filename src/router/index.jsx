@@ -15,6 +15,7 @@ import NoticeDetail from '../pages/notice-manage/detail'
 import Leave from '../pages/hr-manage/leave'
 import EmployeeFiles from '../pages/hr-manage/employee-files'
 import EmployeeFilesAdd from '../pages/hr-manage/employee-files/employee-add'
+import EmployeeFilesDetail from '../pages/hr-manage/employee-files/employee-detail'
 import Organization from '../pages/Organization'
 import Authorize from '../pages/system-set/authorize'
 import RoleSet from '../pages/system-set/role'
@@ -33,10 +34,11 @@ class RouterMap extends React.Component {
         {path:'/home',component:Home,auth:true},
         {path:'/noticelist',component:NoticeList,auth:true},
         {path:'/noticelist/add',component:NoticeAdd,auth:true},
-        {path:'/noticedetail/:id',component:NoticeDetail,auth:true},
+        {path:'/noticedetail',component:NoticeDetail,auth:true},
         {path:'/todolist',component:Todo,auth:true},
         {path:'/hrmanage/employeefiles',component:EmployeeFiles,auth:true},
         {path:'/hrmanage/employeefiles/add',component:EmployeeFilesAdd,auth:true},
+        {path:'/hrmanage/employeefiles/detail',component:EmployeeFilesDetail,auth:true},
         {path:'/hrmanage/leave',component:Leave,auth:true},
         {path:'/organization',component:Organization,auth:true},
         {path:'/systemset/authorize',component:Authorize,auth:true},

@@ -1,9 +1,10 @@
 *{margin:0;padding:0;}
-body,html{width: 100%;height: 100%;background: #eee;}
+body,html{width: 100%;height: 100%;background: #eee;font-size: 12px;}
 *{box-sizing: border-box;font-size: 14px;}
 ul li{list-style: none;}
 a{text-decoration: none;color: #333;}
-@blue:#2a6ae8;;
+@blue:#2a6ae8;
+.bgbody{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;z-index: -1;}
 #app{width: 100%;height: 100%;text-align: center;}
 .App{width: 100%;height: 100%;position:absolute;top:0;left:0;
 	z-index:0;padding:60px 0 0 140px;}
@@ -69,7 +70,8 @@ a{text-decoration: none;color: #333;}
 @txtcol:#333;
 .btn{font-size:12px;background:@orange;color:#fff;border: 0;padding: 5px 15px;border-radius: 2px; }
 // 头部组件
-.Header{position: fixed;top: 0;left: 0;width: 100%;height: 60px;background:#fff;z-index: 2;
+.Header{position: fixed;top: 0;left: 0;width: 100%;
+	height: 60px;background:#fff;z-index: 2;padding-left:140px;
 	.title{color: @txtcol;height: 60px;line-height: 60px;position:relative;
 		.username{cursor: pointer;}
 		.opeartion{box-shadow:8px 8px 8px #ccc;background: #fff;width: 120px;position: absolute;top: 70px;right: 20px;
@@ -79,13 +81,15 @@ a{text-decoration: none;color: #333;}
 				.iconfont{margin-right: 5px;}
 			}
 		}
-		.logo{display: inline-block;width: 140px;height: 40px;vertical-align:middle;z-index: 1;position:relative;
-			background: url(../assets/pic/logo.jpg) no-repeat center;background-size: contain;}
+		
 	}
 	
 }
 // 侧边菜单栏组件
-.Menu{position: fixed;top: 0;left: 0;width: 140px;background:#fff;height: 100vh;padding-top:70px;color: @txtcol;z-index: 1;
+.Menu{position: fixed;top: 0;left: 0;width: 140px;background:#fff;height: 100vh;color: @txtcol;z-index: 2;
+.logo-wrap{width: 140px;height: 70px;margin-top: 15px;}
+.logo{display: inline-block;width: 140px;height: 40px;vertical-align:middle;z-index: 1;position:relative;
+			background: url(../assets/pic/logo.jpg) no-repeat center;background-size: contain;}
 ul li{line-height: 36px;text-align: left;cursor: pointer;
 	.iconfont{margin-right: 8px;margin-left: 15px;}
 	.youjiantou{float: right;}
@@ -101,10 +105,10 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
 .OrganizeTree{ // 组织架构树组件
 	.left-tree{width: 200px;background: #fff;margin: 10px;min-height: 800px;
 		.search-wrapper{padding:20px 10px 0 10px;position:relative;
-			.search{height: 30px;padding-left: 25px;width: 100%;line-height: 30px;border:1px solid #d8d8d8;}
+			.search{font-size: 12px;height: 30px;padding-left: 25px;width: 100%;line-height: 30px;border:1px solid #d8d8d8;}
 			.icon-sousuo{position: absolute;top: 28px;left: 15px;z-index: 1;color: #d8d8d8;}
 		}
-		.row-li{padding: 8px 0;text-align: left;
+		.row-li{padding: 8px 0;text-align: left;font-size: 12px;
 			.arrow{font-size: 30px;}
 		}
 	}
@@ -136,3 +140,21 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
 }
 
 .nav{margin-top: 15px;text-align: left;margin-left: 15px;}
+
+.EmployeeFilesDetail{
+	.container{
+		.l{width: 400px;
+			.row{line-height: 30px;height: 30px;}
+			.photo{margin:auto;width: 100px;height: 100px;border-radius:50%;
+				background: url(../../src/assets/pic/no_photo.jpg) no-repeat center;}
+		}
+		.r{width: 100%;margin-left: 0;
+			.filetable{
+				tr td{
+					&:nth-child(1){width: 100px;background: #fafafa;text-align: right;padding:10px;}
+					&:nth-child(2){text-align: left;padding:10px;}
+				}
+			}
+		}
+	}
+}

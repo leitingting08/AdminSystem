@@ -39,6 +39,9 @@ export default class Menu extends React.Component {
     let self = this;
     return (
       <div className="Menu">
+        <div className="logo-wrap flex">
+          <span className="logo"></span>
+        </div>
         <ul>
           {
 	          self.state.menus.map(function(item,index){

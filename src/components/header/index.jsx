@@ -14,8 +14,9 @@ class Header extends React.Component {
   render() {
     return (
       <div className="Header">
+        <div className="bgbody" onClick={this.hideName.bind(this)}></div>
         <div className="title flex">
-	        <div className="w50 txtleft"><span className="logo"></span>
+	        <div className="w50 txtleft">
           <span className="font16">{this.props.title}</span>
           </div>
 	        <div className="w50 txtright pr20">
@@ -26,7 +27,7 @@ class Header extends React.Component {
           </div>
           <ul className={`opeartion ${this.state.showul?'show':'hide'}`}>
             <span className="trangle"></span>
-            <li><Link to="/hrmanage/employeefiles"><i className="iconfont icon-yonghu2"></i>查看档案</Link></li>
+            <li><Link to={`/hrmanage/employeefiles/detail`}><i className="iconfont icon-yonghu2"></i>查看档案</Link></li>
             <li><div onClick={this.editpass.bind(this)}><i className="iconfont icon-xiugaimima"></i>修改密码</div></li>
             <li><div onClick={this.logout.bind(this)}><i className="iconfont icon-tuichu"></i>退出</div></li>
           </ul>
@@ -37,6 +38,11 @@ class Header extends React.Component {
   clickUserName(){
     this.setState({
       showul:!this.state.showul
+    })
+  }
+  hideName(){
+    this.setState({
+      showul:false
     })
   }
   editpass(){

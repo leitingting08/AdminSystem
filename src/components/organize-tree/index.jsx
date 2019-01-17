@@ -16,8 +16,11 @@ export default class OrganizeTree extends React.Component {
 						<i className="iconfont icon-arrowdropdown arrow"></i>
 						{item.departmentName}
 						</div>
-						item.departs?<OrganizeTree treedata={item.departs}/>:<div></div>
-					})
+						{
+						item.departs?
+						<OrganizeTree treedata={item.departs}/>:''
+					    } 
+				  })
 				}
 				</div>
 			</div>
