@@ -59,6 +59,17 @@ router.post('/api/noticelist',koaBody, async (ctx, next) => {
         msg:'获取数据成功'
     }
 });
+// 请假申请列表
+router.post('/api/leavelist',koaBody, async(ctx,next)=>{
+    ctx.response.body = {
+        status:true,
+        data:[
+        {leaveId:'N001',applyTime:'2019-01-18 17:00',startTime:'2019-01-20 09:00',endTime:'2019-01-20 18:00',applyName:'张伟',departmentName:'研发部',leaveType:'年假',leaveTime:'8',applyState:'已通过'},
+        {leaveId:'N002',applyTime:'2019-01-18 17:00',startTime:'2019-01-20 09:00',endTime:'2019-01-20 18:00',applyName:'张伟',departmentName:'研发部',leaveType:'年假',leaveTime:'8',applyState:'已通过'},
+        {leaveId:'N003',applyTime:'2019-01-18 17:00',startTime:'2019-01-20 09:00',endTime:'2019-01-20 18:00',applyName:'张伟',departmentName:'研发部',leaveType:'年假',leaveTime:'8',applyState:'已通过'},],
+        mag:'获取数据成功'
+    }
+})
 // 组织架构
 router.post('/api/organization',koaBody, async(ctx,next)=>{
     ctx.response.body = {

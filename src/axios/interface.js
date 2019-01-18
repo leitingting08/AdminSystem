@@ -21,6 +21,12 @@ export default class InterfaceServer{
         PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
 
+    sendLeavelistServer(opt){ // 获取请假申请列表
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/leavelist')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
+
     sendOrganizationServer(opt){ // 获取组织架构信息
         const data = PublicMethod.setData(opt)
         const url = PublicMethod.getUrl('/api/organization')

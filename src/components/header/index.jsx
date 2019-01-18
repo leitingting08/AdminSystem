@@ -14,7 +14,9 @@ class Header extends React.Component {
   render() {
     return (
       <div className="Header">
-        <div className="bgbody" onClick={this.hideName.bind(this)}></div>
+      {this.state.showul?
+        <div className="bgbody" onClick={this.hideName.bind(this)}></div>:''
+      }
         <div className="title flex">
 	        <div className="w50 txtleft">
           <span className="font16">{this.props.title}</span>
