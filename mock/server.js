@@ -15,7 +15,7 @@ router.get('/', async (ctx, next) => {
 		b:'123'
 	}
 });
-
+// 员工档案列表
 router.get('/api/employees', async (ctx, next) => {
     ctx.response.body = {
         status:true,
@@ -27,7 +27,7 @@ router.get('/api/employees', async (ctx, next) => {
         msg:'获取数据成功'
     }
 });
-
+// 登陆
 router.post('/api/login',koaBody, async(ctx,next)=>{
 	var 
 	username = ctx.request.body.username || '',
@@ -47,7 +47,7 @@ router.post('/api/login',koaBody, async(ctx,next)=>{
         }
     }
 })
-
+// 公告列表
 router.post('/api/noticelist',koaBody, async (ctx, next) => {
     ctx.response.body = {
         status:true,
@@ -59,7 +59,7 @@ router.post('/api/noticelist',koaBody, async (ctx, next) => {
         msg:'获取数据成功'
     }
 });
-
+// 组织架构
 router.post('/api/organization',koaBody, async(ctx,next)=>{
     ctx.response.body = {
         status:true,
@@ -76,9 +76,31 @@ router.post('/api/organization',koaBody, async(ctx,next)=>{
         mag:'获取数据成功'
     }
 })
+// 超级管理员列表
+router.post('/api/superadmin',koaBody, async(ctx,next)=>{
+    ctx.response.body = {
+        status:true,
+        data:[
+        {emId:'N001',username:'张三',phoneNumber:'13512345671'},
+        {emId:'N002',username:'李四',phoneNumber:'13612345672'},
+        {emId:'N003',username:'王五',phoneNumber:'13612345673'},],
+        mag:'获取数据成功'
+    }
+})
 
+// 角色权限列表
+router.post('/api/roleadmin',koaBody, async(ctx,next)=>{
+    ctx.response.body = {
+        status:true,
+        data:[
+        {roleId:'N001',roleName:'CEO',roleAdmin:'请假、公告、组织架构、系统设置'},
+        {roleId:'N002',roleName:'人事经理',roleAdmin:'请假、公告'},
+        {roleId:'N003',roleName:'前端工程师',roleAdmin:'请假、公告'},],
+        mag:'获取数据成功'
+    }
+})
 // add router middleware:
 app.use(router.routes());
 
 app.listen(3000);
-console.log('app started at port 3000...');
+console.log('app started at port 3000...');35

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import InterfaceServer from '../../../axios/interface'
+const interfaceServer = new InterfaceServer();
 
 export default class RoleSet extends React.Component {
 	constructor(props,context){
@@ -29,7 +31,7 @@ export default class RoleSet extends React.Component {
 					    	?
 					    	this.state.superadmin.map(function(item,index){
 					    		return <tr key={index}>
-					    		<td>{item.superName}</td>
+					    		<td>{item.username}</td>
 					    		<td>{item.phoneNumber}</td>
 					    		<td><a className="linka">删除</a></td>
 					    		</tr>
@@ -55,9 +57,9 @@ export default class RoleSet extends React.Component {
 					    	?
 					    	this.state.roleadmin.map(function(item,index){
 					    		return <tr key={index}>
-					    		<td>{item.superName}</td>
-					    		<td>{item.phoneNumber}</td>
-					    		<td><a className="linka">编辑</a><a className="linka">删除</a></td>
+					    		<td>{item.roleName}</td>
+					    		<td>{item.roleAdmin}</td>
+					    		<td><a className="linka">编辑</a>&nbsp;&nbsp;<a className="linka">删除</a></td>
 					    		</tr>
 					    	})
 					    	:<tr><td colSpan="3">暂无数据</td></tr>
@@ -71,5 +73,32 @@ export default class RoleSet extends React.Component {
 
 	addRole(){
 		this.props.history.push('/systemset/roleset')
+	}
+
+	componentWillMount(){
+		this._sendSuperadminServer()
+		this._sendRoleadminServer()
+	}
+	_sendSuperadminServer(){
+		interfaceServer.sendSuperadminServer({
+			// data,
+			onSuccess:res=>{
+				console.log(res)
+				this.setState({
+					superadmin:res.data
+				})
+			}
+		})
+	}
+	_sendRoleadminServer(){
+		interfaceServer.sendRoleadminServer({
+			// data,
+			onSuccess:res=>{
+				console.log(res)
+				this.setState({
+					roleadmin:res.data
+				})
+			}
+		})
 	}
 }

@@ -26,5 +26,17 @@ export default class InterfaceServer{
         const url = PublicMethod.getUrl('/api/organization')
         PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
+
+    sendSuperadminServer(opt){ // 获取超级管理员列表信息
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/superadmin')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
+
+    sendRoleadminServer(opt){ // 获取角色权限列表信息
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/roleadmin')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
     
 }
