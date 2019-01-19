@@ -9,7 +9,13 @@ export default class InterfaceServer{
         PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
 
-    sendEmployeesServer(opt){ // 获取员工信息
+    sendUserinfoServer(opt){ // 获取员工信息
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/userinfo')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
+
+    sendEmployeesServer(opt){ // 获取员工信息列表
 		const data = PublicMethod.setData(opt)
         const url = PublicMethod.getUrl('/api/employees')
         PublicMethod.getServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})

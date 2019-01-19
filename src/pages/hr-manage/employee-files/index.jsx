@@ -50,7 +50,7 @@ export default class EmployeeFiles extends React.Component {
 				    		<td>{item.birth}</td>
 				    		</tr>
 				    	})
-				    	:<tr><td colSpan="3">暂无数据</td></tr>
+				    	:<tr><td colSpan="4">暂无数据</td></tr>
 				    }
 				    </tbody>
 			    </table>

@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import InterfaceServer from '../../../../axios/interface'
+const interfaceServer = new InterfaceServer();
 
 export default class EmployeeFilesDetail extends React.Component {
-
+	constructor(props,context){
+		super(props,context)
+		this.state = {
+			userinfo:{}
+		}
+	}
 	render(){
 		let username = JSON.parse(localStorage.getItem('USERINFO')).username;
 		return(
@@ -17,10 +24,10 @@ export default class EmployeeFilesDetail extends React.Component {
 			  	<div className="r bgcon">
 				  	<table className="table filetable" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 					    <tbody>
-					    	<tr><td>姓名</td><td>{username}</td></tr>
-					    	<tr><td>性别</td><td></td></tr>
-					    	<tr><td>员工编号</td><td></td></tr>
-					    	<tr><td>角色职位</td><td></td></tr>
+					    	<tr><td>姓名</td><td>{this.state.userinfo.name}</td></tr>
+					    	<tr><td>性别</td><td>{this.state.userinfo.sex?'男':'女'}</td></tr>
+					    	<tr><td>员工编号</td><td>{this.state.userinfo.emId}</td></tr>
+					    	<tr><td>角色职位</td><td>{this.state.userinfo.position}</td></tr>
 					    </tbody>
 				    </table>
 			  	</div>
@@ -28,6 +35,21 @@ export default class EmployeeFilesDetail extends React.Component {
 			  
 			</div>
 			)
+	}
+	componentWillMount(){
+		this._sendUserinfoServer()
+	}
+
+	_sendUserinfoServer(){
+		interfaceServer.sendUserinfoServer({
+			// data,
+			onSuccess:res=>{
+				console.log(res)
+				this.setState({
+					userinfo:res.data
+				})
+			}
+		})
 	}
 
 }

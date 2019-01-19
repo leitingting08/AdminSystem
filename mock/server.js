@@ -27,6 +27,14 @@ router.get('/api/employees', async (ctx, next) => {
         msg:'获取数据成功'
     }
 });
+// 角色信息
+router.post('/api/userinfo',koaBody, async(ctx,next)=>{
+    ctx.response.body = {
+        status:true,
+        data:{name:'柠檬',sex:0,emId:'N001',position:'前端工程师'},
+        mag:'获取数据成功'
+    }
+})
 // 登陆
 router.post('/api/login',koaBody, async(ctx,next)=>{
 	var 
