@@ -39,7 +39,6 @@ export default class Leave extends React.Component {
 				      <th>请假时间</th>
 				      <th>请假时长</th>
 				      <th>审核状态</th>
-				      <th>当前审批人</th>
 				      <th>操作</th>
 				    </tr>
 				    </thead>
@@ -50,13 +49,12 @@ export default class Leave extends React.Component {
 				    	this.state.leavelists.map(function(item,index){
 				    		return <tr key={index}>
 				    		<td>{item.applyTime}</td>
-				    		<td>{item.name}</td>
-				    		<td>{item.phonenumber}</td>
-				    		<td>{item.birth}</td>
-				    		<td>{item.birth}</td>
-				    		<td>{item.birth}</td>
-				    		<td>{item.birth}</td>
-				    		<td>{item.birth}</td>
+				    		<td>{item.applyName}</td>
+				    		<td>{item.departmentName}</td>
+				    		<td>{item.leaveType}</td>
+				    		<td>{item.startTime}至{item.endTime}</td>
+				    		<td>{item.leaveTime}</td>
+				    		<td>{item.applyState}</td>
 				    		<td><a className="linka">查看详情</a></td>
 				    		</tr>
 				    	})
