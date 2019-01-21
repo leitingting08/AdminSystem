@@ -20,7 +20,7 @@ export default class Organization extends React.Component {
 			          <input type="text" className="input search" placeholder="请输入部门名称"/>
 			          <i className="iconfont icon-sousuo"></i>
 			        </div>
-					<OrganizeTree treedata={this.state.treedata}/>
+					<OrganizeTree treedata={this.state.treedata} toggleTree={self.toggle.bind(self)}/>
 				</div>
 			</div>
 			)
@@ -34,10 +34,23 @@ export default class Organization extends React.Component {
 		interfaceServer.sendOrganizationServer({
 			onSuccess:res=>{
 				console.log(res);
+				let result = res.data
+				result.forEach(item=>{
+					item.show = true;
+					if(item.departs){
+						item.departs.forEach(i=>{
+							i.show = true
+						})
+					}
+				})
 				this.setState({
-					treedata:res.data
+					treedata:result
 				})
 			}
 		})
+	}
+
+	toggle(){
+		
 	}
 }

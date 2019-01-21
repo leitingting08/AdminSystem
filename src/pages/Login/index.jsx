@@ -39,13 +39,11 @@ export default class Login extends React.Component {
   }
 
   componentDidMount(){
-    // console.log(store.getState());
   }
 
   login(e){
     e.preventDefault();
     this._sendLoginServer();
-  	// this.props.history.push({pathname:'/home'})
   }
 
   _sendLoginServer(){
@@ -54,11 +52,8 @@ export default class Login extends React.Component {
       onSuccess:res=>{
         console.log(res)
         if(res.status){
-          
-          this.props.history.push({pathname:'/home'})
           localStorage.setItem('USERINFO',JSON.stringify(this.state.loginParams))
-          store.dispatch({type:'SAVE_USERINFO',value:this.state.loginParams})
-          // location.replace('#/home')
+          this.props.history.push({pathname:'/home'})
         }else{
           alert(res.msg)
         }
@@ -68,11 +63,11 @@ export default class Login extends React.Component {
 
   userlogin(e){
   	let that = this;
-	that.setState({loginParams:{username:e.target.value}})
+	  that.setState({loginParams:{username:e.target.value}})
   }
 
   loginpass(e){
   	let that = this;
-	that.setState({loginParams:{password:e.target.value}})
+	  that.setState({loginParams:{password:e.target.value}})
   }
 }

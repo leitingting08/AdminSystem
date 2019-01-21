@@ -10,7 +10,7 @@ export default class Auth extends React.Component{
           const { pathname } = location;
           const isLogin = localStorage.getItem('USERINFO')
           // console.log(isLogin);
-          console.log(store.getState());
+          // console.log(store.getState());
           // 这部分代码，是为了在非登陆状态下，访问不需要权限校验的路由
           const targetRouterConfig = config.find((v) => v.path === pathname);
           if(targetRouterConfig && !targetRouterConfig.auth && !isLogin){

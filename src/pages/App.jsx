@@ -1,55 +1,45 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {Link} from 'react-router-dom'
 import Header from '../components/header/index'
 import Menu from '../components/menu/index'
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import * as userinfoActions from '../store/userinfo/action'
 
-// import * as userinfoActions from '../actions/userinfo'
-
-export default class App extends React.Component {
+class App extends React.Component {
 
   constructor(props,context){
     super(props,context)
     this.state = {
-      userInfo:JSON.parse(localStorage.getItem('USERINFO'))
     }
   }
   render() {
     return (
       <div className="App">
-        <Header title="NINGMENG 后台管理系统" username={this.state.userInfo.username}/>
+        <Header title="NINGMENG 后台管理系统" username={this.props.userInfo.username}/>
         <Menu />
-        {this.props.children
-          // this.state.initDone
-          // ? this.props.children
-          // :<div>正在加载...</div>
-        }
+        {this.props.children}
       </div>
     )
   }
-  // componentDidMount() {
-  // 	this.props.userinfoActions.login({
-  // 		userid:'abc',
-  // 		city:'beijing'
-  // 	})
-  // }
+  componentDidMount() {
+    let userInfo = JSON.parse(localStorage.getItem('USERINFO'))
+  	this.props.userInfoActions.saveUserInfo(userInfo)
+  }
 }
 
-// function mapStateToProps(state){
-// 	return {
-// 		userinfo: state.userinfo
-// 	}
-// }
+function mapStateToProps(state){
+	return {
+		userInfo: state.userInfo
+	}
+}
 
-// function mapDispatchToProps(dispatch){
-// 	return {
-// 		userinfoActions: bindActionCreators(userinfoActions, dispatch)
-// 	}
-// }
+function mapDispatchToProps(dispatch){
+	return {
+		userInfoActions: bindActionCreators(userinfoActions, dispatch)
+	}
+}
 
-// export default connect({
-// 	mapStateToProps,
-// 	mapDispatchToProps
-// })(App)
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(App)

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import {HashRouter as Router, Switch } from 'react-router-dom'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-
 import Auth from './auth'
-import App from '../pages/App'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import NotFound from '../pages/NotFound'
@@ -20,10 +16,7 @@ import Organization from '../pages/Organization'
 import Authorize from '../pages/system-set/authorize'
 import RoleSet from '../pages/system-set/role'
 
-
-import * as userinfoActions from '../store/userinfo/action'
-
-class RouterMap extends React.Component {
+export default class RouterMap extends React.Component {
   constructor(props,context){
     super(props,context)
   }
@@ -55,25 +48,4 @@ class RouterMap extends React.Component {
     )
   }
 
-  componentWillMount(){
-      this.props.userinfoActions.saveUserInfo();
-  }
 }
-
-function mapStateToProps(state){
- return {
-   userInfo: state.userInfo
- }
-}
-
-function mapDispatchToProps(dispatch){
- return {
-   userinfoActions: bindActionCreators(userinfoActions, dispatch)
- }
-}
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RouterMap)
