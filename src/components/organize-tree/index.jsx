@@ -24,8 +24,11 @@ export default class OrganizeTree extends React.Component {
 	}
 
 	toggle(item){
+		let that = this;
 		console.log(item);
 		item.show=!item.show;
-		this.props.toggleTree(item)
+		that.props.toggleTree(item)
+		// var toggleTree = this.props.toggleTree
+		// toggleTree(item)
 	}
 }

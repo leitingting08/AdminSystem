@@ -11,7 +11,6 @@ export default class Organization extends React.Component {
 		}
 	}
 	render(){
-		let self = this
 		return(
 			<div className="Organization">
 				<div className="nav col666"><span>组织架构</span></div>
@@ -20,7 +19,7 @@ export default class Organization extends React.Component {
 			          <input type="text" className="input search" placeholder="请输入部门名称"/>
 			          <i className="iconfont icon-sousuo"></i>
 			        </div>
-					<OrganizeTree treedata={this.state.treedata} toggleTree={self.toggle.bind(self)}/>
+					<OrganizeTree treedata={this.state.treedata} toggleTree={this.toggle.bind(this)}/>
 				</div>
 			</div>
 			)
@@ -50,7 +49,7 @@ export default class Organization extends React.Component {
 		})
 	}
 
-	toggle(){
-		
+	toggle(item){
+		console.log(item);
 	}
 }
