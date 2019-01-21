@@ -7,7 +7,8 @@ export default class Leave extends React.Component {
 	constructor(props,context){
 		super(props,context)
 		this.state = {
-			leavelists:[]
+			leavelists:[],
+			current:1
 		}
 	}
 
@@ -59,12 +60,12 @@ export default class Leave extends React.Component {
 				    		<td><a className="linka">查看详情</a></td>
 				    		</tr>
 				    	})
-				    	:<tr><td colSpan="3">暂无数据</td></tr>
+				    	:<tr><td colSpan="8">暂无数据</td></tr>
 				    }
 				    </tbody>
 			    </table>
 			    <div className="txtleft mt20">
-			    	<Pagination defaultCurrent={1} total={10}/>
+			    	<Pagination defaultCurrent={this.state.current} total={10} onChange={this.onChange.bind(this)}/>
 			  	</div>
 			  </div>
 			</div>
@@ -85,6 +86,13 @@ export default class Leave extends React.Component {
 				})
 			}
 		})
+	}
+
+	onChange(page){
+	    console.log(page);
+	    this.setState({
+	      current: page,
+	    });
 	}
 
 	addLeave(){
