@@ -85,7 +85,7 @@ export default class RoleSet extends React.Component {
 			onSuccess:res=>{
 				console.log(res)
 				this.setState({
-					superadmin:res.data
+					superadmin:res.data.lists
 				})
 			}
 		})
@@ -96,7 +96,7 @@ export default class RoleSet extends React.Component {
 			onSuccess:res=>{
 				console.log(res)
 				this.setState({
-					roleadmin:res.data
+					roleadmin:res.data.lists
 				})
 			}
 		})

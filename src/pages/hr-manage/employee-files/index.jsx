@@ -69,7 +69,7 @@ export default class EmployeeFiles extends React.Component {
 			onSuccess:res=>{
 				console.log(res)
 				this.setState({
-					filelists:res.data
+					filelists:res.data.lists
 				})
 			}
 		})

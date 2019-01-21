@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Pagination } from 'antd';
 import InterfaceServer from '../../../axios/interface'
 const interfaceServer = new InterfaceServer();
 
@@ -28,7 +29,7 @@ export default class Leave extends React.Component {
 			  	</div>
 			  </div>
 
-			  <div className="flex bgcon">
+			  <div className="bgcon">
 			    <table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 				    <thead>
 				    <tr>
@@ -62,6 +63,9 @@ export default class Leave extends React.Component {
 				    }
 				    </tbody>
 			    </table>
+			    <div className="txtleft mt20">
+			    	<Pagination defaultCurrent={1} total={10}/>
+			  	</div>
 			  </div>
 			</div>
 			)
@@ -77,7 +81,7 @@ export default class Leave extends React.Component {
 			onSuccess:res=>{
 				console.log(res)
 				this.setState({
-					leavelists:res.data
+					leavelists:res.data.lists
 				})
 			}
 		})

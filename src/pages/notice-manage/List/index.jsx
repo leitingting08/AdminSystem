@@ -68,7 +68,7 @@ export default class NoticeList extends React.Component {
 			onSuccess:res=>{
 				console.log(res)
 				this.setState({
-					filelists:res.data
+					filelists:res.data.lists
 				})
 			}
 		})
