@@ -70,7 +70,7 @@ a{text-decoration: none;color: #333;}
 @orange:#ffc900;
 @lightorange:#fff0ac;
 @txtcol:#333;
-.btn{font-size:12px;background:@orange;color:#fff;border: 0;padding: 5px 15px;border-radius: 2px; }
+.btn{font-size:12px;background:@orange;color:#fff;border: 0;padding: 3px 10px;border-radius: 2px; }
 // 头部组件
 .Header{position: fixed;top: 0;left: 0;width: 100%;
 	height: 60px;background:#fff;z-index: 2;padding-left:140px;
@@ -105,7 +105,7 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
   }
 }
 .Organization{ // 组织架构树组件
-	.left-tree{width: 200px;background: #fff;margin: 10px;min-height: 800px;
+	.left-tree{width: 200px;background: #fff;margin: 15px 0 15px 15px;min-height: 700px;
 		.search-wrapper{padding:20px 10px;position:relative;
 			.search{font-size: 12px;height: 30px;padding-left: 25px;width: 100%;line-height: 30px;border:1px solid #d8d8d8;}
 			.icon-sousuo{position: absolute;top: 28px;left: 15px;z-index: 1;color: #d8d8d8;}
@@ -113,8 +113,15 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
 		.row-li{text-align: left;font-size: 12px;line-height: 35px;
 			.arrow{font-size: 30px;} 
 			.departmentname{padding-left: 16px;}
+			.depart{cursor: pointer;}
 			.icon-arrow-right{font-size: 24px;}
 		}
+	}
+	.right-con{width: 100%;
+		.title{margin: 10px 0;
+			.iconfont{margin-right: 10px;}
+		}
+		.bt1p{border-bottom: 1px solid #d8d8d8;padding-bottom: 10px;}
 	}
 }
 .OrganizeTree{padding-left: 15px;}
@@ -140,8 +147,8 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;
 }
 
 .table{width: 100%;border-collapse:collapse; 
-  tr th{font-size:12px;padding: 8px 0;border:1px solid #d8d8d8;background: #f2f2f2;}
-  tr td{font-size:12px;padding: 8px 0;border:1px solid #d8d8d8;}
+  tr th{font-size:12px;padding: 8px;border:1px solid #d8d8d8;background: #f2f2f2;}
+  tr td{font-size:12px;padding: 8px;border:1px solid #d8d8d8;}
 }
 
 .nav{margin-top: 15px;text-align: left;margin-left: 15px;}

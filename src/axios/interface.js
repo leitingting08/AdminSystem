@@ -39,6 +39,12 @@ export default class InterfaceServer{
         PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
 
+    sendShowemployeeServer(opt){ // 组织架构下部门关系及人员
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/showemployee')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
+
     sendSuperadminServer(opt){ // 获取超级管理员列表信息
         const data = PublicMethod.setData(opt)
         const url = PublicMethod.getUrl('/api/superadmin')

@@ -110,6 +110,69 @@ router.post('/api/organization',koaBody, async(ctx,next)=>{
         msg:'获取数据成功'
     }
 })
+// 组织架构下部门关系及人员
+router.post('/api/showemployee',koaBody, async(ctx,next)=>{
+    var departmentName = ctx.request.body.departmentName || '';
+    var data = {};
+    if(departmentName==='才华有限公司'){
+        data.current=[{emId:100,supervisor:'柠檬'}];
+        data.department=[
+        {emId:100,supervisor:'柠檬',departmentName:'营销部'},
+        {emId:101,supervisor:'柠檬1',departmentName:'技术部'},
+        {emId:102,supervisor:'柠檬2',departmentName:'服务部'},
+        ];
+        data.employees=[];
+    }
+    else if(departmentName==='营销部'){
+        data.current=[{emId:100,supervisor:'柠檬0'}];
+        data.department=[
+        {emId:200,supervisor:'柠檬3',departmentName:'营销一组'},
+        {emId:201,supervisor:'柠檬4',departmentName:'营销二组'},
+        {emId:202,supervisor:'柠檬5',departmentName:'营销三组'},
+        ];
+        data.employees=[
+        {emId:300,emName:'柠檬6',emNumber:'N300',poName:'营销经理',emPhone:'13111232560'},
+        {emId:301,emName:'柠檬7',emNumber:'N301',poName:'客户经理',emPhone:'13111232561'},
+        {emId:302,emName:'柠檬8',emNumber:'N302',poName:'客户经理',emPhone:'13111232562'},
+        ];
+    }
+    else if(departmentName==='技术部'){
+        data.current=[{emId:100,supervisor:'柠檬1'}];
+        data.department=[
+        {emId:220,supervisor:'柠檬23',departmentName:'营销一组'},
+        {emId:221,supervisor:'柠檬24',departmentName:'营销二组'},
+        {emId:222,supervisor:'柠檬25',departmentName:'营销三组'},
+        ];
+        data.employees=[
+        {emId:320,emName:'柠檬26',emNumber:'N320',poName:'技术经理',emPhone:'13111232560'},
+        {emId:321,emName:'柠檬27',emNumber:'N321',poName:'产品经理',emPhone:'13111232561'},
+        {emId:322,emName:'柠檬28',emNumber:'N322',poName:'开发工程师',emPhone:'13111232562'},
+        ];
+    }
+    else if(departmentName==='服务部'){
+        data.current=[{emId:100,supervisor:'柠檬2'}];
+        data.department=[
+        {emId:200,supervisor:'柠檬3',departmentName:'服务一组'},
+        {emId:201,supervisor:'柠檬4',departmentName:'服务二组'},
+        {emId:202,supervisor:'柠檬5',departmentName:'服务三组'},
+        ];
+        data.employees=[];
+    }
+    else if(departmentName==='营销一组'||departmentName==='营销二组'||departmentName==='营销三组'){
+        data.current=[{emId:100,supervisor:'柠檬'}];
+        data.department=[];
+        data.employees=[ {emId:300,emName:'柠檬6',emNumber:'N300',poName:'营销经理',emPhone:'13111232560'},];
+    }else{
+        data.current=[{emId:100,supervisor:'柠檬'}];
+        data.department=[];
+        data.employees=[];
+    }
+    ctx.response.body = {
+        status:true,
+        data:data,
+        msg:'获取数据成功'
+    }
+})
 // 超级管理员列表
 router.post('/api/superadmin',koaBody, async(ctx,next)=>{
     ctx.response.body = {

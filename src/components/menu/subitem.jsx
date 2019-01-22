@@ -19,6 +19,7 @@ export default class SubItem extends React.Component  {
 	}
 
 	stoppropgation(e){
+		console.log(e);
 	    e.stopPropagation();
 	}
 }

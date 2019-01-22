@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 
 export default class OrganizeTree extends React.Component {
-	
+	constructor(props,context){
+		super(props,context)
+		this.state = {
+			treedata:[]
+		}
+	}
+
 	render(){
 		let self = this;
 		return (
@@ -13,7 +19,7 @@ export default class OrganizeTree extends React.Component {
 						<span className={`${item.show?'':'rotate90'}`}>
 						<i className={`iconfont arrow ${item.departs?'icon-arrowdropdown':''}`} onClick={self.toggle.bind(self,item)}></i>
 						</span>
-						<span className={`${item.departs?'':'departmentname'}`}>{item.departmentName}</span>
+						<span className={`depart ${item.departs?'':'departmentname'}`}>{item.departmentName}</span>
 						{
 							item.departs&&item.show?<OrganizeTree treedata={item.departs}/>:''
 						}
@@ -24,11 +30,17 @@ export default class OrganizeTree extends React.Component {
 			</div>
 		)
 	}
+	componentWillMount(){
+		const { treedata } = this.props;
+		this.setState({
+			treedata: treedata
+		})
+	}
 
-	toggle(item){
-		let that = this;
-		console.log(item);
+	toggle(item,e){
 		item.show=!item.show;
-		this.props.toggleTree(item)
+		this.setState({
+			treedata:this.state.treedata
+		})
 	}
 }
