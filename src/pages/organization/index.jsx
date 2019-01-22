@@ -22,7 +22,7 @@ export default class Organization extends React.Component {
 				          <input type="text" className="input search" placeholder="请输入部门名称"/>
 				          <i className="iconfont icon-sousuo"></i>
 				        </div>
-						<OrganizeTree treedata={this.state.treedata}/>
+						<OrganizeTree treedata={this.state.treedata} showdepart={this.showdepart.bind(this)}/>
 					</div>
 					<div className="right-con bgcon txtleft">
 					    <div className="title"><i className="iconfont icon-zuzhi"></i>才华有限公司 <button className="btn">编辑</button></div>
@@ -87,6 +87,11 @@ export default class Organization extends React.Component {
 	componentWillMount(){
 		this._sendOrganizationServer()
 		this._sendShowemployeeServer({departmentName:'才华有限公司'})
+	}
+
+	showdepart(item){
+		console.log(item.departmentName);
+		this._sendShowemployeeServer({departmentName:item.departmentName})
 	}
 
 	_sendOrganizationServer(){

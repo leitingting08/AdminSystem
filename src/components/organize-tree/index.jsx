@@ -19,7 +19,7 @@ export default class OrganizeTree extends React.Component {
 						<span className={`${item.show?'':'rotate90'}`}>
 						<i className={`iconfont arrow ${item.departs?'icon-arrowdropdown':''}`} onClick={self.toggle.bind(self,item)}></i>
 						</span>
-						<span className={`depart ${item.departs?'':'departmentname'}`}>{item.departmentName}</span>
+						<span className={`depart ${item.departs?'':'departmentname'}`} onClick={self.showdepart.bind(self,item)}>{item.departmentName}</span>
 						{
 							item.departs&&item.show?<OrganizeTree treedata={item.departs}/>:''
 						}
@@ -37,10 +37,15 @@ export default class OrganizeTree extends React.Component {
 		})
 	}
 
-	toggle(item,e){
+	toggle(item){
 		item.show=!item.show;
 		this.setState({
 			treedata:this.state.treedata
 		})
+	}
+
+	showdepart(item){
+		console.log(item);
+		this.props.showdepart(item)
 	}
 }
