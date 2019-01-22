@@ -10,8 +10,10 @@ export default class OrganizeTree extends React.Component {
 				{
 					this.props.treedata.map(function(item,index){
 						return <div className="row-li" key={index}>
-						<i className="iconfont icon-arrowdropdown arrow" onClick={self.toggle.bind(self,item)}></i>
-						{item.departmentName}
+						<span className={`${item.show?'':'rotate90'}`}>
+						<i className={`iconfont arrow ${item.departs?'icon-arrowdropdown':''}`} onClick={self.toggle.bind(self,item)}></i>
+						</span>
+						<span className={`${item.departs?'':'departmentname'}`}>{item.departmentName}</span>
 						{
 							item.departs&&item.show?<OrganizeTree treedata={item.departs}/>:''
 						}
@@ -27,8 +29,6 @@ export default class OrganizeTree extends React.Component {
 		let that = this;
 		console.log(item);
 		item.show=!item.show;
-		that.props.toggleTree(item)
-		// var toggleTree = this.props.toggleTree
-		// toggleTree(item)
+		this.props.toggleTree(item)
 	}
 }

@@ -51,5 +51,8 @@ export default class Organization extends React.Component {
 
 	toggle(item){
 		console.log(item);
+		this.setState({
+			treedata:this.state.treedata
+		})
 	}
 }
