@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import InterfaceServer from '../../../axios/interface'
 const interfaceServer = new InterfaceServer();
+import { Pagination } from 'antd';
 
 export default class EmployeeFiles extends React.Component {
 	constructor(props,context){
 		super(props,context)
 		this.state = {
-			filelists:[]
+			filelists:[],
+			current:1
 		}
 	}
 
@@ -28,7 +30,7 @@ export default class EmployeeFiles extends React.Component {
 			  	</div>
 			  </div>
 
-			  <div className="flex bgcon">
+			  <div className="bgcon">
 			    <table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 				    <thead>
 				    <tr>
@@ -54,6 +56,9 @@ export default class EmployeeFiles extends React.Component {
 				    }
 				    </tbody>
 			    </table>
+			    <div className="txtleft mt20">
+			    	<Pagination defaultCurrent={this.state.current} total={10} onChange={this.onChange.bind(this)}/>
+			  	</div>
 			  </div>
 			</div>
 			)
@@ -77,5 +82,12 @@ export default class EmployeeFiles extends React.Component {
 
 	addFiles(){
 		location.replace('#/hrmanage/employeefiles/add')
+	}
+
+	onChange(page){
+	    console.log(page);
+	    this.setState({
+	      current: page,
+	    });
 	}
 }
