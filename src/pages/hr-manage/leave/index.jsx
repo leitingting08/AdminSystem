@@ -65,7 +65,7 @@ export default class Leave extends React.Component {
 				    </tbody>
 			    </table>
 			    <div className="txtleft mt20">
-			    	<Pagination defaultCurrent={this.state.current} total={10} onChange={this.onChange.bind(this)}/>
+			    	<Pagination defaultCurrent={this.state.current} defaultPageSize={10} total={13} onChange={this.onChange.bind(this)}/>
 			  	</div>
 			  </div>
 			</div>
