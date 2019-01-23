@@ -8,7 +8,7 @@ export default class Leave extends React.Component {
 		super(props,context)
 		this.state = {
 			leavelists:[],
-			current:1
+			currentPage:1
 		}
 	}
 
@@ -65,7 +65,7 @@ export default class Leave extends React.Component {
 				    </tbody>
 			    </table>
 			    <div className="txtleft mt20">
-			    	<Pagination defaultCurrent={this.state.current} defaultPageSize={10} total={13} onChange={this.onChange.bind(this)}/>
+			    	<Pagination defaultCurrent={this.state.currentPage} defaultPageSize={10} total={13} onChange={this.onChange.bind(this)}/>
 			  	</div>
 			  </div>
 			</div>
@@ -73,12 +73,12 @@ export default class Leave extends React.Component {
 	}
 
 	componentWillMount(){
-		this._sendLeavelistServer()
+		this._sendLeavelistServer({currentPage:1})
 	}
 
-	_sendLeavelistServer(){
+	_sendLeavelistServer(param){
 		interfaceServer.sendLeavelistServer({
-			// data,
+			data:param,
 			onSuccess:res=>{
 				console.log(res)
 				this.setState({
@@ -93,6 +93,7 @@ export default class Leave extends React.Component {
 	    this.setState({
 	      current: page,
 	    });
+	    this._sendLeavelistServer({currentPage:page})
 	}
 
 	addLeave(){
