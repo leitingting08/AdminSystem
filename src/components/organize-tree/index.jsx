@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import InterfaceServer from '../../axios/interface'
+const interfaceServer = new InterfaceServer();
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as infoActions from '../../store/userinfo/action'
 
-export default class OrganizeTree extends React.Component {
+
+class OrganizeTree extends React.Component {
 	constructor(props,context){
 		super(props,context)
 		this.state = {
-			treedata:[]
+			treedata:[],
 		}
 	}
 
@@ -31,9 +37,10 @@ export default class OrganizeTree extends React.Component {
 		)
 	}
 	componentWillMount(){
-		const { treedata } = this.props;
+		const { treedata,departmentName} = this.props;
 		this.setState({
-			treedata: treedata
+			treedata: treedata,
+			departmentName:departmentName
 		})
 	}
 
@@ -45,7 +52,36 @@ export default class OrganizeTree extends React.Component {
 	}
 
 	showdepart(item){
-		console.log(item);
-		this.props.showdepart(item)
+		console.log(item.departmentName);
+		this._sendShowemployeeServer({departmentName:item.departmentName})
+	}
+
+	_sendShowemployeeServer(param){
+		interfaceServer.sendShowemployeeServer({
+			data:param,
+			onSuccess:res=>{
+				console.log(res.data);
+				// 保存到redux里--这里为啥存不进去
+				this.props.organizeInfoActions.resetOrganizeINFO(organizeInfo,res.data)
+			}
+		})
+	}
+
+}
+
+function mapStateToProps(state){
+	return {
+		organizeInfo: state.organizeInfo
 	}
 }
+
+function mapDispatchToProps(dispatch){
+	return {
+		organizeInfoActions: bindActionCreators(infoActions, dispatch)
+	}
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(OrganizeTree)

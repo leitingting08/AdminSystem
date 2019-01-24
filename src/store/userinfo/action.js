@@ -16,3 +16,20 @@ export const resetUserInfo = (datatype, value) => {
     value,
   }
 }
+
+// 保存组织架构下面的信息
+export const saveOrganizeINFO = (value) => {
+  return {
+    type: user.SAVE_ORGANIZEINFO,
+    value
+  }
+}
+
+// 修改组织架构下面的信息
+export const resetOrganizeINFO = (param) => {
+  return {
+    type: user.RESET_ORGANIZEINFO,
+    // datatype,
+    value:param,
+  }
+}

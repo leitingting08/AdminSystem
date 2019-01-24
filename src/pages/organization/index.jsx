@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import InterfaceServer from '../../axios/interface'
 const interfaceServer = new InterfaceServer();
 import OrganizeTree from '../../components/organize-tree'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as infoActions from '../../store/userinfo/action'
+import store from '../../store/store'
 
-export default class Organization extends React.Component {
+class Organization extends React.Component {
 	constructor(props,context){
 		super(props,context)
 		this.state = {
 			treedata:[],
-			department:[],
-			employees:[]
 		}
 	}
 	render(){
+		let s = store.getState().organizeInfo
 		return(
 			<div className="Organization">
 				<div className="nav col666"><span>组织架构</span></div>
@@ -22,13 +25,13 @@ export default class Organization extends React.Component {
 				          <input type="text" className="input search" placeholder="请输入部门名称"/>
 				          <i className="iconfont icon-sousuo"></i>
 				        </div>
-						<OrganizeTree treedata={this.state.treedata} showdepart={this.showdepart.bind(this)}/>
+						<OrganizeTree treedata={this.state.treedata} />
 					</div>
 					<div className="right-con bgcon txtleft">
 					    <div className="title"><i className="iconfont icon-zuzhi"></i>才华有限公司 <button className="btn">编辑</button></div>
 					    <div className="title bt1p"><i className="iconfont icon-bumen"></i>下级部门 <button className="btn">增加</button></div>
 					    {
-					    	this.state.department.length?
+					    	s.department&&s.department.length?
 					    	<table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 			    				<thead>
 			    				<tr>
@@ -39,7 +42,7 @@ export default class Organization extends React.Component {
 			    				</thead>
 			    				<tbody>
 					    		{
-					    			this.state.department.map(function(item,index){
+					    			s.department.map(function(item,index){
 					    				return <tr key={index}>
 					    					<td>{item.departmentName}</td>
 					    					<td>{item.supervisor}</td>
@@ -53,7 +56,7 @@ export default class Organization extends React.Component {
 					    }
 					    <div className="title bt1p"><i className="iconfont icon-bumen1"></i>部门员工 <button className="btn">增加</button></div>
 						{
-					    	this.state.employees.length?
+					    	s.employees&&s.employees.length?
 					    	<table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 					    		<thead>
 			    				<tr>
@@ -65,7 +68,7 @@ export default class Organization extends React.Component {
 			    				</thead>
 			    				<tbody>
 					    		{
-					    			this.state.employees.map(function(item,index){
+					    			s.employees.map(function(item,index){
 					    				return <tr key={index}>
 					    					<td>{item.emName}</td>
 					    					<td>{item.poName}</td>
@@ -86,12 +89,10 @@ export default class Organization extends React.Component {
 
 	componentWillMount(){
 		this._sendOrganizationServer()
+		console.log(store.getState().organizeInfo);
+		let organizeInfo = store.getState().organizeInfo
 		this._sendShowemployeeServer({departmentName:'才华有限公司'})
-	}
-
-	showdepart(item){
-		console.log(item.departmentName);
-		this._sendShowemployeeServer({departmentName:item.departmentName})
+		
 	}
 
 	_sendOrganizationServer(){
@@ -120,10 +121,10 @@ export default class Organization extends React.Component {
 			data:param,
 			onSuccess:res=>{
 				console.log(res);
-				this.setState({
-					department:res.data.department,
-					employees:res.data.employees
-				})
+
+				// 保存到redux里
+				this.props.organizeInfoActions.saveOrganizeINFO(res.data)
+
 			}
 		})
 	}
@@ -135,3 +136,20 @@ export default class Organization extends React.Component {
 		})
 	}
 }
+
+function mapStateToProps(state){
+	return {
+		organizeInfo: state.organizeInfo
+	}
+}
+
+function mapDispatchToProps(dispatch){
+	return {
+		organizeInfoActions: bindActionCreators(infoActions, dispatch)
+	}
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Organization)
