@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class EmployeeFilesAdd extends React.Component {
+export default class LeaveDeatil extends React.Component {
 
 	render(){
 		return(
-			<div className="EmployeeFilesAdd">
+			<div className="LeaveDeatil">
 			  <div className="nav col666"><span>人事管理</span>><span className="font12">员工档案</span>><span className="font12">新增</span></div>
 			  
 			  <div className="bgcon clearFix">

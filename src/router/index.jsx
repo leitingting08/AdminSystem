@@ -9,6 +9,8 @@ import NoticeList from '../pages/notice-manage/list'
 import NoticeAdd from '../pages/notice-manage/add'
 import NoticeDetail from '../pages/notice-manage/detail'
 import Leave from '../pages/hr-manage/leave'
+import LeaveAdd from '../pages/hr-manage/leave/add'
+import LeaveDetail from '../pages/hr-manage/leave/detail'
 import EmployeeFiles from '../pages/hr-manage/employee-files'
 import EmployeeFilesAdd from '../pages/hr-manage/employee-files/employee-add'
 import EmployeeFilesDetail from '../pages/hr-manage/employee-files/employee-detail'
@@ -33,6 +35,8 @@ export default class RouterMap extends React.Component {
         {path:'/hrmanage/employeefiles/add',component:EmployeeFilesAdd,auth:true},
         {path:'/hrmanage/employeefiles/detail',component:EmployeeFilesDetail,auth:true},
         {path:'/hrmanage/leave',component:Leave,auth:true},
+        {path:'/hrmanage/leave/add',component:LeaveAdd,auth:true},
+        {path:'/hrmanage/leave/detail',component:LeaveDetail,auth:true},
         {path:'/organization',component:Organization,auth:true},
         {path:'/systemset/authorize',component:Authorize,auth:true},
         {path:'/systemset/roleset',component:RoleSet,auth:true},

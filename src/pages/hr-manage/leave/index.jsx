@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Pagination } from 'antd';
 import InterfaceServer from '../../../axios/interface'
 const interfaceServer = new InterfaceServer();
+import {Link} from 'react-router-dom'
 
 export default class Leave extends React.Component {
 	constructor(props,context){
@@ -15,7 +16,7 @@ export default class Leave extends React.Component {
 	render(){
 		return(
 			<div className="Leave">
-			<div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span><button className="btn ml20">新增</button></div>
+			<div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span><Link to="/hrmanage/leave/add"><button className="btn ml20">新增</button></Link></div>
 			<div className="bgcon clearFix">
 			    <div className="input-wrap fl">
 			      <label>员工编号：</label>

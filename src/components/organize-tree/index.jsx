@@ -4,6 +4,7 @@ const interfaceServer = new InterfaceServer();
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as infoActions from '../../store/userinfo/action'
+import {resetOrganizeINFO} from '../../store/userinfo/action'
 
 
 class OrganizeTree extends React.Component {
@@ -61,8 +62,9 @@ class OrganizeTree extends React.Component {
 			data:param,
 			onSuccess:res=>{
 				console.log(res.data);
+				resetOrganizeINFO(res.data)
 				// 保存到redux里--这里为啥存不进去
-				this.props.organizeInfoActions.resetOrganizeINFO(organizeInfo,res.data)
+				// this.props.organizeInfoActions.resetOrganizeINFO(res.data)
 			}
 		})
 	}
@@ -82,6 +84,5 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	resetOrganizeINFO
 )(OrganizeTree)
