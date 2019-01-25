@@ -16,7 +16,20 @@ export default class Leave extends React.Component {
 	render(){
 		return(
 			<div className="Leave">
-				<div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span>>详情</div>
+				<div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span><Link to="/hrmanage/leave/add" className="btn ml20">新增</Link></div>
+			    <div className="bgcon clearFix">
+				    <div className="input-wrap fl">
+				      <label>员工编号：</label>
+				      <input type="text" className="input"/>
+				    </div>
+				    <div className="input-wrap fl">
+				      <label>姓名：</label>
+				      <input type="text" className="input"/>
+				    </div>
+				    <div className="input-wrap fl">
+				  		<button className="btn search-btn">查询</button>
+				  	</div>
+			    </div>
 			    <div className="bgcon">
 			      <table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 				    <thead>

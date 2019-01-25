@@ -5,8 +5,7 @@ export default class LeaveDeatil extends React.Component {
 	render(){
 		return(
 			<div className="LeaveDeatil">
-			  <div className="nav col666"><span>人事管理</span>><span className="font12">员工档案</span>><span className="font12">新增</span></div>
-			  
+			  <div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span>>详情</div>
 			  <div className="bgcon clearFix">
 			    <div className="input-wrap">
 			      <label>员工编号：</label>

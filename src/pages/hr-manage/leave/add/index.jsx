@@ -24,13 +24,13 @@ export default class LeaveAdd extends React.Component {
 			    <div className="input-wrap">
 			      <label>请假时间：</label>
 			      <input type="text" className="input"/>
-			      <span class="mid">至</span>
+			      <span className="mid">至</span>
 			      <input type="text" className="input"/>
 			    </div>
 			    <div className="input-wrap">
 			      <label>请假时长：</label>
 			      <input type="text" className="input"/>
-			      <span class="mid">小时</span>
+			      <span className="mid">小时</span>
 			    </div>
 			    <div className="input-wrap">
 			      <label>请假原因：</label>

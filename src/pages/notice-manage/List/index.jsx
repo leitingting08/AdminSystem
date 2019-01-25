@@ -26,7 +26,7 @@ export default class NoticeList extends React.Component {
 			      <input type="text" className="input"/>
 			    </div>
 			    <div className="input-wrap fl">
-			  		<button className="btn">查询</button>
+			  		<button className="btn search-btn">查询</button>
 			  	</div>
 			  </div>
 
