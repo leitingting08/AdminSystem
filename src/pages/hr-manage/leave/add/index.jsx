@@ -10,7 +10,7 @@ export default class LeaveAdd extends React.Component {
 			  <div className="bgcon clearFix">
 			    <div className="input-wrap">
 			      <label>请假类型：</label>
-			      <select>
+			      <select className="search-width search-select">
 			        <option value="事假">事假</option>
 					<option value="病假">病假</option>
 					<option value="婚假">婚假</option>
@@ -24,16 +24,17 @@ export default class LeaveAdd extends React.Component {
 			    <div className="input-wrap">
 			      <label>请假时间：</label>
 			      <input type="text" className="input"/>
-			      至
+			      <span class="mid">至</span>
 			      <input type="text" className="input"/>
 			    </div>
 			    <div className="input-wrap">
 			      <label>请假时长：</label>
 			      <input type="text" className="input"/>
+			      <span class="mid">小时</span>
 			    </div>
 			    <div className="input-wrap">
 			      <label>请假原因：</label>
-			      <textarea></textarea>
+			      <textarea className="search-width search-textarea"></textarea>
 			    </div>
 			    <div className="input-wrap">
 			      <label>添加审批人：</label>
