@@ -1,4 +1,15 @@
 import React, { Component } from 'react';
+import { DatePicker } from 'antd';
+
+const { RangePicker } = DatePicker;
+function onChange(value, dateString) {
+  console.log('Selected Time: ', value);
+  console.log('Formatted Selected Time: ', dateString);
+}
+
+function onOk(value) {
+  console.log('onOk: ', value);
+}
 
 export default class LeaveAdd extends React.Component {
 
@@ -23,9 +34,16 @@ export default class LeaveAdd extends React.Component {
 			    </div>
 			    <div className="input-wrap">
 			      <label>请假时间：</label>
-			      <input type="text" className="input"/>
+			      <RangePicker
+				    showTime={{ format: 'HH:mm' }}
+				    format="YYYY-MM-DD HH:mm"
+				    placeholder={['Start Time', 'End Time']}
+				    onChange={onChange}
+				    onOk={onOk}
+				   />
+			      {/*<input type="text" className="input"/>
 			      <span className="mid">至</span>
-			      <input type="text" className="input"/>
+			      <input type="text" className="input"/>*/}
 			    </div>
 			    <div className="input-wrap">
 			      <label>请假时长：</label>
