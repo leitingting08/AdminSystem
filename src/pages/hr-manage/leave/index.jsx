@@ -9,7 +9,8 @@ export default class Leave extends React.Component {
 		super(props,context)
 		this.state = {
 			leavelists:[],
-			currentPage:1
+			currentPage:1,
+			totalCount:10
 		}
 	}
 
@@ -64,6 +65,9 @@ export default class Leave extends React.Component {
 				    }
 				    </tbody>
 			      </table>
+			       <div className="txtleft mt20">
+			    	 <Pagination defaultCurrent={this.state.current} total={this.state.totalCount} onChange={this.onChange.bind(this)}/>
+			  	   </div>
 			    </div>
 			</div>
 			)
@@ -79,14 +83,14 @@ export default class Leave extends React.Component {
 			onSuccess:res=>{
 				console.log(res)
 				this.setState({
-					leavelists:res.data.lists
+					leavelists:res.data.lists,
+					totalCount:res.data.totalCount
 				})
 			}
 		})
 	}
 
 	onChange(page){
-	    console.log(page);
 	    this.setState({
 	      current: page,
 	    });
