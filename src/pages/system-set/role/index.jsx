@@ -6,13 +6,13 @@ export default class Authorize extends React.Component {
 		super(props,context)
 		this.state = {
 			treedata:[
-			    {menuName: '公告管理', perName: ['全部'], dirCheck: [false], menuChild: [
-			        {menuName: '公告管理',perName: ['全部', '查看', '发布'],dirCheck: [false, false, false, false]}
+			    {menuName: '公告管理', perName: [{name:'全部',checked:false}], menuChild: [
+			        {menuName: '公告管理',perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'发布',checked:false}]}
 			      ]
 			    },
-			    {menuName: '人事管理', perName: ['全部'], dirCheck: [false], menuChild: [
-			        {menuName: '员工档案', perName: ['全部', '查看', '编辑'], dirCheck: [false, false, false], menuChild: []},
-			        {menuName: '请假申请',perName: ['全部', '申请', '查看', '审批'],dirCheck: [false, false, false, false],menuChild: []},
+			    {menuName: '人事管理', perName: [{name:'全部',checked:false}], menuChild: [
+			        {menuName: '员工档案', perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'编辑',checked:false}]},
+			        {menuName: '请假申请', perName: [{name:'全部',checked:false},{name:'申请',checked:false},{name:'查看',checked:false},{name:'审批',checked:false}]}
 			      ]
 			    }
 			]

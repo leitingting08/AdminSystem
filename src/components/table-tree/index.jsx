@@ -14,26 +14,36 @@ export default class TableTree extends React.Component {
 			<div className="TableTree">
 				{
 					this.props.treedata.map(function(item,index){
-						return <div className="flex" key={index}>
+						return <div className="" key={index}>
+						<div className="flex">
 						<div className="w30 td">
-							<span className={`${item.dirCheck[0]?'':'rotate90'}`}>
-							<i className={`iconfont arrow ${item.menuChild?'icon-arrowdropdown':''}`} onClick={self.toggle.bind(self,item)}></i>
-							</span>{item.menuName}
+						{/*icon-552cd47fba2cc*/}
+							{/*<span className={`${item.dirCheck[0]?'':'rotate90'}`}>*/}
+							<i className={`iconfont mr10 arrow ${item.menuChild?'icon-wenjian':'icon-552cd47fba2cc ml20'}`} onClick={self.toggle.bind(self,item)}></i>
+							{/*</span>*/}
+							{item.menuName}
 						</div>
-						<div className="w70 td">
+						<div className="w70 td txtleft pl20 brderleft0">
+						{/*{
+						   item.dirCheck.map(function(i,d){
+						   	  return <input type="checkbox" checked={i}/>
+						   })
+						}*/}
 						{
 						   item.perName.map(function(subitem,subindex){
-						   	  return <span key={subindex}>{subitem}</span>
+						   	  return <label key={subindex}><input type="checkbox" checked={subitem.checked} onChange={self.changeHandler.bind(self)}/><span className="mr20">{subitem.name}</span></label>
 						   })
 						}
+						</div>
 						</div>
 						{/*<span className={`${item.dirCheck[0]?'':'rotate90'}`}>
 						<i className={`iconfont arrow ${item.menuChild?'icon-arrowdropdown':''}`} onClick={self.toggle.bind(self,item)}></i>
 						</span>
 						<span className={`depart ${item.menuChild?'':'departmentname'}`} onClick={self.showdepart.bind(self,item)}>{item.departmentName}</span>
+						*/}
 						{
 							item.menuChild?<TableTree treedata={item.menuChild}/>:''
-						}*/}
+						}
 						</div>
 				  })
 				}
@@ -45,6 +55,9 @@ export default class TableTree extends React.Component {
 	}
 	toggle(item){
 		console.log(item);
+	}
+	changeHandler(){
+		
 	}
 
 }
