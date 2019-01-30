@@ -58,4 +58,11 @@ export default class Authorize extends React.Component {
 			</div>
 			)
 	}
+
+	onChangeCheckbox(item){
+		// item.checked = !item.checked
+		// this.setState = {
+		// 	treedata:this.state.treedata
+		// }
+	}
 }

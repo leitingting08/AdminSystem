@@ -31,7 +31,7 @@ export default class TableTree extends React.Component {
 						}*/}
 						{
 						   item.perName.map(function(subitem,subindex){
-						   	  return <label key={subindex}><input type="checkbox" checked={subitem.checked} onChange={self.changeHandler.bind(self)}/><span className="mr20">{subitem.name}</span></label>
+						   	  return <label key={subindex}><input type="checkbox" value={subitem.name} onChange={self.changeHandler.bind(self,subitem)}/><span className="mr20">{subitem.name}</span></label>
 						   })
 						}
 						</div>
@@ -56,8 +56,10 @@ export default class TableTree extends React.Component {
 	toggle(item){
 		console.log(item);
 	}
-	changeHandler(){
-		
+	changeHandler(item){
+		// item.checked = !item.checked
+		console.log(item);
+		// this.props.onChangeCheckbox(item)
 	}
 
 }
