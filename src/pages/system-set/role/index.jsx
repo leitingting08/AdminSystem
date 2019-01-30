@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
+import TableTree from '../../../components/table-tree'
 
 export default class Authorize extends React.Component {
 	constructor(props,context){
 		super(props,context)
 		this.state = {
-			superadmin:[],
-			roleadmin:[]
+			treedata:[
+			    {menuName: '公告管理', perName: ['全部'], dirCheck: [false], menuChild: [
+			        {menuName: '公告管理',perName: ['全部', '查看', '发布'],dirCheck: [false, false, false, false]}
+			      ]
+			    },
+			    {menuName: '人事管理', perName: ['全部'], dirCheck: [false], menuChild: [
+			        {menuName: '员工档案', perName: ['全部', '查看', '编辑'], dirCheck: [false, false, false], menuChild: []},
+			        {menuName: '请假申请',perName: ['全部', '申请', '查看', '审批'],dirCheck: [false, false, false, false],menuChild: []},
+			      ]
+			    }
+			]
 		}
 	}
 
@@ -32,27 +42,18 @@ export default class Authorize extends React.Component {
 				      <span>全部权限（包括查看、审批管理、申请等权限）</span>
 				  </label>
 			    </div>
-			  	<table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
-					    <thead>
-					    <tr>
-					      <th>功能</th>
-					      <th>权限</th>
-					    </tr>
-					    </thead>
-					    <tbody>
+			  	<div className="table">
+					    <div className="flex">
+					      <div className="w30 th">功能</div>
+					      <div className="w70 th">权限</div>
+					    </div>
 					    {
-					    	this.state.roleadmin.length
+					    	this.state.treedata.length
 					    	?
-					    	this.state.roleadmin.map(function(item,index){
-					    		return <tr key={index}>
-					    		<td>{item.superName}</td>
-					    		<td>{item.phoneNumber}</td>
-					    		</tr>
-					    	})
-					    	:<tr><td colSpan="3">暂无数据</td></tr>
+					    	<TableTree treedata={this.state.treedata}/>
+					    	:<div>暂无数据</div>
 					    }
-					    </tbody>
-				  </table>
+				  </div>
 			  </div>
 			</div>
 			)
