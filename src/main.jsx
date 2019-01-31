@@ -4,6 +4,7 @@ import RouterMap from './router';
 import { Provider } from 'react-redux'
 import FastClick from 'fastclick'
 import { HashRouter, hashHistory } from 'react-router-dom'
+import { AppContainer } from 'react-hot-loader';
 import store from './store/store'
 import './less/public.less'
 // import { baseUrl } from '../public/environment.js'
@@ -74,10 +75,23 @@ window.store = store
 //   	// 清空 setTimeout setInterval
 //   }
 // }
+const render = Component =>{
+	ReactDOM.render(
+		<Provider store={store}>
+			<AppContainer>
+			   <Component/>
+			</AppContainer>
+		</Provider>, 
+		document.getElementById('app')
+	);
+}
 
-ReactDOM.render(
-	<Provider store={store}>
-		   <RouterMap/>
-	</Provider>, 
-	document.getElementById('app')
-);
+
+render(RouterMap);
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept('./router', () => {
+        render(RouterMap);
+    })
+}

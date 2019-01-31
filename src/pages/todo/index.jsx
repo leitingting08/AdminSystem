@@ -42,6 +42,7 @@ export default class ToDo extends React.Component{
 				    </Mask>:''
 				}
 			    </div>
+			    <br/>
 
 			    <div>3. 这是个toast组件demo</div>
 			    <button className="mr20" onClick={() => { Toast.info('普通提示',1000) }}>普通提示</button>
@@ -49,8 +50,12 @@ export default class ToDo extends React.Component{
 			    <button className="mr20" onClick={() => { Toast.error('错误',1000) }}>错误</button>
 			    <button className="mr20" onClick={() => { Toast.loading('加载中') }}>加载中</button>
 			    <button className="mr20" onClick={this.loadCallback.bind(this)}>加载中--回调</button>
+			    <br/>
 
-			    
+			    <div>4. 这是个confirm组件demo</div>
+			    <button className="mr20">alert</button>
+			    <button className="mr20">confirm</button>
+
 			</div>
 		)
 	}

@@ -53,6 +53,7 @@
     "koa": "^2.6.2",
     "koa-body": "^4.0.6",
     "koa-router": "^7.4.0",
+    "react-hot-loader": "^4.6.4",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",

@@ -1,44 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Toast from './toast'
+import './toast.less'
 
-let defaultTips = {title:'提示',content:'确定',btn:['确定'],yes:function(){},no:function(){}}
-
-// 这个Confirm组件的构建思想是通过创建div插入到body里面，不需要的时候去销毁它
-export default class Confirm extends Component {
-    constructor(props, context){
-        super(props, context)
-        this.state = {...defaultTips}
+function createNotification() {
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+  const notification = ReactDOM.render(<Toast />, div)
+  return {
+    addNotice(notice) {
+      return notification.addNotice(notice)
+    },
+    destroy() {
+      ReactDOM.unmountComponentAtNode(div)
+      document.body.removeChild(div)
     }
+  }
+}
 
-    render() {
-        let { tips } = this.props;
-        let self = this;
-        return (
-            <div className="Confirm">
-                <div className="Confirm-mask">
-                    <div className="Confirm-outter">
-                        <div className="Confirm-title">{tips.title}</div>
-                        <div className="Confirm-wrap">
-                            {tips.content}
-                        </div>
-                        <div className="Confirm-btn w100">
-                        {
-                            tips.btn.map(function(item,index){
-                                return <button onClick={self.clickBtn.bind(self,index)} className="flexitem" key={index}>{item}</button>
-                            })
-                        }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+let notification
+const notice = (type, content, duration = 2000, onClose) => {
+  if (!notification) notification = createNotification()
+  return notification.addNotice({ type, content, duration, onClose })
+}
 
-    clickBtn(index){
-        if(index==0){ // 确定
-            this.props.tips.yes();
-        }
-        if(index==1){ // 取消
-            this.props.tips.no();
-        }
-    }
+export default {
+  info(content, duration, onClose) {
+    return notice('info', content, duration, onClose)
+  },
+  success(content = '操作成功', duration, onClose) {
+    return notice('success', content, duration, onClose)
+  },
+  error(content, duration , onClose) {
+    return notice('error', content, duration, onClose)
+  },
+  loading(content = '加载中...', duration = 0, onClose) {
+    return notice('loading', content, duration, onClose)
+  }
 }
