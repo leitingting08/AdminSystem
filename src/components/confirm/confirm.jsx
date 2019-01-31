@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class Confirm extends Component {
   constructor() {
     super()
-    this.transitionTime = 300
     this.state = { notices: [] }
     this.removeNotice = this.removeNotice.bind(this)
   }
@@ -32,32 +31,26 @@ export default class Confirm extends Component {
   removeNotice(key) {
     const { notices } = this.state
     this.setState({
-      notices: notices.filter((notice) => {
-        if (notice.key === key) {
-          if (notice.onClose) setTimeout(notice.onClose, this.transitionTime)
-          return false
-        }
-        return true
-      })
+      notices: notices
     })
   }
 
   render() {
     const { notices } = this.state
-    const icons = {
-      info: 'Confirm_info',
-      success: 'Confirm_success',
-      error: 'Confirm_error',
-      loading: 'Confirm_loading'
-    }
     return (
-      <div className="Confirm">
+      <div className="confirm">
         {
           notices.map(notice => (
-            <div className="Confirm_bg" key={notice.key}>
-              <span className='Confirm_box'>
-                <span className={`Confirm_icon ${icons[notice.type]}`}></span>
-                <span className='Confirm_text'>{notice.content}</span> 
+            <div className="confirm_bg" key={notice.key}>
+              <span className='confirm_box'>
+                <div className='confirm_text'>{notice.content}</div>
+                <div className='confirm_btn'>
+                {
+                  notice.btn.map(button => (
+                    <button>{button}</button>
+                  ))
+                }
+                </div> 
               </span>
             </div>
           ))

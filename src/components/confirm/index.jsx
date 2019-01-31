@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Toast from './toast'
-import './toast.less'
+import Confirm from './confirm'
+import './confirm.less'
 
+// 创建div并append到body中
 function createNotification() {
   const div = document.createElement('div')
   document.body.appendChild(div)
-  const notification = ReactDOM.render(<Toast />, div)
+  const notification = ReactDOM.render(<Confirm />, div)
   return {
     addNotice(notice) {
       return notification.addNotice(notice)
@@ -19,22 +20,13 @@ function createNotification() {
 }
 
 let notification
-const notice = (type, content, duration = 2000, onClose) => {
+const notice = (content, btns, yes, no) => {
   if (!notification) notification = createNotification()
-  return notification.addNotice({ type, content, duration, onClose })
+  return notification.addNotice({ content, btns, yes, no })
 }
 
 export default {
-  info(content, duration, onClose) {
-    return notice('info', content, duration, onClose)
+  open(content, btns, yes, no) {
+    return notice(content, btns, yes, no)
   },
-  success(content = '操作成功', duration, onClose) {
-    return notice('success', content, duration, onClose)
-  },
-  error(content, duration , onClose) {
-    return notice('error', content, duration, onClose)
-  },
-  loading(content = '加载中...', duration = 0, onClose) {
-    return notice('loading', content, duration, onClose)
-  }
 }
