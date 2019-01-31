@@ -55,10 +55,10 @@ class Header extends React.Component {
       title:'提示',
       content:'确认退出?',
       btn:['确定','取消'],
-      yes:function(){
-        console.log('确定');
-      },no:function(){
-        console.log('取消');
+      yes:function(i){
+        console.log('确定',i);
+      },no:function(i){
+        console.log('取消',i);
       }
     })
   }

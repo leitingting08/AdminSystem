@@ -5,6 +5,7 @@ import './alert.less';
 
 let defaultTips = {title:'提示',content:'确定',btn:['确定'],yes:function(){},no:function(){}}
 
+// 这个alert组件的构建思想是通过创建div插入到body里面，不需要的时候去销毁它
 export default class Alert extends Component {
     constructor(props, context){
         super(props, context)
@@ -37,10 +38,10 @@ export default class Alert extends Component {
 
     clickBtn(index){
         if(index==0){ // 确定
-            this.props.tips.yes();
+            this.props.tips.yes(0);
         }
         if(index==1){ // 取消
-            this.props.tips.no();
+            this.props.tips.no(1);
         }
     }
 }

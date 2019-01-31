@@ -4,6 +4,7 @@ import List from './subpage/list'
 import SelectCity from './subpage/selectCity'
 import { Tree } from 'antd';
 const { TreeNode } = Tree
+import Toast from '@/components/toast'
 
 import Mask from '@/components/mask'
 
@@ -25,10 +26,10 @@ export default class ToDo extends React.Component{
 	render(){
 		return (
 			<div className="ToDo">
-			    <div>这是个todolist的demo</div>
+			    <div>1. 这是个todolist的demo</div>
 				<Input submitFn={this.submitFn.bind(this)}/>
 				<List lists={this.state.lists} deleteFn={this.deleteFn.bind(this)}/>
-			    <div>这是个选择城市组件demo</div>
+			    <div>2. 这是个选择城市组件demo</div>
 			    
 			    <div className="mt20" onClick={this.chooseCity.bind(this)}>选择城市</div>
 
@@ -41,8 +42,23 @@ export default class ToDo extends React.Component{
 				    </Mask>:''
 				}
 			    </div>
+
+			    <div>3. 这是个toast组件demo</div>
+			    <button className="mr20" onClick={() => { Toast.info('普通提示',1000) }}>普通提示</button>
+			    <button className="mr20" onClick={() => { Toast.success('加载完成',1000) }}>加载完成</button>
+			    <button className="mr20" onClick={() => { Toast.error('错误',1000) }}>错误</button>
+			    <button className="mr20" onClick={() => { Toast.loading('加载中') }}>加载中</button>
+			    <button className="mr20" onClick={this.loadCallback.bind(this)}>加载中--回调</button>
+
+			    
 			</div>
 		)
+	}
+	loadCallback(){
+		const hideLoading = Toast.loading('加载中...', 0, () => {
+		  Toast.success('加载完成')
+		})
+		setTimeout(hideLoading, 2000)
 	}
 	chooseCity(){
 		this.setState({
