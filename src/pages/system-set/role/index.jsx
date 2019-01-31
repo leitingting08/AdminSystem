@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TableTree from '../../../components/table-tree'
+import TableTree from '@/components/table-tree'
 
 export default class Authorize extends React.Component {
 	constructor(props,context){

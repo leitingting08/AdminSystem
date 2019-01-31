@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import InterfaceServer from '../../axios/interface'
+import InterfaceServer from '@/axios/interface'
 const interfaceServer = new InterfaceServer();
-import OrganizeTree from '../../components/organize-tree'
+import OrganizeTree from '@/components/organize-tree'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import * as infoActions from '../../store/userinfo/action'
-import store from '../../store/store'
+import * as infoActions from '@/store/userinfo/action'
+import store from '@/store/store'
 
 class Organization extends React.Component {
 	constructor(props,context){

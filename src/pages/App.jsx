@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import Header from '../components/header/index'
-import Menu from '../components/menu/index'
-import * as userinfoActions from '../store/userinfo/action'
+import Header from '@/components/header/index'
+import Menu from '@/components/menu/index'
+import * as userinfoActions from '@/store/userinfo/action'
 
 class App extends React.Component {
 

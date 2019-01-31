@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from '../../components/header/index'
-import Menu from '../../components/menu/index'
-import App from '../App'
-import store from '../../store/store'
+import Header from '@/components/header/index'
+import Menu from '@/components/menu/index'
+import App from '@/App'
+import store from '@/store/store'
 
 export default class Layout extends React.Component {
   render() {
