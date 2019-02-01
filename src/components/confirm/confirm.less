@@ -1,5 +1,14 @@
+@orange:#ffc900;
 .confirm {position: fixed;left: 0;top: 0;z-index: 99;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.3);
   .confirm_bg {width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;
-    .confirm_box {color: #333;border-radius: 3px;padding: 6px 10px;display:inline-block;max-width: 520px;}
+    .confirm_box {color: #333;background:#fff;border-radius: 3px;padding: 6px 10px;display:inline-block;max-width: 520px;}
+    .confirm_tit{font-size: 12px;}
+    .confirm_text{font-size: 14px;padding: 10px;text-align: center;}
+    .confirm_btn{
+      button{border-radius: 3px;padding:0 10px;height: 26px;line-height: 24px;font-size: 12px;
+        &:nth-child(1){background:@orange;border:1px solid @orange;color: #fff; }
+        &:nth-child(2){background:#fff;border:1px solid #d8d8d8; margin-left: 10px;}
+      }
+    }
   }
 }

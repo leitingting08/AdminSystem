@@ -20,13 +20,13 @@ function createNotification() {
 }
 
 let notification
-const notice = (content, btns, yes, no) => {
+const notice = (title, content, btns, yes, no) => {
   if (!notification) notification = createNotification()
-  return notification.addNotice({ content, btns, yes, no })
+  return notification.addNotice({ title, content, btns, yes, no })
 }
 
 export default {
-  open(content, btns, yes, no) {
-    return notice(content, btns, yes, no)
+  open(title, content, btns, yes, no) {
+    return notice(title, content, btns, yes, no)
   },
 }

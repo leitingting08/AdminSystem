@@ -61,16 +61,16 @@ export default class ToDo extends React.Component{
 		)
 	}
 	alertCallback(){
-		// Confrim.open('确定吗？',['确定'],
-		// 	yes=>(){console.log('yes');},
-		// 	no=>(){console.log('no');
-		// })
+		Confirm.open('提示','确定吗？',['确定'],
+			yes=>{
+				console.log('yes');
+			})
 	}
 	confirmCallback(){
-		// Confrim.open('确定吗？',['确定','取消'],
-		// 	yes=>(){console.log('yes');},
-		// 	no=>(){console.log('no');
-		// })
+		Confirm.open('提示','确定吗？',['确定','取消'],
+			yes=>{console.log('yes');},
+			no=>{console.log('no');
+		})
 	}
 	loadCallback(){
 		const hideLoading = Toast.loading('加载中...', 0, () => {

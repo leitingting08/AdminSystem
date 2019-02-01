@@ -20,11 +20,9 @@ export default class Confirm extends Component {
     notices[0] = notice;//仅展示最后一个提示
     
     this.setState({ notices })
-    if (notice.duration > 0) {
-      setTimeout(() => {
-        this.removeNotice(notice.key)
-      }, notice.duration)
-    }
+    // if (!notice.title) {
+    //   notice.title = '提示'
+    // }
     return () => { this.removeNotice(notice.key) }
   }
 
@@ -43,12 +41,13 @@ export default class Confirm extends Component {
           notices.map(notice => (
             <div className="confirm_bg" key={notice.key}>
               <span className='confirm_box'>
+                <div className='confirm_tit'>{notice.title}</div>
                 <div className='confirm_text'>{notice.content}</div>
                 <div className='confirm_btn'>
                 {
-                  notice.btn.map(button => (
-                    <button>{button}</button>
-                  ))
+                  notice.btns.map(function(btn,index){
+                   return <button key={index}>{btn}</button>
+                  })
                 }
                 </div> 
               </span>
