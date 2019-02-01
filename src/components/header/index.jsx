@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import List from './subpage/list';
 import { Link } from 'react-router-dom'
-import Alert from '../alert/index'
+import Alert from '@/components/alert'
 
 class Header extends React.Component {
  
@@ -55,10 +55,12 @@ class Header extends React.Component {
       title:'提示',
       content:'确认退出?',
       btn:['确定','取消'],
-      yes:function(i){
-        console.log('确定',i);
+      yes:function(){
+        console.log('确定');
+        localStorage.removeItem('USERINFO')
+        location.replace('#/login')
       },no:function(i){
-        console.log('取消',i);
+        console.log('取消');
       }
     })
   }

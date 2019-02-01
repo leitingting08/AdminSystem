@@ -5,7 +5,7 @@ import SelectCity from './subpage/selectCity'
 import { Tree } from 'antd';
 const { TreeNode } = Tree
 import Toast from '@/components/toast'
-import Confirm from '@/components/confirm'
+import Alert from '@/components/alert'
 
 import Mask from '@/components/mask'
 
@@ -61,16 +61,28 @@ export default class ToDo extends React.Component{
 		)
 	}
 	alertCallback(){
-		Confirm.open('提示','确定吗？',['确定'],
-			yes=>{
-				console.log('yes');
-			})
+		Alert.open({
+	      title:'提示',
+	      content:'确认退出?',
+	      btn:['确定'],
+	      yes:function(){
+	        console.log('确定');
+	      },no:function(){
+	        console.log('取消');
+	      }
+	   })
 	}
 	confirmCallback(){
-		Confirm.open('提示','确定吗？',['确定','取消'],
-			yes=>{console.log('yes');},
-			no=>{console.log('no');
-		})
+		Alert.open({
+	      title:'提示',
+	      content:'确认退出?',
+	      btn:['确定','取消'],
+	      yes:function(){
+	        console.log('确定');
+	      },no:function(){
+	        console.log('取消');
+	      }
+	   })
 	}
 	loadCallback(){
 		const hideLoading = Toast.loading('加载中...', 0, () => {
