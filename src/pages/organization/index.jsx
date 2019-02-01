@@ -25,7 +25,7 @@ class Organization extends React.Component {
 				          <input type="text" className="input search" placeholder="请输入部门名称"/>
 				          <i className="iconfont icon-sousuo"></i>
 				        </div>
-						<OrganizeTree treedata={this.state.treedata} />
+						<OrganizeTree treedata={this.state.treedata} toggleTree={this.toggleTree.bind(this)} showDepart={this.showDepart.bind(this)}/>
 					</div>
 					<div className="right-con bgcon txtleft">
 					    <div className="title"><i className="iconfont icon-zuzhi"></i>才华有限公司 <button className="btn">编辑</button></div>
@@ -129,11 +129,26 @@ class Organization extends React.Component {
 		})
 	}
 
-	toggle(item){
+	toggleTree(item){
 		console.log(item);
+		item.show = !item.show;
+		if(!item.show){
+			item.departs.forEach(i=>{
+				i.show = true
+			})
+		}else{
+			item.departs.forEach(i=>{
+				i.show = false
+			})
+		}
 		this.setState({
 			treedata:this.state.treedata
 		})
+	}
+
+	showDepart(item){
+		console.log(item);
+		this._sendShowemployeeServer({departmentName:item.departmentName})
 	}
 }
 

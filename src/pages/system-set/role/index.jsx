@@ -6,13 +6,13 @@ export default class Authorize extends React.Component {
 		super(props,context)
 		this.state = {
 			treedata:[
-			    {menuName: '公告管理', perName: [{name:'全部',checked:false}], menuChild: [
-			        {menuName: '公告管理',perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'发布',checked:false}]}
+			    {menuName: '公告管理',show:true,  perName: [{name:'全部',checked:false}], menuChild: [
+			        {menuName: '公告管理',show:false, perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'发布',checked:false}]}
 			      ]
 			    },
-			    {menuName: '人事管理', perName: [{name:'全部',checked:false}], menuChild: [
-			        {menuName: '员工档案', perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'编辑',checked:false}]},
-			        {menuName: '请假申请', perName: [{name:'全部',checked:false},{name:'申请',checked:false},{name:'查看',checked:false},{name:'审批',checked:false}]}
+			    {menuName: '人事管理', show:true, perName: [{name:'全部',checked:false}], menuChild: [
+			        {menuName: '员工档案', show:false, perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'编辑',checked:false}]},
+			        {menuName: '请假申请', show:false, perName: [{name:'全部',checked:false},{name:'申请',checked:false},{name:'查看',checked:false},{name:'审批',checked:false}]}
 			      ]
 			    }
 			]
@@ -50,7 +50,7 @@ export default class Authorize extends React.Component {
 					    {
 					    	this.state.treedata.length
 					    	?
-					    	<TableTree treedata={this.state.treedata}/>
+					    	<TableTree treedata={this.state.treedata} toggleClick={this.toggle.bind(this)} chooseClick={this.onChangeCheckbox.bind(this)}/>
 					    	:<div>暂无数据</div>
 					    }
 				  </div>
@@ -59,10 +59,26 @@ export default class Authorize extends React.Component {
 			)
 	}
 
+	toggle(item){
+		if(!item.menuChild[0].show){
+			item.menuChild.forEach(i=>{
+				i.show = true
+			})
+		}else{
+			item.menuChild.forEach(i=>{
+				i.show = false
+			})
+		}
+		this.setState({
+			treedata:this.state.treedata
+		})
+	}
+
 	onChangeCheckbox(item){
-		// item.checked = !item.checked
-		// this.setState = {
-		// 	treedata:this.state.treedata
-		// }
+		item.checked = !item.checked;
+		console.log(item);
+		this.setState({
+			treedata:this.state.treedata
+		})
 	}
 }

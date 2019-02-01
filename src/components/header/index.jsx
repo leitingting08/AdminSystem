@@ -52,7 +52,6 @@ class Header extends React.Component {
   }
   logout(){
     Alert.open({
-      title:'提示',
       content:'确认退出?',
       btn:['确定','取消'],
       yes:function(){
