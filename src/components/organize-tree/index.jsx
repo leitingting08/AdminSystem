@@ -4,13 +4,7 @@ import {bindActionCreators} from 'redux'
 import * as infoActions from '@/store/userinfo/action'
 
 
-class OrganizeTree extends React.Component {
-	// constructor(props,context){
-	// 	super(props,context)
-	// 	this.state = {
-	// 		treedata:[],
-	// 	}
-	// }
+export default class OrganizeTree extends React.Component {
 
 	render(){
 		let self = this;
@@ -35,7 +29,9 @@ class OrganizeTree extends React.Component {
 		)
 	}
 
-	toggle(item){
+	toggle(item,e){
+		// e.preventDefault();
+		// console.log(e)
 		this.props.toggleTree(item)
 	}
 
@@ -44,5 +40,3 @@ class OrganizeTree extends React.Component {
 	}
 
 }
-
-export default OrganizeTree

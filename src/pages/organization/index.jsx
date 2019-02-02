@@ -8,12 +8,14 @@ import * as infoActions from '@/store/userinfo/action'
 import store from '@/store/store'
 
 class Organization extends React.Component {
+
 	constructor(props,context){
 		super(props,context)
 		this.state = {
 			treedata:[],
 		}
 	}
+
 	render(){
 		let s = store.getState().organizeInfo
 		return(
@@ -121,10 +123,8 @@ class Organization extends React.Component {
 			data:param,
 			onSuccess:res=>{
 				console.log(res);
-
 				// 保存到redux里
 				this.props.organizeInfoActions.saveOrganizeINFO(res.data)
-
 			}
 		})
 	}
@@ -132,15 +132,15 @@ class Organization extends React.Component {
 	toggleTree(item){
 		console.log(item);
 		item.show = !item.show;
-		if(!item.show){
-			item.departs.forEach(i=>{
-				i.show = true
-			})
-		}else{
-			item.departs.forEach(i=>{
-				i.show = false
-			})
-		}
+		// if(!item.show){
+		// 	item.departs.forEach(i=>{
+		// 		i.show = true
+		// 	})
+		// }else{
+		// 	item.departs.forEach(i=>{
+		// 		i.show = false
+		// 	})
+		// }
 		this.setState({
 			treedata:this.state.treedata
 		})
