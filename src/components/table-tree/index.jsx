@@ -23,13 +23,13 @@ export default class TableTree extends React.Component {
 						<div className="w70 td txtleft pl20 brderleft0">
 						{
 						   item.perName.map(function(subitem,subindex){
-						   	  return <label key={subindex}><input type="checkbox" value={subitem.name} onChange={self.changeHandler.bind(self,subitem)}/><span className="mr20">{subitem.name}</span></label>
+						   	  return <label key={subindex}><input type="checkbox" value={subitem.name} onChange={self.changeHandler.bind(self,subitem,index)}/><span className="mr20">{subitem.name}</span></label>
 						   })
 						}
 						</div>
 						</div>
 						{
-							item.menuChild?<TableTree treedata={item.menuChild} chooseClick={self.changeHandler.bind(self,item)}/>:''
+							item.menuChild?<TableTree treedata={item.menuChild} chooseClick={self.changeHandler.bind(self,item.menuChild)}/>:''
 						}
 						</div>
 				  })
@@ -43,8 +43,18 @@ export default class TableTree extends React.Component {
 	toggle(item){
 		this.props.toggleClick(item)
 	}
-	changeHandler(item){
-		this.props.chooseClick(item)
+	changeHandler(item,index){
+		this.props.chooseClick(item,index)
+
+		// if(typeof index==='number'){
+		// 	if(index==0){
+		// 		console.log('下面全选');
+		// 	}
+		// 	this.props.chooseClick(item)
+		// }else{
+		// 	this.props.chooseClick(index)
+		// }
+		
 	}
 
 }

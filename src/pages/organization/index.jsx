@@ -130,14 +130,7 @@ class Organization extends React.Component {
 	}
 
 	toggleTree(item,index){
-		console.log(item);
-		console.log(index);
-		if(index==0){
-			item.show = !item.show;
-		}else{
-			index.show = !index.show;
-		}
-		
+		item.show = !item.show;
 		this.setState({
 			treedata:this.state.treedata
 		})
