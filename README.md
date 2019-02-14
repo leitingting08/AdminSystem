@@ -35,9 +35,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## 运行项目
 
-### 第一步：克隆项目到本地`git clone https://github.com/leitingting08/react-app.git`
-### 第二步：安装依赖`npm install`
-### 第三步：运行项目`npm start`，成功后打开localhost:8080可以看到页面
-### 第四步：运行mock接口数据`npm run mock`，成功后打开localhost:3030可以看到对应数据，如果有后端接口数据则替换接口地址
-### 第五步：待项目开发测试完成之后，项目打包上线`npm run build`，打包发布到生产环境
+#### 第一步：克隆项目到本地`git clone https://github.com/leitingting08/react-app.git`
+#### 第二步：安装依赖`npm install`
+#### 第三步：运行项目`npm start`，成功后打开localhost:8080可以看到页面
+#### 第四步：运行mock接口数据`npm run mock`，成功后打开localhost:3030可以看到对应数据，如果有后端接口数据则替换接口地址
+#### 第五步：待项目开发测试完成之后，项目打包上线`npm run build`，打包发布到生产环境
 
