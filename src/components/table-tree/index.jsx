@@ -45,16 +45,6 @@ export default class TableTree extends React.Component {
 	}
 	changeHandler(item,index){
 		this.props.chooseClick(item,index)
-
-		// if(typeof index==='number'){
-		// 	if(index==0){
-		// 		console.log('下面全选');
-		// 	}
-		// 	this.props.chooseClick(item)
-		// }else{
-		// 	this.props.chooseClick(index)
-		// }
-		
 	}
 
 }
