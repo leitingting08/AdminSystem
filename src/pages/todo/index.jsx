@@ -20,11 +20,18 @@ export default class ToDo extends React.Component{
 			treeData: [], //存放初始化加载的菜单内容，即第一层级菜单内容
 			TreeNodeData: [], //存放获取的子菜单内容
 			showCitySelect:false,
-			city:'北京'
+			city:'北京',
+			checklist:[
+				{name:'全选',checked:false},
+				{name:'张三',checked:false},
+				{name:'李四',checked:false},
+				{name:'王五',checked:false},
+			]
 		}
 	}
 
 	render(){
+		let _self = this;
 		return (
 			<div className="ToDo">
 			    <div>1. 这是个todolist的demo</div>
@@ -56,9 +63,41 @@ export default class ToDo extends React.Component{
 			    <div>4. 这是个confirm组件demo</div>
 			    <button className="mr20" onClick={this.alertCallback.bind(this)}>alert</button>
 			    <button className="mr20" onClick={this.confirmCallback.bind(this)}>confirm</button>
+			    <br/>
 
+			    <div>5. 这是全选取消全选的demo</div>
+
+			    {
+			    	this.state.checklist.length?
+			    	this.state.checklist.map(function(item,index){
+			    		return <div key={index}>
+			    		<label><input type="checkbox" onChange={_self.checkThis.bind(_self,item)} checked={item.checked}/>{item.name}</label>
+			    		</div>
+			    	})
+			    	:''
+			    }
+			    
 			</div>
 		)
+	}
+	checkThis(item){
+		item.checked = !item.checked;
+		if(item.name==='全选'){
+			if(item.checked){
+				this.state.checklist.forEach(i=>{
+					i.checked = true;
+				})
+			}else{
+				this.state.checklist.forEach(i=>{
+					i.checked = false;
+				})
+			}
+			
+		}
+		console.log(item);
+		this.setState({
+			checklist:this.state.checklist
+		})
 	}
 	alertCallback(){
 		Alert.open({
