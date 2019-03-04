@@ -64,7 +64,7 @@ export default class ToDo extends React.Component{
 			    <button className="mr20" onClick={this.alertCallback.bind(this)}>alert</button>
 			    <button className="mr20" onClick={this.confirmCallback.bind(this)}>confirm</button>
 			    <br/>
-
+			    <br/><br/><br/><br/><br/>
 			    <div>5. 这是全选取消全选的demo</div>
 
 			    {
@@ -94,11 +94,34 @@ export default class ToDo extends React.Component{
 			}
 			
 		}
+		let result = this.state.checklist.some(j=>{
+			if(!j.checked){
+				return true;
+			}
+		})
+
+		if(result){
+			this.state.checklist[0].checked = false;
+		}
+		
 		console.log(item);
+		
+		let len = this.state.checklist.length
+		let ev = true;
+		for(let a=1;a<len;a++){
+			if(!this.state.checklist[a].checked){
+				ev = false;
+			}
+		}
+		if(ev){
+			this.state.checklist[0].checked = true;
+		}
+
 		this.setState({
 			checklist:this.state.checklist
 		})
 	}
+
 	alertCallback(){
 		Alert.open({
 	      title:'提示',
