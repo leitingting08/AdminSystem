@@ -23,13 +23,13 @@ export default class TableTree extends React.Component {
 						<div className="w70 td txtleft pl20 brderleft0">
 						{
 						   item.perName.map(function(subitem,subindex){
-						   	  return <label key={subindex}><input type="checkbox" value={subitem.name} onChange={self.changeHandler.bind(self,subitem,index)}/><span className="mr20">{subitem.name}</span></label>
+						   	  return <label key={subindex}><input type="checkbox" value={subitem.name} checked={subitem.checked} onChange={self.changeHandler.bind(self,subitem,index)}/><span className="mr20">{subitem.name}</span></label>
 						   })
 						}
 						</div>
 						</div>
 						{
-							item.menuChild?<TableTree treedata={item.menuChild} chooseClick={self.changeHandler.bind(self,item.menuChild)}/>:''
+							item.menuChild?<TableTree treedata={item.menuChild} chooseClick={self.changeHandler.bind(self,item.menuChild,index)}/>:''
 						}
 						</div>
 				  })
