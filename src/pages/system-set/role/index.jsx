@@ -74,27 +74,12 @@ export default class Authorize extends React.Component {
 		})
 	}
 
-	onChangeCheckbox(item,index){
-		if(item instanceof Array){
-			
-		}else{
-		   item.checked=!item.checked
-		}
-		// 
-		// if(typeof index==='number'){
-		// 	this.state.treedata[index].perName.forEach(i=>{
-		// 		i.checked = true;
-		// 	})
-		// 	this.state.treedata[index].menuChild.forEach(j=>{
-		// 		j.perName.forEach(m=>{
-		// 			m.checked = true;
-		// 		})
-		// 	})
-		// }
+	onChangeCheckbox(item,subindex,index,type){
+		item.checked=!item.checked
 		console.log(item);
+		console.log(subindex);
 		console.log(index);
-		// item.checked = !item.checked;
-		// console.log(item);
+		console.log(type);
 		this.setState({
 			treedata:this.state.treedata
 		})

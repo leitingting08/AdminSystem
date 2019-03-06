@@ -23,13 +23,20 @@ export default class TableTree extends React.Component {
 						<div className="w70 td txtleft pl20 brderleft0">
 						{
 						   item.perName.map(function(subitem,subindex){
-						   	  return <label key={subindex}><input type="checkbox" value={subitem.name} checked={subitem.checked} onChange={self.changeHandler.bind(self,subitem,index)}/><span className="mr20">{subitem.name}</span></label>
+						   	  return <label key={subindex}>
+						   	  {subitem.name==='全部'?
+						   	  <input type="checkbox" value={subitem.name} checked={subitem.checked} onChange={self.changeHandler.bind(self,subitem,subindex,index,'allcheck')}/>
+						   	  :<input type="checkbox" value={subitem.name} checked={subitem.checked} onChange={self.changeHandler.bind(self,subitem,subindex)}/>
+						   	}
+						   	  
+						   	  <span className="mr20">{subitem.name}</span></label>
 						   })
+
 						}
 						</div>
 						</div>
 						{
-							item.menuChild?<TableTree treedata={item.menuChild} chooseClick={self.changeHandler.bind(self,item.menuChild,index)}/>:''
+							item.menuChild?<TableTree treedata={item.menuChild} chooseClick={self.changeHandler.bind(self)}/>:''
 						}
 						</div>
 				  })
@@ -43,8 +50,13 @@ export default class TableTree extends React.Component {
 	toggle(item){
 		this.props.toggleClick(item)
 	}
-	changeHandler(item,index){
-		this.props.chooseClick(item,index)
+	changeHandler(item,subindex,index,type){
+		if(type){
+			this.props.chooseClick(item,subindex,index,type)
+		}else{
+			this.props.chooseClick(item,subindex)
+		}
+		
 	}
 
 }
