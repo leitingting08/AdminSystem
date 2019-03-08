@@ -75,7 +75,23 @@ export default class Authorize extends React.Component {
 	}
 
 	onChangeCheckbox(item,subindex,index,type){
-		item.checked=!item.checked
+		if(item.menuName){ // 点击的是全选
+			item.perName[0].checked = !item.perName[0].checked
+			if(item.menuChild){
+				let flag = item.perName[0].checked;
+				item.menuChild.forEach(m=>{
+					m.perName.forEach(n=>{
+						n.checked = flag
+					})
+				})
+			}else{
+				let flag2 = item.perName[0].checked;
+				item.perName.forEach(i=>{i.checked = flag2;})
+			}
+		}else{
+			item.checked=!item.checked
+		}
+		
 		console.log(item);
 		console.log(subindex);
 		console.log(index);

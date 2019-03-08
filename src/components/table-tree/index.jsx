@@ -25,7 +25,7 @@ export default class TableTree extends React.Component {
 						   item.perName.map(function(subitem,subindex){
 						   	  return <label key={subindex}>
 						   	  {subitem.name==='全部'?
-						   	  <input type="checkbox" value={subitem.name} checked={subitem.checked} onChange={self.changeHandler.bind(self,subitem,subindex,index,'allcheck')}/>
+						   	  <input type="checkbox" value={subitem.name} checked={subitem.checked} onChange={self.changeHandler.bind(self,item,subindex,index,'allcheck')}/>
 						   	  :<input type="checkbox" value={subitem.name} checked={subitem.checked} onChange={self.changeHandler.bind(self,subitem,subindex)}/>
 						   	}
 						   	  
