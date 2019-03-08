@@ -7,12 +7,12 @@ export default class Authorize extends React.Component {
 		this.state = {
 			treedata:[
 			    {menuName: '公告管理',show:true,  perName: [{name:'全部',checked:false}], menuChild: [
-			        {menuName: '公告管理',show:false, perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'发布',checked:false}]}
+			        {menuName: '公告管理',show:true, perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'发布',checked:false}]}
 			      ]
 			    },
 			    {menuName: '人事管理', show:true, perName: [{name:'全部',checked:false}], menuChild: [
-			        {menuName: '员工档案', show:false, perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'编辑',checked:false}]},
-			        {menuName: '请假申请', show:false, perName: [{name:'全部',checked:false},{name:'申请',checked:false},{name:'查看',checked:false},{name:'审批',checked:false}]}
+			        {menuName: '员工档案', show:true, perName: [{name:'全部',checked:false},{name:'查看',checked:false},{name:'编辑',checked:false}]},
+			        {menuName: '请假申请', show:true, perName: [{name:'全部',checked:false},{name:'申请',checked:false},{name:'查看',checked:false},{name:'审批',checked:false}]}
 			      ]
 			    }
 			]
@@ -30,10 +30,10 @@ export default class Authorize extends React.Component {
 			    </div>
 			    <div className="input-wrap">
 			      <label>管理范围：</label>
-			      <label className="forlabel"><input type="radio" name="range" className="input radio"/>仅个人</label>
-			      <label className="forlabel"><input type="radio" name="range" className="input radio"/>全公司</label>
-			      <label className="forlabel"><input type="radio" name="range" className="input radio"/>所在部门及其下级部门</label>
-			      <label className="forlabel"><input type="radio" name="range" className="input radio"/>特定部门</label>
+			      <label className="forlabel"><input type="radio" name="range" className="input radio" value="0"/>仅个人</label>
+			      <label className="forlabel"><input type="radio" name="range" className="input radio" value="1"/>全公司</label>
+			      <label className="forlabel"><input type="radio" name="range" className="input radio" value="2"/>所在部门及其下级部门</label>
+			      <label className="forlabel"><input type="radio" name="range" className="input radio" value="3"/>特定部门</label>
 			    </div>
 			    <div className="input-wrap">
 			      <label>权限范围：</label>
