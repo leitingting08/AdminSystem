@@ -56,5 +56,11 @@ export default class InterfaceServer{
         const url = PublicMethod.getUrl('/api/roleadmin')
         PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
     }
+
+    sendApproversServer(opt){ // 获取审批人信息
+        const data = PublicMethod.setData(opt)
+        const url = PublicMethod.getUrl('/api/approvers')
+        PublicMethod.postServer({url, data , onSuccess:opt.onSuccess, onFailed:opt.onFalied})
+    }
     
 }

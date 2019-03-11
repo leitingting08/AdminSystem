@@ -232,6 +232,32 @@ router.post('/api/roleadmin',koaBody, async(ctx,next)=>{
         msg:'获取数据成功'
     }
 })
+
+// 审批人列表
+router.post('/api/approvers',koaBody, async(ctx,next)=>{
+    ctx.response.body = {
+        status:true,
+        data:[
+        {emId:'N01',approvalName:'柠檬1',roleName:'测试主管'},
+        {emId:'N02',approvalName:'柠檬2',roleName:'培训主管'},
+        {emId:'N03',approvalName:'柠檬3',roleName:'开发主管'},
+        {emId:'N04',approvalName:'柠檬4',roleName:'前端主管'},
+        {emId:'N05',approvalName:'柠檬5',roleName:'技术经理'},
+        {emId:'N06',approvalName:'柠檬6',roleName:'产品经理'},
+        {emId:'N07',approvalName:'柠檬7',roleName:'营销总监'},
+        {emId:'N08',approvalName:'柠檬8',roleName:'运营总监'},
+        {emId:'N09',approvalName:'柠檬9',roleName:'CEO'},
+        {emId:'N10',approvalName:'柠檬10',roleName:'CTO'},
+        {emId:'N11',approvalName:'柠檬11',roleName:'COO'},
+        {emId:'N12',approvalName:'柠檬12',roleName:'CFO'},
+        {emId:'N13',approvalName:'柠檬13',roleName:'HRD'},
+        {emId:'N14',approvalName:'柠檬14',roleName:'HRM'},
+        {emId:'N15',approvalName:'柠檬15',roleName:'HRBP'},
+        {emId:'N16',approvalName:'柠檬16',roleName:'董事长'},
+        ],
+        msg:'获取数据成功'
+    }
+})
 // add router middleware:
 app.use(router.routes());
 

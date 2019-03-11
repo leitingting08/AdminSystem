@@ -77,7 +77,7 @@ class Dialog extends Component {
                 <div className="dialog-mask" onClick={self.close.bind(self)}>
                     <div className="dialog-outter" onClick={self.prevent.bind(self)}>
                         <div className="dialog-title clearFix"><span className="fl font15">{this.state.title}</span> <i className="fr iconfont icon-guanbi font14" onClick={self.close.bind(self)}></i></div>
-                        <div className="dialog-wrap">{this.state.children}</div>
+                        <div className="dialog-wrap" onClick={self.close.bind(self)}>{this.state.children}</div>
                     </div>
                 </div>
             </div>

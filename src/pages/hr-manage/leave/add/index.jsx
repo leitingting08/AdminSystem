@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { DatePicker } from 'antd';
 import Dialog from '@/components/dialog'
+import Alert from '@/components/alert'
 import Approver from '@/components/approver'
 
 
@@ -15,8 +16,15 @@ function onOk(value) {
 }
 
 export default class LeaveAdd extends React.Component {
+    constructor(props,context){
+    	super(props,context)
+    	this.state = {
+    		approvers:[]
+    	}
+    }
 
 	render(){
+		let that = this;
 		return(
 			<div className="LeaveAdd">
 			  <div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span>><span className="font12">新增</span></div>
@@ -59,6 +67,14 @@ export default class LeaveAdd extends React.Component {
 			    </div>
 			    <div className="input-wrap">
 			      <label>添加审批人：</label>
+			      {
+			      	this.state.approvers.map(function(item,index){
+			      		return <div key={index} className="spec-wrap" onClick={that.delApprover.bind(that,item,index)}>
+			      		<div className="spec txtcenter">{item.approvalName}</div>
+			      		<div className="font12 txtcenter">{item.roleName}</div>
+			      		</div>
+			      	})
+			      }
 			      <i className="iconfont icon-add1" onClick={this.addApproval.bind(this)}></i>
 			    </div>    
 			  </div>
@@ -70,19 +86,41 @@ export default class LeaveAdd extends React.Component {
 	}
 
 	addApproval(){
+		let _this = this;
 		Dialog.open({
 		  title:'选择审批人',
 	      children:[Approver],
 	      props:{
-	      	showValue:function(){
-	      		// this._close();
-	      		console.log('...dialog嵌套子组件');
+	      	showValue:function(item){
+	      		console.log(item);
+	      		_this.state.approvers.push(item)
+	      		_this.setState({
+	      			approvers:_this.state.approvers
+	      		})
 	      	}
 	      },
 	      closeDialog:function(){
 	      	console.log('guanbi');
 	      }
 	    })
+	}
+
+	delApprover(item,index){
+		let _this = this;
+		Alert.open({
+			content:`确认删除${item.approvalName}?`,
+			btn:['确定','取消'],
+			yes:function(){
+				console.log('确定');
+				_this.state.approvers.splice(index,1)
+				_this.setState({
+	      			approvers:_this.state.approvers
+	      		})
+			},
+			no:function(){
+				console.log('取消');
+			}
+		})
 	}
 
 }

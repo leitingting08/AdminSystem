@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Pagination } from 'antd';
-import InterfaceServer from '../../../axios/interface'
+import InterfaceServer from '@/axios/interface'
 const interfaceServer = new InterfaceServer();
 import {Link} from 'react-router-dom'
 
