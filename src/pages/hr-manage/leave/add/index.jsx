@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { DatePicker } from 'antd';
+import Alert from '@/components/alert'
+
 
 const { RangePicker } = DatePicker;
 function onChange(value, dateString) {
@@ -56,6 +58,7 @@ export default class LeaveAdd extends React.Component {
 			    </div>
 			    <div className="input-wrap">
 			      <label>添加审批人：</label>
+			      <i className="iconfont icon-add1" onClick={this.addApproval.bind(this)}></i>
 			    </div>    
 			  </div>
 			  <div className="row">
@@ -63,6 +66,17 @@ export default class LeaveAdd extends React.Component {
 		      </div>
 			</div>
 			)
+	}
+
+	addApproval(){
+		Alert.open({
+	      content:'aa',
+	      yes:function(){
+	        console.log('确定');
+	      },no:function(i){
+	        console.log('取消');
+	      }
+	    })
 	}
 
 }
