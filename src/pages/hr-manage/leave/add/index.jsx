@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { DatePicker } from 'antd';
-import Alert from '@/components/alert'
+import Dialog from '@/components/dialog'
+import Approver from '@/components/approver'
 
 
 const { RangePicker } = DatePicker;
@@ -69,12 +70,17 @@ export default class LeaveAdd extends React.Component {
 	}
 
 	addApproval(){
-		Alert.open({
-	      content:'aa',
-	      yes:function(){
-	        console.log('确定');
-	      },no:function(i){
-	        console.log('取消');
+		Dialog.open({
+		  title:'选择审批人',
+	      children:[Approver],
+	      props:{
+	      	showValue:function(){
+	      		// this._close();
+	      		console.log('...dialog嵌套子组件');
+	      	}
+	      },
+	      closeDialog:function(){
+	      	console.log('guanbi');
 	      }
 	    })
 	}
