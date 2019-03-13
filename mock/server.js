@@ -50,13 +50,13 @@ router.post('/api/login',koaBody, async(ctx,next)=>{
         ctx.response.body = {
             status:true,
             data:null,
-            mag:'登录成功'
+            msg:'登录成功'
         }
     } else {
         ctx.response.body = {
             status:false,
             data:null,
-            mag:'用户名或密码错误'
+            msg:'用户名或密码错误'
         }
     }
 })

@@ -1,5 +1,7 @@
 import axios from './axios'
 import { baseUrl} from '../../public/environment'
+import Alert from '@/components/alert'
+import Toast from '@/components/toast'
 
 export default class PublicFn {
   getUrl(url){
@@ -15,7 +17,8 @@ export default class PublicFn {
     axios.post(opt.url, data).then((res) => {
       if (opt.onSuccess) {
         if(!res.data.status){ // 如果后端返回status为false，会弹出后端提示的错误信息
-          
+          // Toast.error(res.data.msg)
+          Alert.open({content:res.data.msg})
           if (opt.onFailed) { // 如果是请求失败，失败回调
             opt.onFailed(res);
           }

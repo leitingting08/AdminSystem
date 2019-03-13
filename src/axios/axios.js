@@ -1,5 +1,5 @@
 import axios from 'axios'
-import loading from '@/components/loading/index'
+import loading from '@/components/loading'
 
 // 设置超时时间
 axios.defaults.timeout = 10000
