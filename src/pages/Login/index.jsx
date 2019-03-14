@@ -62,12 +62,20 @@ export default class Login extends React.Component {
   }
 
   userlogin(e){
-  	let that = this;
-	  that.setState({loginParams:{username:e.target.value}})
+	  this.setState({
+      loginParams:{
+        username:e.target.value,
+        password:this.state.loginParams.password
+      }
+    })
   }
 
   loginpass(e){
-  	let that = this;
-	  that.setState({loginParams:{password:e.target.value}})
+	  this.setState({
+      loginParams:{
+        password:e.target.value,
+        username:this.state.loginParams.username
+      }
+    })
   }
 }
