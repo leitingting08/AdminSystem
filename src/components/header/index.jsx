@@ -8,13 +8,14 @@ class Header extends React.Component {
   constructor(props, context){
     super(props,context)
     this.state = {
-      showul:false
+      showul:false,
+      showtoggletheme:false
     }
   }
   render() {
     return (
       <div className="Header">
-      {this.state.showul?
+      {this.state.showul||this.state.showtoggletheme?
         <div className="bgbody" onClick={this.hideName.bind(this)}></div>:''
       }
         <div className="title flex">
@@ -22,6 +23,14 @@ class Header extends React.Component {
           <span className="font16">{this.props.title}</span>
           </div>
 	        <div className="w50 txtright pr20">
+            <span className="changeTheme" onClick={this.toggleTheme.bind(this)}>更换主题</span>
+            <ul className={`opeartion theme ${this.state.showtoggletheme?'show':'hide'}`}>
+                <span className="trangle"></span>
+                <li>
+                  <input type="text" placeholder="请输入颜色值enter" onChange={this.changeTheme.bind(this)}/>
+                  <button></button>
+                </li>
+            </ul>
           <i className="iconfont icon-xinxi mr20"></i>
              <span className="username" onClick={this.clickUserName.bind(this)}>{this.props.username}
              <i className={`iconfont mr20 font30 ${this.state.showul?'icon-arrow-up-2':'icon-arrowdropdown'}`}></i>
@@ -36,6 +45,20 @@ class Header extends React.Component {
         </div>
       </div>
     )
+  }
+  changeTheme(e){
+    console.log(e)
+    var event = e || window.event;
+    var key = event.which || event.keyCode || event.charCode;
+    if (key == 13) {
+      /*Do something. 调用一些方法*/ 
+      console.log(e)
+    }
+  }
+  toggleTheme(){
+    this.setState({
+      showtoggletheme:!this.state.showtoggletheme
+    })
   }
   clickUserName(){
     this.setState({
