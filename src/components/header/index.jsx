@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import List from './subpage/list';
 import { Link } from 'react-router-dom'
 import Alert from '@/components/alert'
+import axios from '../../axios/axios';
+
 
 class Header extends React.Component {
  
@@ -27,8 +29,9 @@ class Header extends React.Component {
             <ul className={`opeartion theme ${this.state.showtoggletheme?'show':'hide'}`}>
                 <span className="trangle"></span>
                 <li>
-                  <input type="text" placeholder="请输入颜色值enter" onChange={this.changeTheme.bind(this)}/>
-                  <button></button>
+                  <label>主题色：</label>
+                  <input type="text" placeholder="请输入颜色值" />
+                  <button className="btn confirm_btn"onClick={() => {this.handleColorChange('#3d91eb')}}>确定</button>
                 </li>
             </ul>
           <i className="iconfont icon-xinxi mr20"></i>
@@ -46,15 +49,35 @@ class Header extends React.Component {
       </div>
     )
   }
-  changeTheme(e){
-    console.log(e)
-    var event = e || window.event;
-    var key = event.which || event.keyCode || event.charCode;
-    if (key == 13) {
-      /*Do something. 调用一些方法*/ 
-      console.log(e)
-    }
-  }
+
+  handleColorChange (color) {
+      const changeColor = () => {
+        var less = require('less');
+          less.modifyVars({  // 调用 `less.modifyVars` 方法来改变变量值
+                  '@primary-color': '#ff6600',
+                  '@themeColor':color
+              })
+              .then(() => {
+                  console.log('修改成功');
+              });
+      };
+      const lessUrl =
+          'https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js';
+
+      if (this.lessLoaded) {
+          changeColor();
+      } else {
+          less = {
+              async: true,
+          };
+
+          axios.get(lessUrl).then(() => {
+              this.lessLoaded = true;
+              changeColor();
+          });
+      }
+  };
+
   toggleTheme(){
     this.setState({
       showtoggletheme:!this.state.showtoggletheme

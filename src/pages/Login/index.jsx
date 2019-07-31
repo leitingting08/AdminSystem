@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../less/login.less'
+// import '../../less/login.less'
 import InterfaceServer from '../../axios/interface'
 const interfaceServer = new InterfaceServer();
 

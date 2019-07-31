@@ -6,7 +6,8 @@ import FastClick from 'fastclick'
 import { HashRouter, hashHistory } from 'react-router-dom'
 import { AppContainer } from 'react-hot-loader';
 import store from './store/store'
-import './less/public.less'
+// import '~antd/dist/antd.less';
+// import './less/public.less'
 
 FastClick.attach(document.body)
 window.store = store
