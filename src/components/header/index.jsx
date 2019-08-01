@@ -54,8 +54,8 @@ class Header extends React.Component {
       const changeColor = () => {
         var less = require('less');
           less.modifyVars({  // 调用 `less.modifyVars` 方法来改变变量值
-                  '@primary-color': '#ff6600',
-                  '@themeColor':color
+                  '@primary-color': '#ff0000',
+                  '@themeColor':'#ff0000'
               })
               .then(() => {
                   console.log('修改成功');
