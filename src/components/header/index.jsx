@@ -3,6 +3,7 @@ import List from './subpage/list';
 import { Link } from 'react-router-dom'
 import Alert from '@/components/alert'
 import axios from '../../axios/axios';
+import { Button } from 'antd';
 
 
 class Header extends React.Component {
@@ -11,7 +12,8 @@ class Header extends React.Component {
     super(props,context)
     this.state = {
       showul:false,
-      showtoggletheme:false
+      showtoggletheme:false,
+      '@primary-color': '#dddddd'
     }
   }
   render() {
@@ -25,13 +27,13 @@ class Header extends React.Component {
           <span className="font16">{this.props.title}</span>
           </div>
 	        <div className="w50 txtright pr20">
-            <span className="changeTheme" onClick={this.toggleTheme.bind(this)}>更换主题</span>
+            <Button type="link" onClick={this.toggleTheme.bind(this)}>更换主题</Button>
             <ul className={`opeartion theme ${this.state.showtoggletheme?'show':'hide'}`}>
                 <span className="trangle"></span>
                 <li>
                   <label>主题色：</label>
-                  <input type="text" placeholder="请输入颜色值" />
-                  <button className="btn confirm_btn"onClick={() => {this.handleColorChange('#3d91eb')}}>确定</button>
+                  <input type="text" placeholder="请输入颜色值" onChange={this.changeColors.bind(this)}/>
+                  <Button type="primary" onClick={() => {this.handleColorChange()}}>确定</Button>
                 </li>
             </ul>
           <i className="iconfont icon-xinxi mr20"></i>
@@ -50,33 +52,47 @@ class Header extends React.Component {
     )
   }
 
-  handleColorChange (color) {
-      const changeColor = () => {
-        var less = require('less');
-          less.modifyVars({  // 调用 `less.modifyVars` 方法来改变变量值
-                  '@primary-color': '#ff0000',
-                  '@themeColor':'#ff0000'
-              })
-              .then(() => {
-                  console.log('修改成功');
-              });
-      };
-      const lessUrl =
-          'https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js';
+  changeColors(e){
+    const color = e.target.value;
+    console.log(color)
+    if (color.match(/^#[a-f0-9]{3,6}$/i)) {
+      const vars = this.state.vars;
+      vars['@primary-color'] = color;
+      this.setState({ vars });
+    }
+  }
 
-      if (this.lessLoaded) {
-          changeColor();
-      } else {
-          less = {
-              async: true,
-          };
+  handleColorChange(){
+    window.less.modifyVars(this.state.vars).then(() => {
+      console.log('Theme updated successfully');
+    });
+  }
+  // handleColorChange (color) {
+  //     const changeColor = () => {
+  //       var less = require('less');
+  //         less.modifyVars({  // 调用 `less.modifyVars` 方法来改变变量值
+  //                 '@primary-color':'#ff0000'
+  //             })
+  //             .then(() => {
+  //                 console.log('修改成功');
+  //             });
+  //     };
+  //     const lessUrl =
+  //         'https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js';
 
-          axios.get(lessUrl).then(() => {
-              this.lessLoaded = true;
-              changeColor();
-          });
-      }
-  };
+  //     if (this.lessLoaded) {
+  //         changeColor();
+  //     } else {
+  //         less = {
+  //             async: true,
+  //         };
+
+  //         axios.get(lessUrl).then(() => {
+  //             this.lessLoaded = true;
+  //             changeColor();
+  //         });
+  //     }
+  // };
 
   toggleTheme(){
     this.setState({

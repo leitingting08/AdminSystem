@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InterfaceServer from '../../../axios/interface'
 const interfaceServer = new InterfaceServer();
+import { Button } from 'antd';
 
 export default class RoleSet extends React.Component {
 	constructor(props,context){
@@ -14,9 +15,9 @@ export default class RoleSet extends React.Component {
 	render(){
 		return(
 			<div className="RoleSet">
-			  <div className="nav col666"><span>系统管理</span>><span className="font12">权限设置</span><button className="btn ml20">新增</button></div>
+			  <div className="nav col666"><span>系统管理</span>><span className="font12">权限设置</span><Button type="primary" className="ml20">新增</Button></div>
 			  <div className="bgcon">
-			  	  <div className="txtleft mb20">超级管理员 <button className="btn">+新增</button></div>
+			  	  <div className="txtleft mb20">超级管理员 <Button type="primary">+新增</Button></div>
 				  <table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 					    <thead>
 					    <tr>
@@ -33,7 +34,7 @@ export default class RoleSet extends React.Component {
 					    		return <tr key={index}>
 					    		<td>{item.username}</td>
 					    		<td>{item.phoneNumber}</td>
-					    		<td><a className="linka">删除</a></td>
+					    		<td><Button type="link">删除</Button></td>
 					    		</tr>
 					    	})
 					    	:<tr><td colSpan="3">暂无数据</td></tr>
@@ -42,7 +43,7 @@ export default class RoleSet extends React.Component {
 				  </table>
 			  </div>
 			  <div className="bgcon">
-			  	  <div className="txtleft mb20">角色权限 <button className="btn" onClick={this.addRole.bind(this)}>+新增</button></div>
+			  	  <div className="txtleft mb20">角色权限 <Button type="primary" onClick={this.addRole.bind(this)}>+新增</Button></div>
 				  <table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
 					    <thead>
 					    <tr>
@@ -59,7 +60,7 @@ export default class RoleSet extends React.Component {
 					    		return <tr key={index}>
 					    		<td>{item.roleName}</td>
 					    		<td>{item.roleAdmin}</td>
-					    		<td><a className="linka">编辑</a>&nbsp;&nbsp;<a className="linka">删除</a></td>
+					    		<td><Button type="link">编辑</Button>&nbsp;&nbsp;<Button type="link">删除</Button></td>
 					    		</tr>
 					    	})
 					    	:<tr><td colSpan="3">暂无数据</td></tr>

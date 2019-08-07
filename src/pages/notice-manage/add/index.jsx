@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'antd';
 
 export default class NoticeAdd extends React.Component {
   render() {
@@ -26,7 +27,7 @@ export default class NoticeAdd extends React.Component {
 			    
 			  </div>
 			  <div className="row">
-		         <button className="btn">提交</button>
+		         <Button type="primary">提交</Button>
 		      </div>
       </div>
     )

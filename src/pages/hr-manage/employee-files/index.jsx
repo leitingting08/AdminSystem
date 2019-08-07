@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InterfaceServer from '../../../axios/interface'
 const interfaceServer = new InterfaceServer();
-import { Pagination } from 'antd';
+import { Pagination,Button } from 'antd';
 
 export default class EmployeeFiles extends React.Component {
 	constructor(props,context){
@@ -15,7 +15,7 @@ export default class EmployeeFiles extends React.Component {
 	render(){
 		return(
 			<div className="EmployeeFiles">
-			  <div className="nav col666"><span>人事管理</span>><span className="font12">员工档案</span><button className="btn ml20" onClick={this.addFiles.bind(this)}>新增</button></div>
+			  <div className="nav col666"><span>人事管理</span>><span className="font12">员工档案</span><Button type="primary" className="ml20" onClick={this.addFiles.bind(this)}>新增</Button></div>
 			  <div className="bgcon clearFix">
 			    <div className="input-wrap fl">
 			      <label>员工编号：</label>
@@ -26,7 +26,7 @@ export default class EmployeeFiles extends React.Component {
 			      <input type="text" className="input"/>
 			    </div>
 			    <div className="input-wrap fl">
-			  		<button className="btn search-btn">查询</button>
+			  		<Button type="primary" >查询</Button>
 			  	</div>
 			  </div>
 

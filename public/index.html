@@ -24,8 +24,6 @@
     -->
     <title>React App</title>
     <link rel="stylesheet" type="text/css" href="./iconfont/iconfont.css" />
-    <link rel="stylesheet/less" type="text/css" href="./src/less/login.less" />
-    <link rel="stylesheet/less" type="text/css" href="./src/less/public.less" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -41,5 +39,11 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+<script>
+  window.less = {
+    async: true,
+    env: 'production'
+  };
+</script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 </html>

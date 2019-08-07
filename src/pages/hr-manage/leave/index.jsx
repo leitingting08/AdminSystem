@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pagination } from 'antd';
+import { Pagination,Button } from 'antd';
 import InterfaceServer from '@/axios/interface'
 const interfaceServer = new InterfaceServer();
 import {Link} from 'react-router-dom'
@@ -17,7 +17,7 @@ export default class Leave extends React.Component {
 	render(){
 		return(
 			<div className="Leave">
-				<div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span><Link to="/hrmanage/leave/add" className="btn ml20">新增</Link></div>
+				<div className="nav col666"><span>人事管理</span>><span className="font12">请假申请</span><Link to="/hrmanage/leave/add" className="btn ml20"><Button type="primary">新增</Button></Link></div>
 			    <div className="bgcon clearFix">
 				    <div className="input-wrap fl">
 				      <label>员工编号：</label>
@@ -28,7 +28,7 @@ export default class Leave extends React.Component {
 				      <input type="text" className="input"/>
 				    </div>
 				    <div className="input-wrap fl">
-				  		<button className="btn search-btn">查询</button>
+				  		<Button type="primary">查询</Button>
 				  	</div>
 			    </div>
 			    <div className="bgcon">
@@ -58,7 +58,7 @@ export default class Leave extends React.Component {
 				    		<td>{item.startTime}至{item.endTime}</td>
 				    		<td>{item.leaveTime}</td>
 				    		<td>{item.applyState}</td>
-				    		<td><a className="linka">查看详情</a></td>
+				    		<td><Button type="link">查看详情</Button></td>
 				    		</tr>
 				    	})
 				    	:<tr><td colSpan="8">暂无数据</td></tr>

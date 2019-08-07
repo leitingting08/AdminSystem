@@ -3,6 +3,7 @@ import { DatePicker } from 'antd';
 import Dialog from '@/components/dialog'
 import Alert from '@/components/alert'
 import Approver from '@/components/approver'
+import { Button } from 'antd';
 
 
 const { RangePicker } = DatePicker;
@@ -79,7 +80,7 @@ export default class LeaveAdd extends React.Component {
 			    </div>    
 			  </div>
 			  <div className="row">
-		         <button className="btn submit">提交</button>
+		         <Button type="primary">提交</Button>
 		      </div>
 			</div>
 			)

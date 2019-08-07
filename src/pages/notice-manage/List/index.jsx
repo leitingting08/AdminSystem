@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InterfaceServer from '../../../axios/interface'
 const interfaceServer = new InterfaceServer();
-import { Pagination } from 'antd';
+import { Pagination, Button } from 'antd';
 
 export default class NoticeList extends React.Component {
 	constructor(props,context){
@@ -15,7 +15,7 @@ export default class NoticeList extends React.Component {
   render() {
     return (
       <div className="NoticeList">
-        <div className="nav col666"><span>公告管理</span>><span className="font12">公告列表</span><button className="btn ml20" onClick={this.addFiles.bind(this)}>新增</button></div>
+        <div className="nav col666"><span>公告管理</span>><span className="font12">公告列表</span><Button type="primary" className="ml20" onClick={this.addFiles.bind(this)}>新增</Button></div>
 			  <div className="bgcon clearFix">
 			    <div className="input-wrap fl">
 			      <label>日期：</label>
@@ -26,7 +26,7 @@ export default class NoticeList extends React.Component {
 			      <input type="text" className="input"/>
 			    </div>
 			    <div className="input-wrap fl">
-			  		<button className="btn search-btn">查询</button>
+			  		<Button type="primary">查询</Button>
 			  	</div>
 			  </div>
 
@@ -46,7 +46,7 @@ export default class NoticeList extends React.Component {
 				    	?
 				    	this.state.filelists.map(function(item,index){
 				    		return <tr key={index}>
-				    		<td><a className="linka">{item.title}</a></td>
+				    		<td><Button type="link">{item.title}</Button></td>
 				    		<td>{item.createName}</td>
 				    		<td>{item.creatTime}</td>
 				    		<td>{item.receiveName}</td>

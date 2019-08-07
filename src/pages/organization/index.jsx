@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as infoActions from '@/store/userinfo/action'
 import store from '@/store/store'
+import { Button } from 'antd';
 
 class Organization extends React.Component {
 
@@ -30,8 +31,8 @@ class Organization extends React.Component {
 						<OrganizeTree treedata={this.state.treedata} toggleTree={this.toggleTree.bind(this)} showDepart={this.showDepart.bind(this)}/>
 					</div>
 					<div className="right-con bgcon txtleft">
-					    <div className="title"><i className="iconfont icon-zuzhi"></i>才华有限公司 <button className="btn">编辑</button></div>
-					    <div className="title bt1p"><i className="iconfont icon-bumen"></i>下级部门 <button className="btn">增加</button></div>
+					    <div className="title"><i className="iconfont icon-zuzhi"></i>才华有限公司 <Button type="primary">编辑</Button></div>
+					    <div className="title bt1p"><i className="iconfont icon-bumen"></i>下级部门 <Button type="primary">增加</Button></div>
 					    {
 					    	s.department&&s.department.length?
 					    	<table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
@@ -48,7 +49,7 @@ class Organization extends React.Component {
 					    				return <tr key={index}>
 					    					<td>{item.departmentName}</td>
 					    					<td>{item.supervisor}</td>
-					    					<td><a className="linka">编辑</a><a className="linka">删除</a></td>
+					    					<td><Button type="link">编辑</Button><Button type="link">删除</Button></td>
 					    				</tr>
 					    			})
 					    		}
@@ -56,7 +57,7 @@ class Organization extends React.Component {
 					    	</table>
 					    	:<div>暂无下级部门</div>
 					    }
-					    <div className="title bt1p"><i className="iconfont icon-bumen1"></i>部门员工 <button className="btn">增加</button></div>
+					    <div className="title bt1p"><i className="iconfont icon-bumen1"></i>部门员工 <Button type="primary">增加</Button></div>
 						{
 					    	s.employees&&s.employees.length?
 					    	<table className="table" border="0" cellPadding="0" cellSpacing="0" bordercolor="#eee">
@@ -75,7 +76,7 @@ class Organization extends React.Component {
 					    					<td>{item.emName}</td>
 					    					<td>{item.poName}</td>
 					    					<td>{item.emPhone}</td>
-					    					<td><a className="linka">编辑</a><a className="linka">删除</a></td>
+					    					<td><Button type="link">编辑</Button><Button type="link">删除</Button></td>
 					    				</tr>
 					    			})
 					    		}

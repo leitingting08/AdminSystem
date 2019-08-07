@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InterfaceServer from '../../../../axios/interface'
 const interfaceServer = new InterfaceServer();
+import { Button } from 'antd';
 
 export default class EmployeeFilesDetail extends React.Component {
 	constructor(props,context){
@@ -18,7 +19,7 @@ export default class EmployeeFilesDetail extends React.Component {
 			  <div className="flex container">
 			  	<div className="l bgcon">
 			  	<div className="photo"></div>
-			  	<div className="linka row">更换头像</div>
+			  	<Button type="link">更换头像</Button>
 			  	<div className="col333 row">{username}</div>
 			  	</div>
 			  	<div className="r bgcon">

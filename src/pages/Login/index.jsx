@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import '../../less/login.less'
+import { Button } from 'antd';
+import '../../less/login.less'
 import InterfaceServer from '../../axios/interface'
 const interfaceServer = new InterfaceServer();
 
@@ -30,7 +31,7 @@ export default class Login extends React.Component {
                 <i className="iconfont icon-mima"></i>
              </div>
              <div className="row">
-                <button className="btn" onClick={this.login.bind(this)}>登录</button>
+                <Button type="primary" className="btn" onClick={this.login.bind(this)}>登录</Button>
              </div>
           </form>
         </div>
