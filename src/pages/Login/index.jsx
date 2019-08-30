@@ -20,7 +20,7 @@ export default class Login extends React.Component {
         <div className="container">
           <form className="form" autoComplete="off">
              <div className="row tit">
-                NINGMENG 后台管理系统
+                XXX 后台管理系统
              </div>
              <div className="row">
                 <input type="text" placeholder="请输入用户名" value={this.state.loginParams.username} onChange={this.userlogin.bind(this)} autoComplete="off"/>

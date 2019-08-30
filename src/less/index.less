@@ -1,0 +1,46 @@
+// @primary-color:#ffc900;
+// @import './variable.less';
+body{--primary: #54c394;}
+// 首页
+.Home{
+	.welcome{margin-top: 100px;}
+	div{
+		line-height: 80px;
+	}
+	.colorBlock{
+		display: inline-block;
+		width: 200px;
+		height: 30px;
+		vertical-align: middle;
+		margin-right: 30px;
+		&.css{
+			background: var(--primary);
+		}
+		&.less{
+			background:@primary-color;
+		}
+	}
+	input{
+		height: 30px;
+		vertical-align: middle;
+		line-height: 30px;
+		border: 1px solid #d8d8d8;
+		margin-left: 30px;
+	}
+	.btn{
+		display: inline-block;
+		height: 30px;
+		vertical-align: middle;
+		line-height: 30px;
+		border-radius: 5px;
+		padding: 0 10px;
+		margin-left: 30px;
+		color: #fff;
+		&.css{
+			background: var(--primary);
+		}
+		&.less{
+			background:@primary-color;
+		}
+	}
+}

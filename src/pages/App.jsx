@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header title="NINGMENG 后台管理系统" username={this.props.userInfo.username}/>
+        <Header title="XXX 后台管理系统" username={this.props.userInfo.username}/>
         <Menu />
         {this.props.children}
       </div>
