@@ -16,32 +16,31 @@ module.exports = {
         }
     },
     module: {
-        rules: [{
+        rules: [
+            {
+                test: /\.(css|less)$/,
+                use: ['style-loader', 'css-loader', 'less-loader', {
+                    loader: 'style-resources-loader',
+                    options: {
+                        sourceMap: true,
+                        patterns: [
+                            path.resolve(__dirname, 'src/less/variable.less'),
+                        ]
+                    }
+                }
+              ]
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
             {
-                test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader'
-            },
-            {
-                test: /\.less$/,
+                test: /\.(css|less)$/,
                 loader: 'less-loader',
                 options: {
                     javascriptEnabled: true
                 }
-            },
-            // {
-            //     loader: 'style-resources-loader',
-            //     options: {
-            //         patterns: path.resolve(__dirname, '../src/less/variable.less')
-            //     }
-            // },
-            {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                loader: 'style-loader!css-loader'
             },
             {
                 test: /\.(png|gif|jpg|jpeg|bmp)$/i,

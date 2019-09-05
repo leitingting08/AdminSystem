@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '@/less/index.less'
  
 export default class Home extends React.Component {
    constructor(props, context){

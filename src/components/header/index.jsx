@@ -27,7 +27,7 @@ class Header extends React.Component {
           <span className="font16">{this.props.title}</span>
           </div>
 	        <div className="w50 txtright pr20">
-            <Button type="link" onClick={this.toggleTheme.bind(this)}>更换主题</Button>
+            {/* <Button type="link" onClick={this.toggleTheme.bind(this)}>更换主题</Button>
             <ul className={`opeartion theme ${this.state.showtoggletheme?'show':'hide'}`}>
                 <span className="trangle"></span>
                 <li>
@@ -35,7 +35,7 @@ class Header extends React.Component {
                   <input type="text" placeholder="请输入颜色值" onChange={this.changeColors.bind(this)}/>
                   <Button type="primary" onClick={() => {this.handleColorChange()}}>确定</Button>
                 </li>
-            </ul>
+            </ul> */}
           <i className="iconfont icon-xinxi mr20"></i>
              <span className="username" onClick={this.clickUserName.bind(this)}>{this.props.username}
              <i className={`iconfont mr20 font30 ${this.state.showul?'icon-arrow-up-2':'icon-arrowdropdown'}`}></i>
