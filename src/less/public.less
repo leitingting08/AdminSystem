@@ -1,4 +1,4 @@
-@import '~antd/dist/antd.less';
+// @import '~antd/dist/antd.less';
 @import './variable.less';
 *{margin:0;padding:0;}
 body,html{width: 100%;height: 100%;background: #eee;font-size: 12px;}
@@ -13,7 +13,7 @@ input{vertical-align: middle;margin-right: 5px;}
 .bgbody{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;z-index: -1;}
 #app{width: 100%;height: 100%;text-align: center;}
 .App{width: 100%;height: 100%;position:absolute;top:0;left:0;
-	z-index:0;padding:60px 0 0 140px;}
+	z-index:0;padding:60px 0 0 160px;}
 .rotate90{display: inline-block;transform: rotate(-90deg);}
 .fl{float: left;}
 .fr{float: right;}
@@ -127,7 +127,7 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;font-size:14px;
 	.SubItem{background:#fafafa;}
 	.item{text-align: center;background:#fafafa;
 		a{font-size: 12px;display: inline-block;width: 100%;height: 100%;}
-		&:hover{background: @menubackgroundColor;border-left: 3px solid @primary-color;}
+		&:hover{background: @menubackgroundColor;border-left: 3px solid @primary;}
 	}
 	
   }
@@ -174,7 +174,7 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;font-size:14px;
 // 			background: var(--primary);
 // 		}
 // 		&.less{
-// 			background:@primary-color;
+// 			background:@primary;
 // 		}
 // 	}
 // 	input{
@@ -197,7 +197,7 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;font-size:14px;
 // 			background: var(--primary);
 // 		}
 // 		&.less{
-// 			background:@primary-color;
+// 			background:@primary;
 // 		}
 // 	}
 // }
@@ -210,7 +210,7 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;font-size:14px;
 	.forlabel{width: auto;margin-right: 10px;}
 	.input{border:1px solid #d8d8d8;height: 32px;
 		line-height: 32px;margin-right:10px;vertical-align: middle;}
-	.icon-add1{font-size: 38px;color: @primary-color;margin-top: -8px;}
+	.icon-add1{font-size: 38px;color: @primary;margin-top: -8px;}
 	.ant-calendar-picker{width: 333px!important;}
 	.mid{display: inline-block;height: 32px;line-height: 32px;margin-right: 10px;}
 }
@@ -251,5 +251,5 @@ ul li{line-height: 36px;text-align: left;cursor: pointer;font-size:14px;
 	}
 }
 
-.spec{margin: auto;background: @primary-color;color: #fff;width: 38px;height: 38px;line-height:38px;border-radius: 50%;font-size: 12px;}
+.spec{margin: auto;background: @primary;color: #fff;width: 38px;height: 38px;line-height:38px;border-radius: 50%;font-size: 12px;}
 .spec-wrap{margin:0 10px;}

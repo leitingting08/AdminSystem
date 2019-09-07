@@ -1,4 +1,4 @@
-@primary-color:#ffc900;
+@primary:#ffc900;
 // @import './variable.less';
 body{--primary: #54c394;}
 // 首页
@@ -17,7 +17,7 @@ body{--primary: #54c394;}
 			background: var(--primary);
 		}
 		&.less{
-			background:@primary-color;
+			background:@primary;
 		}
 	}
 	input{
@@ -26,6 +26,7 @@ body{--primary: #54c394;}
 		line-height: 30px;
 		border: 1px solid #d8d8d8;
 		margin-left: 30px;
+		padding-left: 6px;
 	}
 	.btn{
 		display: inline-block;
@@ -40,7 +41,7 @@ body{--primary: #54c394;}
 			background: var(--primary);
 		}
 		&.less{
-			background:@primary-color;
+			background:@primary;
 		}
 	}
 }
